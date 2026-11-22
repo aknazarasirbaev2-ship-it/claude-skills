@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://SITE-DOMAIN.kz/</loc>
+    <xhtml:link rel="alternate" hreflang="ru-KZ" href="https://SITE-DOMAIN.kz/"/>
+    <xhtml:link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/kz/"/>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://SITE-DOMAIN.kz/kz/</loc>
+    <xhtml:link rel="alternate" hreflang="ru-KZ" href="https://SITE-DOMAIN.kz/"/>
+    <xhtml:link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/kz/"/>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url><loc>https://SITE-DOMAIN.kz/remont-v-novostrojke/</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://SITE-DOMAIN.kz/stoimost-remonta/</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://SITE-DOMAIN.kz/kak-vybrat-podryadchika/</loc><lastmod>2026-11-22</lastmod></url>
+  <url><loc>https://SITE-DOMAIN.kz/privacy/</loc><lastmod>2026-11-22</lastmod></url>
+</urlset>
