@@ -229,3 +229,9 @@ th { background: var(--surface-2); font-weight: 800; }
 @media (min-width: 720px) { .mobile-cta { display: none; } }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+/* fixes after article pages */
+.article .checklist { padding-left: 0; }
+.cta-band .btn.btn-wa { background: var(--green); color: #fff; }
+.cta-band .btn.btn-wa:hover { background: #185a45; }
+.cta-band .btns { display: flex; flex-wrap: wrap; gap: 10px; }
