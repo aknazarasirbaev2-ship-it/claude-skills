@@ -1,10 +1,17 @@
 # claude-skills
 
-Enables the official **ECC (Everything Claude Code)** plugin for every Claude Code session opened on this repo.
+A private Claude Code marketplace with one plugin, `ecc` — a curated cut of [affaan-m/ECC](https://github.com/affaan-m/ECC) v2.2.3 (MIT).
 
-`.claude/settings.json` registers the marketplace `affaan-m/ECC` and enables `ecc@ecc`. That one plugin provides all of ECC's skills (~328), agents (~72), commands (~99) and hooks. Nothing is copied here, so there are no duplicates. Upstream updates come with the plugin.
+`.claude/settings.json` enables `ecc@claude-skills` for every Claude Code session opened on this repo.
 
-- Verify in a session: `/plugin list` should show `ecc@ecc` enabled.
-- Disable it: set `"ecc@ecc": false` in `.claude/settings.json`.
-- Source: https://github.com/affaan-m/ECC (MIT).
-- Do NOT also install ECC manually (`npx ecc-universal ...`) in the same environment: that duplicates skills and hooks.
+## What is inside `plugins/ecc`
+- **Agents:** all 72, byte-identical to upstream.
+- **Hooks:** all of them, plus the `scripts/` they run, byte-identical to upstream.
+- **Skills:** 42 hand-picked ones (out of 328): coding standards, TDD, security review, git workflow, API/backend/frontend/Python/TypeScript/React patterns, e2e & browser QA, deep research, docs lookup, DB/Docker/deploy, context management, MCP/prompt/agent/LLM-cost/eval skills, and `continuous-learning` + `continuous-learning-v2` (the hooks need those two).
+- **Not included:** the other 286 skills and the legacy command shims.
+
+## Use
+- Verify in a new session: `/plugin list` shows `ecc@claude-skills`.
+- Disable: set `"ecc@claude-skills": false` in `.claude/settings.json`.
+- Add a skill: copy its folder from upstream `skills/` into `plugins/ecc/skills/`.
+- Do not also install the upstream `ecc@ecc` plugin — it would duplicate agents, hooks and skills.

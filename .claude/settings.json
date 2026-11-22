@@ -1,10 +1,10 @@
 {
   "extraKnownMarketplaces": {
-    "ecc": {
-      "source": { "source": "github", "repo": "affaan-m/ECC" }
+    "claude-skills": {
+      "source": { "source": "github", "repo": "aknazarasirbaev2-ship-it/claude-skills" }
     }
   },
   "enabledPlugins": {
-    "ecc@ecc": true
+    "ecc@claude-skills": true
   }
 }

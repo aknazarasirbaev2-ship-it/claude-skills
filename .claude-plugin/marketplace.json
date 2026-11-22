@@ -1,0 +1,7 @@
+{
+  "name": "claude-skills",
+  "owner": { "name": "aknazarasirbaev2-ship-it" },
+  "plugins": [
+    { "name": "ecc", "source": "./plugins/ecc", "description": "ECC agents + hooks + curated skills" }
+  ]
+}
