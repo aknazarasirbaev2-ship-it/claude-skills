@@ -1,9 +1,10 @@
 # claude-skills
 
-Claude Code skills in `.claude/skills/`. Any Claude Code session opened on this repo loads them automatically.
+Enables the official **ECC (Everything Claude Code)** plugin for every Claude Code session opened on this repo.
 
-Source: [affaan-m/ECC](https://github.com/affaan-m/ECC) (Everything Claude Code), v2.2.3, MIT license (see `ECC-LICENSE`).
+`.claude/settings.json` registers the marketplace `affaan-m/ECC` and enables `ecc@ecc`. That one plugin provides all of ECC's skills (~328), agents (~72), commands (~99) and hooks. Nothing is copied here, so there are no duplicates. Upstream updates come with the plugin.
 
-Only a curated subset of skills is included (coding standards, TDD, security review, git workflow, API/backend/frontend patterns, research, testing, LLM cost/eval). Hooks, agents and commands are NOT included.
-
-To add more skills, copy folders from `skills/` of the upstream repo into `.claude/skills/`.
+- Verify in a session: `/plugin list` should show `ecc@ecc` enabled.
+- Disable it: set `"ecc@ecc": false` in `.claude/settings.json`.
+- Source: https://github.com/affaan-m/ECC (MIT).
+- Do NOT also install ECC manually (`npx ecc-universal ...`) in the same environment: that duplicates skills and hooks.
