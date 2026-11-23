@@ -134,7 +134,7 @@ const CONFIG = {
         fetch("https://formsubmit.co/ajax/" + CONFIG.EMAIL, {
           method: "POST",
           headers: { "Content-Type": "application/json", "Accept": "application/json" },
-          body: JSON.stringify({ _subject: "Новая заявка StroyLink", _template: "box", _captcha: "false", "Заявка": msg, "Страница": location.href }),
+          body: JSON.stringify({ _subject: "StroyLink: жаңа өтінім / новая заявка", _template: "box", _captcha: "false", "Заявка": msg, "Страница": location.href }),
         }).catch(function () {});
       } catch (e) { /* почта — запасной канал, сайт не ломаем */ }
     }
