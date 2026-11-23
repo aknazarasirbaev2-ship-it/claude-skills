@@ -213,8 +213,11 @@
 .home .quiz .progress { background: #d6c0b0; }
 .home .option span { border-color: #d6c0b0; background: #f4ebe3; }
 .home .option input:checked + span { border-color: #577290; background: #fff; box-shadow: inset 0 0 0 1px #577290; }
-.home .field input[type=text], .home .field input[type=tel], .home .field select { border-color: #d6c0b0; background: #fff; }
+.home .field input[type=text], .home .field input[type=tel], .home .field select { border-color: #d6c0b0; background: #fff; color: var(--sand-ink); }
+.home .field input::placeholder { color: #8a8178; }
+.home .quiz .consent a { color: #2b3e4f; }
 .home .quiz-top { color: #5f5951; }
+.home .quiz .option span small, .home .quiz .field .muted, .home .quiz .consent { color: #5f5951; }
 .ticket { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px dashed #cdb4a3; padding-bottom: 16px; margin-bottom: 18px; }
 .ticket b { font-size: 1.15rem; letter-spacing: -.02em; }
 .ticket span { font-size: .8rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #577290; }
@@ -269,7 +272,8 @@
 .home .path-card:nth-child(2) .tag, .home .path-card:nth-child(4) .tag { background: rgba(167,185,213,.14); color: var(--sky); }
 .home .type .go i { background: var(--accent); color: var(--accent-ink); }
 .home .type:hover .go i { background: #fff; }
-.home .type::before { background: linear-gradient(180deg, rgba(13,19,23,0) 30%, rgba(13,19,23,.9) 100%); }
+.home .type::before { background: linear-gradient(180deg, rgba(13,19,23,.12) 0%, rgba(13,19,23,.45) 32%, rgba(13,19,23,.92) 72%, rgba(13,19,23,.96) 100%); }
+.home .type h3, .home .type p, .home .type .idx { text-shadow: 0 1px 12px rgba(13,19,23,.55); }
 .home .gallery figure { filter: saturate(.85); }
 .home .contact-card i { background: rgba(167,185,213,.12); color: var(--sky); }
 .home .cost:hover { background: linear-gradient(160deg, #1b2a35, #131d24); }
@@ -294,3 +298,18 @@
   .drag-hint { top: calc(58svh - 128px); }
   .photo-note { top: 124px; right: 16px; }
 }
+
+/* QA: закреплённый «путь» на десктопе целиком помещается в экран; отступ после последней карточки */
+.path-track::after { content: ""; flex: none; width: 1px; margin-left: -5px; }
+@media (min-width: 720px) { .path-track::after { margin-left: 7px; } }
+@media (min-width: 900px) {
+  .home .path { padding-top: 96px; }
+  .path .head-split { margin-bottom: 32px; }
+  .home .path h2 { font-size: clamp(2.2rem, 3.4vw, 3.1rem); }
+  .path-card { min-height: clamp(300px, calc(100vh - 430px), 460px); }
+  .path-card .num { font-size: clamp(4rem, 9vh, 6.5rem); }
+  .path-bar { margin-top: 28px; }
+}
+/* QA: подписи поверх фото читаемы на светлых участках */
+.home .lang { background: rgba(13,19,23,.45); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.photo-note { color: rgba(255,255,255,.85); background: rgba(13,19,23,.5); padding: 3px 8px; border-radius: 999px; }
