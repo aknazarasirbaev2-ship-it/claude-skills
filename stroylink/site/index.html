@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Ремонт квартир в Алматы: подбор компании бесплатно | StroyLink</title>
   <meta name="description" content="Поможем найти компанию для ремонта квартиры в Алматы под ваш бюджет и сроки. Новостройки и вторичка. Для вас бесплатно: ответьте на 6 вопросов, заявка уйдёт в WhatsApp.">
   <link rel="canonical" href="https://SITE-DOMAIN.kz/">
@@ -10,7 +10,7 @@
   <link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/kz/">
   <link rel="alternate" hreflang="x-default" href="https://SITE-DOMAIN.kz/">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#f6f4ef">
+  <meta name="theme-color" content="#101312">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_KZ">
   <meta property="og:site_name" content="StroyLink">
@@ -23,7 +23,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/assets/img/hero-before.webp">
   <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/home.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -34,7 +36,9 @@
         "name": "StroyLink",
         "url": "https://SITE-DOMAIN.kz/",
         "logo": "https://SITE-DOMAIN.kz/favicon.svg",
-        "sameAs": ["https://www.instagram.com/stroy.ling/"]
+        "sameAs": ["https://www.instagram.com/stroy.ling/"],
+        "email": "stroyling12@gmail.com",
+        "telephone": "+77472023969"
       },
       {
         "@type": "Service",
@@ -59,8 +63,10 @@
   }
   </script>
 </head>
-<body>
+<body class="home">
 <a class="skip" href="#main">Перейти к содержанию</a>
+<div class="progress-top" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"></div>
 
 <header class="site-header">
   <div class="wrap">
@@ -83,145 +89,229 @@
 
 <main id="main">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow">Алматы · квартиры</span>
-        <h1>Ремонт квартиры в Алматы: <em>найдём компанию</em> под ваш бюджет</h1>
-        <p class="lead">Расскажите, что за квартира, какой бюджет и когда начинать. Мы уточним детали и передадим заявку компании, которая берёт такие объекты. Вы встречаетесь, смотрите смету и решаете сами.</p>
+  <!-- 1. HERO: до / после -->
+  <section class="hero-x" aria-label="Главный экран">
+    <div class="ba">
+      <img src="/assets/img/hero-before.webp" alt="Квартира в черновой отделке: бетонный пол, стены без отделки" width="1600" height="1067" fetchpriority="high">
+      <img class="after" src="/assets/img/hero-after.webp" alt="Готовая гостиная после ремонта" width="1600" height="1067">
+      <div class="ba-line"><button class="ba-knob" type="button" role="slider" aria-label="Сравнить: до и после ремонта" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>
+      </button></div>
+      <span class="ba-tag l">Черновая</span>
+      <span class="ba-tag r">После ремонта</span>
+    </div>
+    <span class="drag-hint">Потяните, чтобы сравнить</span>
+
+    <div class="wrap hero-inner">
+      <h1><span class="line"><span>Ремонт квартиры</span></span><span class="line"><span>в Алматы —</span></span><span class="line"><span><em>найдём компанию</em></span></span></h1>
+      <div class="hero-row">
+        <p class="lead">Расскажите про квартиру, бюджет и сроки. Мы передадим заявку компании, которая берёт такие объекты. Вы встречаетесь, смотрите смету и решаете сами.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#zayavka">Ответить на 6 вопросов</a>
-          <a class="btn btn-wa" data-wa="Здравствуйте! Хочу сделать ремонт квартиры в Алматы, помогите подобрать компанию." data-place="hero">
+          <a class="btn btn-primary magnetic" href="#zayavka">Подобрать компанию <span class="arrow">→</span></a>
+          <a class="btn btn-wa magnetic" data-wa="Здравствуйте! Хочу сделать ремонт квартиры в Алматы, помогите подобрать компанию." data-place="hero">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
-            Написать в WhatsApp
+            WhatsApp
           </a>
         </div>
-        <ul class="trust">
-          <li>Для вас бесплатно</li>
-          <li>Контакты только с вашего согласия</li>
-          <li>Решение принимаете вы</li>
-        </ul>
       </div>
-      <aside class="hero-card" aria-label="Пример заявки">
-        <span class="badge">Пример заявки</span>
-        <h2>Что получает компания от нас</h2>
-        <dl class="lead-preview">
-          <div><dt>Район</dt><dd>Бостандыкский</dd></div>
-          <div><dt>Квартира</dt><dd>Новостройка, черновая</dd></div>
-          <div><dt>Площадь</dt><dd>65 м²</dd></div>
-          <div><dt>Ремонт</dt><dd>Под ключ</dd></div>
-          <div><dt>Бюджет</dt><dd>Обсуждается</dd></div>
-          <div><dt>Когда начать</dt><dd>В течение месяца</dd></div>
-        </dl>
-        <p class="note">Компания связывается с вами, приезжает на замер и считает смету. Вы сравниваете и решаете.</p>
-      </aside>
+      <ul class="hero-meta">
+        <li>Для вас бесплатно</li>
+        <li>Контакты — только с вашего согласия</li>
+        <li>Решение принимаете вы</li>
+      </ul>
     </div>
+    <span class="photo-note">Фото для примера</span>
   </section>
 
-  <!-- HOW -->
-  <section id="kak" class="alt">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Как это работает</span>
-        <h2>Три шага от «надо ремонт» до встречи с компанией</h2>
-        <p>Мы не делаем ремонт сами. Мы экономим вам время на поиске и первых звонках.</p>
-      </div>
-      <ol class="steps">
-        <li><h3>Вы отвечаете на 6 вопросов</h3><p>Район, площадь, тип квартиры, бюджет, сроки и телефон. Это занимает около минуты.</p></li>
-        <li><h3>Мы уточняем и передаём заявку</h3><p>Если чего-то не хватает, переспросим в WhatsApp. Затем передадим заявку компании, которая берёт такие объекты.</p></li>
-        <li><h3>Вы встречаетесь и выбираете</h3><p>Компания приезжает на замер и считает смету. Подходит — заключаете договор. Не подходит — вы ничего не должны.</p></li>
-      </ol>
+  <!-- 2. Бегущая строка -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Новостройки</span><span class="o">Вторичка</span><span>Под ключ</span><span class="o">Санузел</span><span>Кухня</span><span class="o">Бостандыкский</span><span>Медеуский</span><span class="o">Алмалинский</span><span>Ауэзовский</span><span class="o">Наурызбайский</span>
+      <span>Новостройки</span><span class="o">Вторичка</span><span>Под ключ</span><span class="o">Санузел</span><span>Кухня</span><span class="o">Бостандыкский</span><span>Медеуский</span><span class="o">Алмалинский</span><span>Ауэзовский</span><span class="o">Наурызбайский</span>
     </div>
+  </div>
+
+  <!-- 3. Путь заявки (горизонтальный, закрепляется) -->
+  <section id="kak" class="path">
+    <div class="wrap head-split">
+      <div>
+        <div class="kicker"><b>01</b> Как это работает</div>
+        <h2 class="rv">От «надо ремонт» до встречи с компанией</h2>
+      </div>
+      <p class="rv">Мы не делаем ремонт сами. Мы экономим ваше время на поиске и первых звонках, а выбор остаётся за вами.</p>
+    </div>
+    <div class="path-viewport">
+      <div class="path-track">
+        <article class="path-card"><span class="tag">≈ 1 минута</span><div class="num">01</div><h3>Вы отвечаете на 6 вопросов</h3><p>Район, площадь, тип квартиры, бюджет, сроки и телефон. Без регистрации.</p></article>
+        <article class="path-card"><span class="tag">WhatsApp</span><div class="num">02</div><h3>Мы уточняем детали</h3><p>Если чего-то не хватает, переспросим. Без лишних звонков и навязывания.</p></article>
+        <article class="path-card"><span class="tag">с вашего согласия</span><div class="num">03</div><h3>Передаём заявку компании</h3><p>Той, которая берёт объекты вашего типа, площади и района.</p></article>
+        <article class="path-card"><span class="tag">замер</span><div class="num">04</div><h3>Компания считает смету</h3><p>Связывается с вами, приезжает на замер и называет цену и сроки.</p></article>
+        <article class="path-card final"><div class="num">05</div><h3>Вы решаете сами</h3><p>Подходит — заключаете договор с компанией напрямую. Не подходит — вы ничего не должны.</p><a class="btn" href="#zayavka">Начать <span class="arrow">→</span></a></article>
+      </div>
+    </div>
+    <div class="path-bar" aria-hidden="true"><span></span></div>
   </section>
 
-  <!-- WHAT -->
+  <!-- 4. Какой ремонт -->
   <section id="chto">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">С чем помогаем</span>
-        <h2>Какой ремонт ищем</h2>
-        <p>Сейчас работаем только с квартирами в Алматы.</p>
+      <div class="head-split">
+        <div>
+          <div class="kicker"><b>02</b> С чем помогаем</div>
+          <h2 class="rv">Какой ремонт ищем</h2>
+        </div>
+        <p class="rv">Сейчас работаем только с квартирами в Алматы и пригороде.</p>
       </div>
-      <div class="cards c3">
-        <article class="card">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
+      <div class="types">
+        <a class="type rv" href="/remont-v-novostrojke/">
+          <img src="/assets/img/novostroyka.webp" alt="Пустая квартира в новостройке" loading="lazy" width="1100" height="825">
+          <span class="idx">01</span>
           <h3>Квартира в новостройке</h3>
-          <p>Черновая или предчистовая отделка после сдачи ЖК. Полный ремонт под ключ: от стяжки и электрики до чистовой отделки.</p>
-          <a class="card-link" href="/remont-v-novostrojke/">Ремонт в новостройке →</a>
-        </article>
-        <article class="card">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10l8-6 8 6v10H4Z"/><path d="M10 20v-5h4v5"/><path d="M15 4l2 0 0 3"/></svg></div>
-          <h3>Квартира во вторичке</h3>
-          <p>Демонтаж старой отделки, замена электрики и труб, новая отделка. Капитальный или косметический ремонт.</p>
-          <a class="card-link" href="#zayavka">Рассчитать с компанией →</a>
-        </article>
-        <article class="card">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-3Z"/><path d="M6 12V5a2 2 0 0 1 4 0"/></svg></div>
-          <h3>Санузел, кухня, отдельные работы</h3>
-          <p>Ремонт ванной и санузла, кухни, одной комнаты. Укажите это в заявке, чтобы мы искали подходящую компанию.</p>
-          <a class="card-link" href="#zayavka">Оставить заявку →</a>
-        </article>
+          <p>Черновая или предчистовая после сдачи ЖК. Полный ремонт под ключ: от стяжки и электрики до чистовой отделки.</p>
+          <span class="go"><i>↗</i> Ремонт в новостройке</span>
+        </a>
+        <a class="type rv" href="#zayavka">
+          <img src="/assets/img/vtorichka.webp" alt="Квартира во время демонтажа старой отделки" loading="lazy" width="1100" height="733">
+          <span class="idx">02</span>
+          <h3>Вторичка</h3>
+          <p>Демонтаж, замена электрики и труб, новая отделка. Капитальный или косметический.</p>
+          <span class="go"><i>↗</i> Оставить заявку</span>
+        </a>
+        <a class="type rv" href="#zayavka">
+          <img src="/assets/img/sanuzel.webp" alt="Санузел после ремонта" loading="lazy" width="1100" height="733">
+          <span class="idx">03</span>
+          <h3>Санузел, кухня, комната</h3>
+          <p>Отдельные помещения. Укажите это в заявке — подберём подходящую компанию.</p>
+          <span class="go"><i>↗</i> Оставить заявку</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- CHECKLIST -->
-  <section class="dark">
-    <div class="wrap two-col">
-      <div>
-        <span class="eyebrow">Перед договором</span>
-        <h2>7 вопросов, которые стоит задать любой компании</h2>
-        <p class="muted">Даже если вы найдёте компанию без нас. Если на часть вопросов отвечают уклончиво, это повод насторожиться.</p>
-        <a class="btn btn-primary" href="/kak-vybrat-podryadchika/">Как выбрать компанию</a>
-      </div>
-      <ol class="checklist">
-        <li>Что именно входит в цену, а что оплачивается отдельно?</li>
-        <li>Какие сроки по каждому этапу?</li>
-        <li>Какая гарантия на работы и как она оформлена?</li>
-        <li>Кто закупает материалы и как их согласовывают?</li>
-        <li>Как идёт оплата: по этапам или вперёд?</li>
-        <li>Будет ли детальная смета с объёмами и ценами?</li>
-        <li>Можно ли посмотреть готовые объекты?</li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- COST -->
-  <section id="stoimost">
+  <!-- 5. Этапы ремонта (sticky) -->
+  <section id="etapy" style="padding-top:0">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Стоимость</span>
-        <h2>От чего зависит цена ремонта</h2>
-        <p>У двух похожих квартир цена может отличаться в разы. Точную сумму компания называет после замера и сметы. Мы не обещаем «цену за м²» заранее.</p>
+      <div class="head-split">
+        <div>
+          <div class="kicker"><b>03</b> Что входит в ремонт</div>
+          <h2 class="rv">Пять этапов, которые стоит понимать до договора</h2>
+        </div>
+        <p class="rv">Зная этапы, проще сравнивать сметы и задавать правильные вопросы компании.</p>
       </div>
-      <div class="cards c3">
-        <div class="card"><h3>Площадь и планировка</h3><p>Больше комнат и санузлов — больше работ, даже при той же площади.</p></div>
-        <div class="card"><h3>Состояние квартиры</h3><p>Черновая, предчистовая или старый ремонт под демонтаж.</p></div>
-        <div class="card"><h3>Объём работ</h3><p>Косметика, капитальный ремонт или под ключ с электрикой и сантехникой.</p></div>
-        <div class="card"><h3>Материалы</h3><p>Класс плитки, напольных покрытий, сантехники и дверей сильно меняет итог.</p></div>
-        <div class="card"><h3>Дизайн-проект</h3><p>С проектом смету считают по чертежам, без него — по замеру и пожеланиям.</p></div>
-        <div class="card"><h3>Сроки</h3><p>Срочный ремонт требует больше мастеров одновременно.</p></div>
+      <div class="scope">
+        <div class="scope-media" aria-hidden="true">
+          <img class="on" src="/assets/img/vtorichka.webp" alt="" loading="lazy">
+          <img src="/assets/img/hero-before.webp" alt="" loading="lazy">
+          <img src="/assets/img/novostroyka.webp" alt="" loading="lazy">
+          <img src="/assets/img/bath-2.webp" alt="" loading="lazy">
+          <img src="/assets/img/living-1.webp" alt="" loading="lazy">
+          <div class="scope-counter"><b>01</b><span>Подготовка и демонтаж</span></div>
+        </div>
+        <ol class="scope-list">
+          <li class="scope-item on"><span class="n">ЭТАП 01</span><h3>Подготовка и демонтаж</h3><p>Замер, дизайн-проект или список пожеланий, смета. Во вторичке — демонтаж старой отделки. В новостройке — проверка квартиры перед актом приёмки.</p><div class="chips"><span class="chip">Замер</span><span class="chip">Смета</span><span class="chip">Демонтаж</span></div><img class="mob-img" src="/assets/img/vtorichka.webp" alt="" loading="lazy"></li>
+          <li class="scope-item"><span class="n">ЭТАП 02</span><h3>Электрика и сантехника</h3><p>Кабели, подрозетники, электрощит, трубы водоснабжения и канализации. Скрытые работы стоит сфотографировать до того, как их закроют.</p><div class="chips"><span class="chip">Проводка</span><span class="chip">Трубы</span><span class="chip">Фото скрытых работ</span></div><img class="mob-img" src="/assets/img/hero-before.webp" alt="" loading="lazy"></li>
+          <li class="scope-item"><span class="n">ЭТАП 03</span><h3>Черновые работы</h3><p>Перегородки, штукатурка стен, стяжка пола, проверка геометрии. От этого этапа зависит, ровно ли встанет всё остальное.</p><div class="chips"><span class="chip">Стяжка</span><span class="chip">Штукатурка</span><span class="chip">Перегородки</span></div><img class="mob-img" src="/assets/img/novostroyka.webp" alt="" loading="lazy"></li>
+          <li class="scope-item"><span class="n">ЭТАП 04</span><h3>Предчистовые и чистовые</h3><p>Гипсокартон, шпаклёвка, плитка, напольные покрытия, покраска, двери, сантехника и электрофурнитура.</p><div class="chips"><span class="chip">Плитка</span><span class="chip">Покраска</span><span class="chip">Двери</span></div><img class="mob-img" src="/assets/img/bath-2.webp" alt="" loading="lazy"></li>
+          <li class="scope-item"><span class="n">ЭТАП 05</span><h3>Приёмка и ключи</h3><p>Проверка света, воды и отопления, финальная приёмка по акту. Гарантию и её срок фиксируют в договоре с компанией.</p><div class="chips"><span class="chip">Акт</span><span class="chip">Гарантия</span><span class="chip">Ключи</span></div><img class="mob-img" src="/assets/img/living-1.webp" alt="" loading="lazy"></li>
+        </ol>
       </div>
-      <p style="margin-top:24px"><a class="card-link" href="/stoimost-remonta/" style="color:var(--accent);font-weight:700">Подробнее о стоимости ремонта →</a></p>
     </div>
   </section>
 
-  <!-- QUIZ -->
-  <section id="zayavka" class="alt">
-    <div class="wrap quiz-wrap">
-      <div>
-        <span class="eyebrow">Заявка</span>
-        <h2>Подберём компанию под вашу квартиру</h2>
-        <p class="muted">Шесть коротких вопросов. В конце откроется WhatsApp с готовой заявкой: вы проверите текст и отправите. Без звонков с незнакомых номеров, пока вы сами не согласились.</p>
-        <ul class="checklist">
-          <li>Для вас бесплатно</li>
-          <li>Передаём контакты только компании, которой отдаём заявку</li>
-          <li>Можно отказаться на любом этапе</li>
+  <!-- 6. Перед договором (светлый блок, вкладки) -->
+  <section class="light">
+    <div class="wrap">
+      <div class="head-split">
+        <div>
+          <div class="kicker"><b>04</b> Перед договором</div>
+          <h2 class="rv">Что спросить у любой компании</h2>
+        </div>
+        <p class="rv">Даже если вы найдёте компанию без нас. Уклончивые ответы — повод насторожиться.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Чек-листы">
+        <button class="tab" role="tab" id="t-q" aria-selected="true" aria-controls="p-q">7 вопросов</button>
+        <button class="tab" role="tab" id="t-f" aria-selected="false" aria-controls="p-f">6 красных флагов</button>
+      </div>
+      <div class="panel" id="p-q" role="tabpanel" aria-labelledby="t-q">
+        <ol class="qgrid">
+          <li><span>Что входит в цену?<small>А что оплачивается отдельно</small></span></li>
+          <li><span>Какие сроки по этапам?<small>Не только общий срок</small></span></li>
+          <li><span>Какая гарантия?<small>И как она оформлена</small></span></li>
+          <li><span>Кто закупает материалы?<small>И как их согласовывают</small></span></li>
+          <li><span>Как идёт оплата?<small>По этапам или вперёд</small></span></li>
+          <li><span>Есть ли детальная смета?<small>С объёмами и ценами</small></span></li>
+          <li><span>Можно ли увидеть объекты?<small>Готовые или в работе</small></span></li>
+        </ol>
+      </div>
+      <div class="panel" id="p-f" role="tabpanel" aria-labelledby="t-f" hidden>
+        <ul class="qgrid flags">
+          <li>Нет письменного договора</li>
+          <li>Просят 100% предоплату</li>
+          <li>Цена сильно ниже рынка, и никто не объясняет почему</li>
+          <li>Нет детальной сметы</li>
+          <li>Не показывают объекты</li>
+          <li>Сроки только на словах</li>
         </ul>
       </div>
+      <p style="margin-top:32px"><a class="btn btn-dark" href="/kak-vybrat-podryadchika/">Подробнее: как выбрать компанию <span class="arrow">→</span></a></p>
+    </div>
+  </section>
 
-      <form id="quiz" class="quiz" novalidate
+  <!-- 7. Стоимость -->
+  <section id="stoimost">
+    <div class="wrap">
+      <div class="head-split">
+        <div>
+          <div class="kicker"><b>05</b> Стоимость</div>
+          <h2 class="rv">От чего зависит цена ремонта</h2>
+        </div>
+        <p class="rv">Точную сумму компания называет после замера и сметы. Мы не обещаем «цену за м²» заранее. <a href="/stoimost-remonta/" style="color:var(--accent)">Подробнее →</a></p>
+      </div>
+      <div class="cost-grid rv">
+        <div class="cost"><span class="n">01</span><h3>Площадь и планировка</h3><p>Больше комнат и санузлов — больше работ, даже при той же площади.</p></div>
+        <div class="cost"><span class="n">02</span><h3>Состояние квартиры</h3><p>Черновая, предчистовая или старый ремонт под демонтаж.</p></div>
+        <div class="cost"><span class="n">03</span><h3>Объём работ</h3><p>Косметика, капитальный ремонт или под ключ с электрикой и сантехникой.</p></div>
+        <div class="cost"><span class="n">04</span><h3>Материалы</h3><p>Класс плитки, покрытий, сантехники и дверей сильно меняет итог.</p></div>
+        <div class="cost"><span class="n">05</span><h3>Дизайн-проект</h3><p>С проектом смету считают по чертежам, без него — по замеру и пожеланиям.</p></div>
+        <div class="cost"><span class="n">06</span><h3>Сроки</h3><p>Срочный ремонт требует больше мастеров одновременно.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Галерея идей -->
+  <section class="gallery" aria-label="Идеи интерьеров">
+    <div class="gallery-track">
+      <figure><img src="/assets/img/living-2.webp" alt="Светлая гостиная" loading="lazy"></figure>
+      <figure><img src="/assets/img/kitchen-1.webp" alt="Кухня-гостиная" loading="lazy"></figure>
+      <figure><img src="/assets/img/bath-2.webp" alt="Ванная комната" loading="lazy"></figure>
+      <figure><img src="/assets/img/living-3.webp" alt="Гостиная с белой мебелью" loading="lazy"></figure>
+      <figure><img src="/assets/img/living-1.webp" alt="Гостиная в тёплых тонах" loading="lazy"></figure>
+      <figure><img src="/assets/img/living-4.webp" alt="Гостиная с панорамными окнами" loading="lazy"></figure>
+      <figure aria-hidden="true"><img src="/assets/img/living-2.webp" alt="" loading="lazy"></figure>
+      <figure aria-hidden="true"><img src="/assets/img/kitchen-1.webp" alt="" loading="lazy"></figure>
+      <figure aria-hidden="true"><img src="/assets/img/bath-2.webp" alt="" loading="lazy"></figure>
+      <figure aria-hidden="true"><img src="/assets/img/living-3.webp" alt="" loading="lazy"></figure>
+      <figure aria-hidden="true"><img src="/assets/img/living-1.webp" alt="" loading="lazy"></figure>
+      <figure aria-hidden="true"><img src="/assets/img/living-4.webp" alt="" loading="lazy"></figure>
+    </div>
+    <p class="gallery-note">Идеи для вдохновения. Фото для примера (Unsplash), это не объекты наших партнёров.</p>
+  </section>
+
+  <!-- 9. Заявка -->
+  <section id="zayavka">
+    <div class="wrap quiz-wrap">
+      <div>
+        <div class="kicker"><b>06</b> Заявка</div>
+        <h2 class="rv">Подберём компанию под вашу квартиру</h2>
+        <p class="muted rv">Шесть коротких вопросов. В конце откроется WhatsApp с готовой заявкой: вы проверите текст и отправите.</p>
+        <div class="contact-cards rv">
+          <a class="contact-card" data-wa="Здравствуйте! Хочу обсудить ремонт квартиры." data-place="contact-card"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg></i><span><small>WhatsApp</small><b>+7 747 202 39 69</b></span></a>
+          <a class="contact-card" href="tel:+77472023969"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></i><span><small>Позвонить</small><b>8 747 202 39 69</b></span></a>
+          <a class="contact-card" href="mailto:stroyling12@gmail.com"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></i><span><small>Почта</small><b>stroyling12@gmail.com</b></span></a>
+        </div>
+      </div>
+
+      <form id="quiz" class="quiz rv" novalidate
             data-counter-text="Шаг {n} из {total}"
             data-send-text="Отправить в WhatsApp"
             data-wa-intro="Здравствуйте! Заявка с сайта StroyLink на подбор компании для ремонта:"
@@ -229,10 +319,10 @@
             data-msg-fill="Заполните поле"
             data-msg-phone="Проверьте номер телефона"
             data-msg-consent="Без согласия мы не сможем передать заявку компании">
+        <div class="ticket"><b>Заявка на подбор</b><span>Бесплатно</span></div>
         <div class="quiz-body">
           <div class="quiz-top"><span data-counter>Шаг 1 из 6</span><span>≈ 1 минута</span></div>
           <div class="progress" aria-hidden="true"><span></span></div>
-
           <div class="step">
             <fieldset data-label="Квартира">
               <legend>Что за квартира?</legend>
@@ -335,32 +425,33 @@
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq">
+  <!-- 10. FAQ -->
+  <section id="faq" style="padding-top:0">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Вопросы</span>
-        <h2>Частые вопросы</h2>
+      <div class="head-split">
+        <div>
+          <div class="kicker"><b>07</b> Вопросы</div>
+          <h2 class="rv">Частые вопросы</h2>
+        </div>
       </div>
       <div class="faq">
-        <details><summary>Почему для меня это бесплатно?</summary><p>Нам платит компания, и только если вы сами решили заключить с ней договор. Вы не платите нам ничего ни до, ни после.</p></details>
-        <details><summary>Вы сами делаете ремонт?</summary><p>Нет. Мы не ремонтная бригада. Мы уточняем вашу задачу и передаём её компании, которая берёт такие объекты. Договор, смету, сроки и гарантию вы обсуждаете напрямую с компанией.</p></details>
-        <details><summary>Кому вы передадите мой номер?</summary><p>Только компании, которой мы передаём вашу заявку, и только с вашего согласия. Мы не публикуем и не продаём контакты. Подробнее — в <a href="/privacy/">политике конфиденциальности</a>.</p></details>
-        <details><summary>Сколько стоит ремонт квартиры в Алматы?</summary><p>Цена зависит от площади, состояния квартиры, объёма работ, материалов, дизайн-проекта и сроков. Точную сумму называет компания после замера и сметы. <a href="/stoimost-remonta/">Из чего складывается стоимость</a>.</p></details>
-        <details><summary>Я обязан заключать договор?</summary><p>Нет. Вы встречаетесь с компанией, смотрите смету и решаете сами. Если не подошло, вы ничего не теряете.</p></details>
-        <details><summary>У меня ещё нет ключей от застройщика. Писать рано?</summary><p>Нет, это хорошее время. Пока ключей нет, можно спокойно сравнить компании и сметы. Отметьте в заявке «жду ключи».</p></details>
+        <details><summary>Почему для меня это бесплатно?</summary><div class="faq-body"><p>Нам платит компания, и только если вы сами решили заключить с ней договор. Вы не платите нам ничего ни до, ни после.</p></div></details>
+        <details><summary>Вы сами делаете ремонт?</summary><div class="faq-body"><p>Нет. Мы не ремонтная бригада. Мы уточняем вашу задачу и передаём её компании, которая берёт такие объекты. Договор, смету, сроки и гарантию вы обсуждаете напрямую с компанией.</p></div></details>
+        <details><summary>Кому вы передадите мой номер?</summary><div class="faq-body"><p>Только компании, которой мы передаём вашу заявку, и только с вашего согласия. Мы не публикуем и не продаём контакты. Подробнее — в <a href="/privacy/">политике конфиденциальности</a>.</p></div></details>
+        <details><summary>Сколько стоит ремонт квартиры в Алматы?</summary><div class="faq-body"><p>Цена зависит от площади, состояния квартиры, объёма работ, материалов, дизайн-проекта и сроков. Точную сумму называет компания после замера и сметы. <a href="/stoimost-remonta/">Из чего складывается стоимость</a>.</p></div></details>
+        <details><summary>Я обязан заключать договор?</summary><div class="faq-body"><p>Нет. Вы встречаетесь с компанией, смотрите смету и решаете сами. Если не подошло, вы ничего не теряете.</p></div></details>
+        <details><summary>У меня ещё нет ключей от застройщика. Писать рано?</summary><div class="faq-body"><p>Нет, это хорошее время. Пока ключей нет, можно спокойно сравнить компании и сметы. Отметьте в заявке «жду ключи».</p></div></details>
       </div>
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <!-- 11. Большой CTA -->
+  <section class="big-cta">
     <div class="wrap">
-      <div class="cta-band">
-        <div>
-          <h2>Планируете ремонт?</h2>
-          <p>Ответьте на 6 вопросов, остальное обсудим в WhatsApp.</p>
-        </div>
-        <a class="btn" href="#zayavka">Оставить заявку</a>
+      <h2><span class="w" style="display:inline-block">Планируете</span> <span class="w" style="display:inline-block"><em>ремонт?</em></span></h2>
+      <div class="hero-cta">
+        <a class="btn btn-primary magnetic" href="#zayavka">Оставить заявку <span class="arrow">→</span></a>
+        <a class="btn btn-ghost magnetic" data-wa="Здравствуйте! Хочу сделать ремонт квартиры в Алматы." data-place="big-cta">Написать в WhatsApp</a>
       </div>
     </div>
   </section>
@@ -386,13 +477,16 @@
       <div>
         <h3>Связь</h3>
         <ul>
-          <li><a data-wa="Здравствуйте! Вопрос по ремонту." data-place="footer">WhatsApp</a></li>
+          <li><a data-wa="Здравствуйте! Вопрос по ремонту." data-place="footer">WhatsApp +7 747 202 39 69</a></li>
+          <li><a href="tel:+77472023969">8 747 202 39 69</a></li>
+          <li><a href="mailto:stroyling12@gmail.com">stroyling12@gmail.com</a></li>
           <li><a href="https://www.instagram.com/stroy.ling/" target="_blank" rel="noopener">Instagram @stroy.ling</a></li>
           <li><a href="/privacy/">Политика конфиденциальности</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">© <span id="y">2026</span> StroyLink · Алматы</div>
+    <div class="wordmark" aria-hidden="true">StroyLink</div>
+    <div class="footer-bottom">© 2026 StroyLink · Алматы · Фото интерьеров: Unsplash</div>
   </div>
 </footer>
 
@@ -401,6 +495,9 @@
   <a class="btn btn-wa" data-wa="Здравствуйте! Хочу сделать ремонт квартиры в Алматы." data-place="mobile-bar">WhatsApp</a>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="/assets/main.js" defer></script>
+<script src="/assets/home.js" defer></script>
 </body>
 </html>

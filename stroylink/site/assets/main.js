@@ -3,7 +3,8 @@
  * POSTHOG_KEY — необязательно: ключ проекта PostHog (phc_...), чтобы считать заявки с сайта.
  */
 const CONFIG = {
-  WA_NUMBER: "77000000000",          // TODO: ваш номер WhatsApp, напр. 77011234567
+  WA_NUMBER: "77472023969",          // WhatsApp: +7 747 202 39 69
+  EMAIL: "stroyling12@gmail.com",    // копия каждой заявки приходит на эту почту (через FormSubmit)
   POSTHOG_KEY: "",                   // TODO (необязательно): phc_...
   POSTHOG_HOST: "https://us.i.posthog.com",
 };
@@ -127,6 +128,16 @@ const CONFIG = {
     const msg = buildMessage();
     track("site_lead_submitted", { type: (form.querySelector("[name=type]:checked") || {}).value || "" });
     window.open(waLink(msg), "_blank", "noopener");
+    // копия заявки на почту (FormSubmit: при первой заявке придёт письмо «Activate» — нажмите его один раз)
+    if (CONFIG.EMAIL) {
+      try {
+        fetch("https://formsubmit.co/ajax/" + CONFIG.EMAIL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({ _subject: "Новая заявка StroyLink", _template: "box", _captcha: "false", "Заявка": msg, "Страница": location.href }),
+        }).catch(function () {});
+      } catch (e) { /* почта — запасной канал, сайт не ломаем */ }
+    }
     form.querySelector(".quiz-body").hidden = true;
     form.querySelector(".quiz-done").hidden = false;
     const again = form.querySelector(".quiz-done a");
