@@ -1,0 +1,224 @@
+<title>30 күндік жоспар</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+  /* Layout: one card per day, tick on the left; the card turns green when done. */
+  :root {
+    --bg: #0A1628; --surface: #12233D; --surface-2: #182D4D; --line: #243A5E;
+    --text: #F2F5F9; --muted: #9FB0C6; --accent: #F2B544; --accent-ink: #0A1628;
+    --done: #2FB872; --done-bg: #0F3A2B; --done-line: #2FB872; --done-ink: #CFF5E0;
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #F4F6FA; --surface: #FFFFFF; --surface-2: #EEF2F8; --line: #D5DDEA;
+      --text: #0A1628; --muted: #53647C; --accent: #B67A07; --accent-ink: #FFFFFF;
+      --done: #1F9D5B; --done-bg: #DDF3E6; --done-line: #1F9D5B; --done-ink: #0F4D2E;
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #F4F6FA; --surface: #FFFFFF; --surface-2: #EEF2F8; --line: #D5DDEA;
+    --text: #0A1628; --muted: #53647C; --accent: #B67A07; --accent-ink: #FFFFFF;
+    --done: #1F9D5B; --done-bg: #DDF3E6; --done-line: #1F9D5B; --done-ink: #0F4D2E;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 15px; line-height: 1.5;
+    padding-block: 20px 56px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .wrap { max-width: 980px; margin: 0 auto; display: grid; gap: 22px; }
+  header { display: grid; gap: 14px; }
+  h1 { font: 700 28px/1.15 var(--font-display); margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+  .sub { color: var(--muted); margin: 4px 0 0; }
+  .progress { display: grid; gap: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .progress-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .count { font: 700 26px/1 var(--font-display); font-variant-numeric: tabular-nums; }
+  .count small { font: 500 14px var(--font-body); color: var(--muted); margin-left: 6px; }
+  .bar { height: 10px; border-radius: 6px; background: var(--surface-2); overflow: hidden; }
+  .bar > i { display: block; height: 100%; width: 0; background: var(--done); transition: width .3s ease; }
+  .tools { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .btn { font: 600 14px var(--font-body); color: var(--accent-ink); background: var(--accent); border: 0; border-radius: 10px; padding: 9px 14px; cursor: pointer; }
+  .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  .btn:focus-visible, .tick:focus-visible, .note:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .status { color: var(--muted); font-size: 13px; }
+  .week { display: grid; gap: 10px; }
+  .week-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; padding-top: 6px; }
+  .week-head h2 { font: 600 18px/1.25 var(--font-display); margin: 0; text-wrap: balance; }
+  .chip { font: 600 13px var(--font-body); color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .chip.full { color: var(--done-ink); background: var(--done-bg); border-color: var(--done-line); }
+  .goal-line { color: var(--muted); margin: 0; }
+  .day {
+    display: grid; gap: 8px 14px; align-items: start;
+    grid-template-columns: 44px 108px minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "tick when what goal" ". . note note";
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px;
+  }
+  .day[data-today="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .day[data-done="true"] { background: var(--done-bg); border-color: var(--done-line); }
+  .day[data-done="true"] .what, .day[data-done="true"] .when span { color: var(--done-ink); }
+  .tick { grid-area: tick; width: 40px; height: 40px; border-radius: 10px; border: 2px solid var(--muted); background: transparent; color: transparent; cursor: pointer; display: grid; place-items: center; padding: 0; }
+  .tick svg { width: 22px; height: 22px; }
+  .day[data-done="true"] .tick { background: var(--done); border-color: var(--done); color: #fff; }
+  .when { grid-area: when; display: grid; gap: 2px; align-content: start; min-width: 0; }
+  .when b { font: 700 16px var(--font-display); font-variant-numeric: tabular-nums; }
+  .when span { color: var(--muted); font-size: 13px; }
+  .badge { justify-self: start; font: 700 11px var(--font-body); letter-spacing: .06em; text-transform: uppercase; color: var(--accent-ink); background: var(--accent); border-radius: 6px; padding: 2px 7px; }
+  .badge[hidden] { display: none !important; }
+  .what { grid-area: what; min-width: 0; overflow-wrap: anywhere; }
+  .goal { grid-area: goal; min-width: 0; overflow-wrap: anywhere; color: var(--muted); font-size: 14px; }
+  .goal small { display: block; font: 600 11px var(--font-body); letter-spacing: .07em; text-transform: uppercase; margin-bottom: 2px; }
+  .note { grid-area: note; width: 100%; font: 400 14px var(--font-body); color: var(--text); background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
+  .note::placeholder { color: var(--muted); }
+  @media (max-width: 720px) {
+    h1 { font-size: 24px; }
+    .day { grid-template-columns: 44px minmax(0, 1fr); grid-template-areas: "tick when" "what what" "goal goal" "note note"; }
+    .when { grid-auto-flow: column; justify-content: start; align-items: baseline; gap: 10px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .bar > i { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>StroyLink: алғашқы 30 күн</h1>
+      <p class="sub">23.11.2026 — 22.12.2026. Күн соңында тапсырма орындалса, ✓ бас: жол жасыл болады.</p>
+    </div>
+    <div class="progress" aria-live="polite">
+      <div class="progress-top">
+        <div class="count"><span id="doneN">0</span> / 30<small id="pct">0%</small></div>
+        <div class="tools">
+          <button class="btn" id="goToday" type="button">Бүгінге өту</button>
+          <button class="btn ghost" id="expandNotes" type="button">Нәтиже жазу</button>
+        </div>
+      </div>
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" id="barWrap"><i id="barFill"></i></div>
+      <div class="status" id="status">Қосылуда…</div>
+    </div>
+  </header>
+  <main id="weeks" class="wrap" style="padding:0"></main>
+</div>
+
+<script>
+const PLAN = {"weeks": [{"n": 1, "title": "1-апта (23.11 — 29.11): Негіз және пилот", "goal": "бағыт таңдалды, таныс бригадамен пилот келісімі, Instagram-да 2 пост, 35 компания тізімде."}, {"n": 2, "title": "2-апта (30.11 — 06.12): Клиент іздеу", "goal": "өтінім ағынын бастау: 3+ нақтыланған өтінім, 1–3 өтінім таныс компанияға берілді."}, {"n": 3, "title": "3-апта (07.12 — 13.12): Көбейту және рилс", "goal": "1-ші рилс, өтінім саны өседі, 2-ші компаниямен тіл табысу, 1 кездесу."}, {"n": 4, "title": "4-апта (14.12 — 20.12): Нәтиже және дәлел", "goal": "нақты сандармен компанияларға жазу, кейс жинау, пилотты нәтижеге жеткізу."}, {"n": 5, "title": "5-апта (21.12 — 22.12): Ай қорытындысы", "goal": ""}], "days": [{"n": 1, "id": "d01", "date": "2026-11-23", "wd": "Дс", "dm": "23.11", "week": 1, "task": "Бағыт: Алматыда пәтер жөндеу, бір сөйлеммен жаз. Таныс бригадаға/компанияға пилот хабарламасын жібер (06-client-acquisition-no-budget.md §0). Instagram био-ны жаңарт (instagram/captions.md соңында ұсыныс бар)", "result": "1–2 таныс компанияға хабарлама жіберілді; био жаңартылды; бағыт жазылды"}, {"n": 2, "id": "d02", "date": "2026-11-24", "wd": "Сс", "dm": "24.11", "week": 1, "task": "Пилот шартын жазбаша растау (WhatsApp жауабы). Олардан нысан түрі, аудандар, ең аз чек, жауап уақытын сұра. Instagram: №1 пост жарияла", "result": "≥ 1 жазбаша растау не кездесу күні; 1 пост"}, {"n": 3, "id": "d03", "date": "2026-11-25", "wd": "Ср", "dm": "25.11", "week": 1, "task": "Таныс-туыс: WhatsApp статусына «кімнің ремонты бар?» + 20 жеке хабарлама", "result": "20 хабарлама; ≥ 2 жауап; ≥ 1 қызығушылық"}, {"n": 4, "id": "d04", "date": "2026-11-26", "wd": "Бс", "dm": "26.11", "week": 1, "task": "5 ЖК тобын тап, 2 әкімшіден рұқсат сұра. 04-tracker.csv-ге 30 компания тізімін енгіз", "result": "5 топ, 2 сұрау, 30 жол трекерде"}, {"n": 5, "id": "d05", "date": "2026-11-27", "wd": "Жм", "dm": "27.11", "week": 1, "task": "Instagram: №2 пост. Direct жауап үлгісін сына (6 дерек сұрау). 5 компанияға хабарлама (пилот ұсынысымен)", "result": "1 пост; 5 хабарлама"}, {"n": 6, "id": "d06", "date": "2026-11-28", "wd": "Сб", "dm": "28.11", "week": 1, "task": "Таныс компаниямен кездесу/қоңырау: өтінімді қалай беру, төлем тәртібі. Stories-те сауалнама («Ремонт жоспарлайсыз ба?»)", "result": "1 кездесу; 1 сауалнама"}, {"n": 7, "id": "d07", "date": "2026-11-29", "wd": "Жс", "dm": "29.11", "week": 1, "task": "Апталық қорытынды (1 сағат): трекер + PostHog; келесі аптаның мақсаты", "result": "Аптаның сандары жазылды"}, {"n": 8, "id": "d08", "date": "2026-11-30", "wd": "Дс", "dm": "30.11", "week": 2, "task": "ЖК топтарына пайдалы пост (рұқсат берілгендерге). Stories. 5 компанияға хабарлама", "result": "1–2 топқа пост; 5 хабарлама"}, {"n": 9, "id": "d09", "date": "2026-12-01", "wd": "Сс", "dm": "01.12", "week": 2, "task": "Instagram: №3 пост. Жергілікті аккаунттарға 10 мағыналы комментарий. Direct-ке жауап", "result": "1 пост; 10 комментарий; Direct-ке 100% жауап"}, {"n": 10, "id": "d10", "date": "2026-12-02", "wd": "Ср", "dm": "02.12", "week": 2, "task": "Риелторларға 5 хабарлама («клиентіңізге ремонт керек болса…»)", "result": "5 хабарлама; ≥ 1 жауап"}, {"n": 11, "id": "d11", "date": "2026-12-03", "wd": "Бс", "dm": "03.12", "week": 2, "task": "Direct/таныс арқылы келгендердің өтінімін 6 дерекпен нақтыла (аудан, м², жаңа/екінші қол, бюджет, мерзім, телефон). Клиенттің жазбаша келісімін ал", "result": "≥ 3 өтінім нақтыланды"}, {"n": 12, "id": "d12", "date": "2026-12-04", "wd": "Жм", "dm": "04.12", "week": 2, "task": "Өтінімді таныс компанияға бер (күнін жаз). Instagram: №4 пост", "result": "1–3 өтінім берілді; 1 пост"}, {"n": 13, "id": "d13", "date": "2026-12-05", "wd": "Сб", "dm": "05.12", "week": 2, "task": "Берілген өтінімнің статусын сұра (хабарласты ма?). Meta Ads негізін тегін оқу (конспект 1 бет). 5 компанияға хабарлама", "result": "Статус жазылды; 1 бет конспект; 5 хабарлама"}, {"n": 14, "id": "d14", "date": "2026-12-06", "wd": "Жс", "dm": "06.12", "week": 2, "task": "Апталық қорытынды (1 сағат)", "result": "1–2 апта жиынтығы: Direct-ке жазғандар ≥ 8"}, {"n": 15, "id": "d15", "date": "2026-12-07", "wd": "Дс", "dm": "07.12", "week": 3, "task": "Рилс №1 жасап жарияла (7 сұрақ тақырыбы). 10 компанияға хабарлама", "result": "1 рилс; 10 хабарлама"}, {"n": 16, "id": "d16", "date": "2026-12-08", "wd": "Сс", "dm": "08.12", "week": 3, "task": "№5 пост (жаңа тақырып: мысалы, «жаңа үй черновая ремонты»). 2–3 ЖК тобына пайдалы пост. 10 компанияға хабарлама", "result": "1 пост; 2–3 топқа пост; 10 хабарлама"}, {"n": 17, "id": "d17", "date": "2026-12-09", "wd": "Ср", "dm": "09.12", "week": 3, "task": "Өтінімдерді нақтыла және беру (2-ші бригадаға да). 10 компанияға хабарлама", "result": "≥ 2 өтінім берілді; 10 хабарлама"}, {"n": 18, "id": "d18", "date": "2026-12-10", "wd": "Бс", "dm": "10.12", "week": 3, "task": "Жауап берген компаниялармен қоңырау/кездесу", "result": "≥ 1 кездесу"}, {"n": 19, "id": "d19", "date": "2026-12-11", "wd": "Жм", "dm": "11.12", "week": 3, "task": "Таныстардан нәтижесін сұра: хабарласты ма, келісім бар ма, чек қанша", "result": "Әр өтінімнің статусы жазылды"}, {"n": 20, "id": "d20", "date": "2026-12-12", "wd": "Сб", "dm": "12.12", "week": 3, "task": "Stories сауалнама; келесі 3 күнге контент жоспары", "result": "Контент жоспары"}, {"n": 21, "id": "d21", "date": "2026-12-13", "wd": "Жс", "dm": "13.12", "week": 3, "task": "Апталық қорытынды; өту шартының прогресі", "result": "Сандар жазылды"}, {"n": 22, "id": "d22", "date": "2026-12-14", "wd": "Дс", "dm": "14.12", "week": 4, "task": "15 компанияға хабарлама нақты сандармен: «N өтінім жинадық»", "result": "15 хабарлама"}, {"n": 23, "id": "d23", "date": "2026-12-15", "wd": "Сс", "dm": "15.12", "week": 4, "task": "Рилс №2. 15 хабарлама", "result": "1 рилс; 15 хабарлама"}, {"n": 24, "id": "d24", "date": "2026-12-16", "wd": "Ср", "dm": "16.12", "week": 4, "task": "Кездесу/қоңырау. Пилот келісімшарт жобасын (03-pilot-agreement-DRAFT.md) заңгерге көрсетіп, нақты компанияға ұсын", "result": "≥ 1 кездесу; келісімшарт заңгерде"}, {"n": 25, "id": "d25", "date": "2026-12-17", "wd": "Бс", "dm": "17.12", "week": 4, "task": "15 хабарлама. Берілген өтінімдердің шарт/төлем статусын сұра", "result": "15 хабарлама; статустар"}, {"n": 26, "id": "d26", "date": "2026-12-18", "wd": "Жм", "dm": "18.12", "week": 4, "task": "Кейс мәтінін жаз (компаниядан рұқсатпен, нақты сан және мерзім). 20 хабарлама", "result": "Кейс жобасы; 20 хабарлама"}, {"n": 27, "id": "d27", "date": "2026-12-19", "wd": "Сб", "dm": "19.12", "week": 4, "task": "Stories-ке кейс; Direct жауаптары", "result": "Кейс stories-те"}, {"n": 28, "id": "d28", "date": "2026-12-20", "wd": "Жс", "dm": "20.12", "week": 4, "task": "Апталық қорытынды", "result": "Сандар жазылды"}, {"n": 29, "id": "d29", "date": "2026-12-21", "wd": "Дс", "dm": "21.12", "week": 5, "task": "Ай қорытындысы: PostHog дашборд (StroyLink: клиентский поток) + 04-tracker.csv. README-дегі кестемен салыстыру: минимум / жоспар / жақсы. 1→2 өту шартын тексеру", "result": "Нәтиже кестесі толтырылды; өту шарты: иә/жоқ"}, {"n": 30, "id": "d30", "date": "2026-12-22", "wd": "Сс", "dm": "22.12", "week": 5, "task": "2-айға жоспар (07-36-month-roadmap.md, 2-ай): мақсат, 3 негізгі тапсырма. ИП/салық маманына кеңес сұранысы. Не жұмыс істеді/істемеді: 5 жол", "result": "2-ай мақсаты жазылды; кеңес сұранысы жіберілді; қорытынды жазылды"}]};
+const $ = (id) => document.getElementById(id);
+const state = {};            // id -> {done, note}
+let db = null;               // db collection ref, or null -> localStorage
+let readOnly = false;
+const LS = 'stroylink-m1-state';
+const queue = {};            // per-document write chain
+const noteTimers = {};
+const rows = {};             // id -> elements
+
+function lsLoad() { try { return JSON.parse(localStorage.getItem(LS) || '{}'); } catch (e) { return {}; } }
+function lsSave() { try { localStorage.setItem(LS, JSON.stringify(state)); } catch (e) { /* ignore */ } }
+function todayISO() { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+
+const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+function build() {
+  const host = $('weeks');
+  const today = todayISO();
+  PLAN.weeks.forEach((w) => {
+    const sec = document.createElement('section'); sec.className = 'week';
+    const head = document.createElement('div'); head.className = 'week-head';
+    const h2 = document.createElement('h2'); h2.textContent = w.title;
+    const chip = document.createElement('span'); chip.className = 'chip'; chip.id = 'wk' + w.n;
+    head.append(h2, chip); sec.append(head);
+    if (w.goal) { const g = document.createElement('p'); g.className = 'goal-line'; g.textContent = 'Апта мақсаты: ' + w.goal; sec.append(g); }
+    PLAN.days.filter((d) => d.week === w.n).forEach((d) => {
+      const art = document.createElement('article'); art.className = 'day'; art.id = d.id;
+      art.dataset.done = 'false'; art.dataset.today = String(d.date === today);
+      const tick = document.createElement('button'); tick.type = 'button'; tick.className = 'tick';
+      tick.setAttribute('role', 'checkbox'); tick.setAttribute('aria-checked', 'false');
+      tick.setAttribute('aria-label', d.n + '-күн орындалды'); tick.innerHTML = CHECK;
+      const when = document.createElement('div'); when.className = 'when';
+      const b = document.createElement('b'); b.textContent = d.n + '-күн';
+      const sp = document.createElement('span'); sp.textContent = d.wd + ' ' + d.dm;
+      const badge = document.createElement('em'); badge.className = 'badge'; badge.textContent = 'Бүгін'; badge.hidden = d.date !== today;
+      when.append(b, sp, badge);
+      const what = document.createElement('div'); what.className = 'what'; what.textContent = d.task;
+      const goal = document.createElement('div'); goal.className = 'goal';
+      const sm = document.createElement('small'); sm.textContent = 'Күтілетін нәтиже';
+      goal.append(sm, document.createTextNode(d.result));
+      const note = document.createElement('input'); note.type = 'text'; note.className = 'note'; note.id = 'note-' + d.id;
+      note.placeholder = 'Нақты нәтиже (қаласаң жаз)'; note.maxLength = 300; note.setAttribute('aria-label', d.n + '-күн нақты нәтиже');
+      art.append(tick, when, what, goal, note); sec.append(art);
+      rows[d.id] = { art, tick, note };
+      tick.addEventListener('click', () => toggle(d.id));
+      note.addEventListener('input', () => { clearTimeout(noteTimers[d.id]); noteTimers[d.id] = setTimeout(() => setNote(d.id, note.value), 700); });
+      note.addEventListener('blur', () => { clearTimeout(noteTimers[d.id]); setNote(d.id, note.value); });
+    });
+    host.append(sec);
+  });
+}
+
+function paint() {
+  let done = 0; const perWeek = {};
+  PLAN.days.forEach((d) => {
+    const s = state[d.id] || {}; const r = rows[d.id];
+    const isDone = !!s.done; if (isDone) done++;
+    perWeek[d.week] = perWeek[d.week] || { n: 0, t: 0 }; perWeek[d.week].t++; if (isDone) perWeek[d.week].n++;
+    r.art.dataset.done = String(isDone);
+    r.tick.setAttribute('aria-checked', String(isDone));
+    if (document.activeElement !== r.note && r.note.value !== (s.note || '')) r.note.value = s.note || '';
+  });
+  $('doneN').textContent = done;
+  $('pct').textContent = Math.round(done / 30 * 100) + '%';
+  $('barFill').style.width = (done / 30 * 100) + '%';
+  $('barWrap').setAttribute('aria-valuenow', String(done));
+  PLAN.weeks.forEach((w) => { const c = $('wk' + w.n), p = perWeek[w.n]; c.textContent = p.n + ' / ' + p.t; c.className = 'chip' + (p.n === p.t ? ' full' : ''); });
+}
+
+function persist(id) {
+  const s = state[id] || {};
+  if (!db) { lsSave(); return; }
+  const body = { done: !!s.done, note: s.note || '', at: new Date().toISOString() };
+  queue[id] = (queue[id] || Promise.resolve())
+    .then(() => db.doc(id).set(body))
+    .catch((err) => {
+      if (err && err.code === 'invalid_argument') { readOnly = true; $('status').textContent = 'Бұл көріністе белгілеуге болмайды (тек оқу).'; }
+      else { $('status').textContent = 'Сақталмады, интернетті тексер.'; }
+    });
+}
+function toggle(id) {
+  if (readOnly) return;
+  const s = state[id] = Object.assign({}, state[id]); s.done = !s.done; paint(); persist(id);
+}
+function setNote(id, v) {
+  if (readOnly) return;
+  const s = state[id] = Object.assign({}, state[id]);
+  if ((s.note || '') === v) return; s.note = v; paint(); persist(id);
+}
+
+async function start() {
+  build();
+  Object.assign(state, lsLoad()); paint();
+  $('goToday').addEventListener('click', () => {
+    const t = PLAN.days.find((d) => d.date === todayISO());
+    const target = t ? rows[t.id].art : $('weeks');
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  $('expandNotes').addEventListener('click', () => { const first = PLAN.days.find((d) => !(state[d.id] || {}).done) || PLAN.days[0]; rows[first.id].note.focus(); rows[first.id].art.scrollIntoView({ block: 'center' }); });
+
+  let c = null;
+  try { c = (typeof claude !== 'undefined' && claude.use) ? await claude.use('db') : null; } catch (e) { c = null; }
+  if (!c) { $('status').textContent = 'Тек осы құрылғыда сақталады.'; return; }
+  db = c.collection('days');
+  Object.keys(state).forEach((k) => delete state[k]);
+  const timer = setTimeout(() => { $('status').textContent = 'Деректер әлі жүктелмеді. Белгілеулер кейін сақталуы мүмкін.'; }, 10000);
+  $('status').textContent = 'Жүктелуде…';
+  db.onSnapshot((snap) => {
+    snap.docs.forEach((doc) => { state[doc.id] = doc.data(); });
+    snap.docChanges().forEach((ch) => { if (ch.type === 'removed') delete state[ch.doc.id]; });
+    if (!snap.metadata.fromCache) { clearTimeout(timer); $('status').textContent = 'Сақталады: барлық құрылғыда бірдей көрінеді.'; }
+    paint();
+  }, () => { clearTimeout(timer); db = null; Object.assign(state, lsLoad()); paint(); $('status').textContent = 'Тек осы құрылғыда сақталады.'; });
+}
+start();
+</script>
