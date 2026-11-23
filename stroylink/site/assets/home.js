@@ -130,6 +130,115 @@
     cursor.remove();
   }
 
+  // ---------- Два пути: «Ищу сам / Через StroyLink» ----------
+  // Без JS оба списка видны друг под другом. С JS — переключатель (мышь, палец, Tab + Enter/пробел, стрелки).
+  var vs = document.querySelector(".vs");
+  if (vs) {
+    var vsOpts = vs.querySelectorAll(".vs-opt");
+    var vsPanels = vs.querySelectorAll(".vs-panel");
+    var vsLive = vs.querySelector("[data-vs-live]");
+    var vsState = vs.getAttribute("data-state") || "self";
+    var vsTl = null;
+    var vsTouched = false;
+    var vsPanel = function (side) { return vs.querySelector('.vs-panel[data-side="' + side + '"]'); };
+    var vsSync = function () {
+      vsOpts.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-side") === vsState ? "true" : "false"); });
+      vsPanels.forEach(function (p) {
+        var on = p.getAttribute("data-side") === vsState;
+        p.classList.toggle("on", on);
+        p.setAttribute("aria-hidden", on ? "false" : "true");
+      });
+    };
+    var vsPlay = function (side) {
+      if (!animate) return;
+      var p = vsPanel(side);
+      if (!p) return;
+      var its = p.querySelectorAll(".vs-item");
+      var route = p.querySelector(".vs-route path");
+      if (vsTl) vsTl.progress(1).kill();
+      vsTl = gsap.timeline();
+      if (route) vsTl.fromTo(route, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: side === "self" ? 1.2 : .55, ease: side === "self" ? "power1.inOut" : "power3.out" }, 0);
+      if (side === "self") {
+        // «запутанный» путь: карточки падают вразнобой
+        vsTl.fromTo(its, { y: -34, opacity: 0, rotation: function () { return gsap.utils.random(-9, 9); } },
+          { y: 0, opacity: 1, rotation: 0, duration: .6, stagger: .09, ease: "back.out(2.2)" }, .05);
+      } else {
+        // прямой путь: карточки ровно встают одна за другой, галочки «щёлкают»
+        vsTl.fromTo(its, { x: 46, opacity: 0 }, { x: 0, opacity: 1, duration: .5, stagger: .07, ease: "power3.out" }, .05);
+        vsTl.fromTo(p.querySelectorAll(".vs-ico"), { scale: 0 }, { scale: 1, duration: .45, stagger: .07, ease: "back.out(3)" }, .2);
+      }
+      vsTl.fromTo(vs.querySelectorAll(".vs-stats dd, .vs-meter-top b, .vs-verdict"), { rotationX: -80, opacity: 0, transformPerspective: 400 },
+        { rotationX: 0, opacity: 1, duration: .5, stagger: .06, ease: "power2.out" }, 0);
+    };
+    var vsSet = function (side, byUser) {
+      if (byUser) {
+        vsTouched = true;
+        vs.querySelectorAll(".vs-opt.nudge").forEach(function (b) { b.classList.remove("nudge"); });
+      }
+      if (side === vsState) return;
+      vsState = side;
+      vs.setAttribute("data-state", side);
+      vsSync();
+      if (vsLive) vsLive.textContent = side === "link" ? "Показан путь через StroyLink" : "Показан путь, если искать самому";
+      vsPlay(side);
+    };
+    vsOpts.forEach(function (b) {
+      b.addEventListener("click", function () { vsSet(b.getAttribute("data-side"), true); });
+      b.addEventListener("keydown", function (e) {
+        if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+        e.preventDefault();
+        var next = e.key === "ArrowRight" ? "link" : "self";
+        vsSet(next, true);
+        vs.querySelector('.vs-opt[data-side="' + next + '"]').focus();
+      });
+    });
+    vs.classList.add("is-ready");
+    vsSync();
+    if ("IntersectionObserver" in window) {
+      var vsStage = vs.querySelector(".vs-stage");
+      if (animate && vsState === "self") gsap.set(vsPanel("self").querySelectorAll(".vs-item"), { opacity: 0 });
+      var vsIo = new IntersectionObserver(function (en) {
+        if (!en[0].isIntersecting) return;
+        vsIo.disconnect();
+        if (vsState === "self") vsPlay("self");
+        // подсказка: «нажмите» на второй вариант, если человек сам не попробовал
+        setTimeout(function () {
+          if (!vsTouched && vsState === "self") { var l = vs.querySelector('.vs-opt[data-side="link"]'); if (l) l.classList.add("nudge"); }
+        }, 2000);
+      }, { threshold: .15 });
+      vsIo.observe(vsStage);
+    }
+  }
+
+  // ---------- Мини-кнопка заявки: после блока «Почему через нас», прячется у формы и внизу ----------
+  var mini = document.querySelector(".mini-cta");
+  var benefits = document.getElementById("vygoda");
+  if (mini && benefits) {
+    var miniZones = [document.getElementById("zayavka"), document.querySelector(".big-cta"), document.querySelector(".site-footer")].filter(Boolean);
+    var miniTick = false;
+    var miniUpd = function () {
+      miniTick = false;
+      var vh = window.innerHeight;
+      var past = benefits.getBoundingClientRect().bottom < vh * .5;
+      var inZone = miniZones.some(function (z) { var r = z.getBoundingClientRect(); return r.top < vh && r.bottom > 0; });
+      mini.classList.toggle("show", past && !inZone);
+    };
+    window.addEventListener("scroll", function () { if (!miniTick) { miniTick = true; requestAnimationFrame(miniUpd); } }, { passive: true });
+    window.addEventListener("resize", miniUpd);
+    miniUpd();
+  }
+
+  // ---------- Путь заявки на телефоне: полоска показывает, сколько карточек пролистано ----------
+  var pathVp = document.querySelector(".path-viewport");
+  var pathBar = document.querySelector(".path-bar span");
+  if (pathVp && pathBar) {
+    pathVp.addEventListener("scroll", function () {
+      if (window.innerWidth >= 900) return;
+      var m = pathVp.scrollWidth - pathVp.clientWidth;
+      pathBar.style.transform = "scaleX(" + (m > 0 ? pathVp.scrollLeft / m : 0) + ")";
+    }, { passive: true });
+  }
+
   if (!animate) return;
 
   // ---------- Заголовок первого экрана ----------
@@ -155,12 +264,16 @@
     var vp = document.querySelector(".path-viewport");
     if (!track) return;
     var dist = function () { return Math.max(0, track.scrollWidth - vp.clientWidth); };
-    gsap.to(track, {
+    var pathTween = gsap.to(track, {
       x: function () { return -dist(); },
       ease: "none",
       scrollTrigger: { trigger: ".path", start: "top top", end: function () { return "+=" + dist(); }, pin: true, scrub: .6, invalidateOnRefresh: true, anticipatePin: 1 },
     });
     gsap.to(".path-bar span", { scaleX: 1, ease: "none", scrollTrigger: { trigger: ".path", start: "top top", end: function () { return "+=" + dist(); }, scrub: .6 } });
+    // большие цифры на карточках плывут медленнее карточек — глубина при прокрутке
+    gsap.utils.toArray(".path-card .num").forEach(function (n) {
+      gsap.fromTo(n, { xPercent: 24 }, { xPercent: -12, ease: "none", scrollTrigger: { trigger: n.parentNode, containerAnimation: pathTween, start: "left right", end: "right left", scrub: true } });
+    });
   });
 
   // ---------- Большой CTA: слова собираются ----------
@@ -168,4 +281,5 @@
   gsap.fromTo(".wordmark", { xPercent: -8 }, { xPercent: 4, ease: "none", scrollTrigger: { trigger: ".site-footer", start: "top bottom", end: "bottom bottom", scrub: true } });
 
   window.addEventListener("load", function () { ScrollTrigger.refresh(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
 })();
