@@ -2,7 +2,7 @@
 <html lang="kk">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Алматыда пәтер жөндеу: компанияны тегін табамыз | StroyLink</title>
   <meta name="description" content="Алматыда пәтер жөндеу керек пе? Бюджетіңіз бен мерзіміңізге сай компания табуға көмектесеміз. Сіз үшін тегін: 6 сұраққа жауап беріңіз.">
   <link rel="canonical" href="https://SITE-DOMAIN.kz/kz/">
@@ -10,7 +10,7 @@
   <link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/kz/">
   <link rel="alternate" hreflang="x-default" href="https://SITE-DOMAIN.kz/">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#f6f4ef">
+  <meta name="theme-color" content="#101312">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="kk_KZ">
   <meta property="og:locale:alternate" content="ru_KZ">
@@ -24,7 +24,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/assets/img/hero-before.webp">
   <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/home.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -35,7 +37,9 @@
         "name": "StroyLink",
         "url": "https://SITE-DOMAIN.kz/",
         "logo": "https://SITE-DOMAIN.kz/favicon.svg",
-        "sameAs": ["https://www.instagram.com/stroy.ling/"]
+        "sameAs": ["https://www.instagram.com/stroy.ling/"],
+        "email": "stroyling12@gmail.com",
+        "telephone": "+77472023969"
       },
       {
         "@type": "Service",
@@ -63,8 +67,10 @@
   }
   </script>
 </head>
-<body>
+<body class="home">
 <a class="skip" href="#main">Мазмұнға өту</a>
+<div class="progress-top" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"></div>
 
 <header class="site-header">
   <div class="wrap">
@@ -87,145 +93,229 @@
 
 <main id="main">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow">Алматы · пәтерлер</span>
-        <h1>Алматыда пәтер жөндеу: бюджетіңізге сай <em>компания табамыз</em></h1>
-        <p class="lead">Пәтеріңіз қандай, бюджетіңіз қанша және жөндеуді қашан бастау керек екенін айтыңыз. Біз мәліметтерді нақтылап, өтінімді осындай нысандарды алатын компанияға жібереміз. Сіз компаниямен кездесіп, сметаны көресіз де, өзіңіз шешесіз.</p>
+  <!-- 1. HERO: дейін / кейін -->
+  <section class="hero-x" aria-label="Басты экран">
+    <div class="ba">
+      <img src="/assets/img/hero-before.webp" alt="Қара әрлеудегі пәтер: бетон еден, әрленбеген қабырғалар" width="1600" height="1067" fetchpriority="high">
+      <img class="after" src="/assets/img/hero-after.webp" alt="Жөндеуден кейінгі дайын қонақ бөлме" width="1600" height="1067">
+      <div class="ba-line"><button class="ba-knob" type="button" role="slider" aria-label="Салыстыру: жөндеуге дейін және кейін" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>
+      </button></div>
+      <span class="ba-tag l">Қара әрлеу</span>
+      <span class="ba-tag r">Жөндеуден кейін</span>
+    </div>
+    <span class="drag-hint">Салыстыру үшін жылжытыңыз</span>
+
+    <div class="wrap hero-inner">
+      <h1><span class="line"><span>Алматыда пәтер</span></span><span class="line"><span>жөндеу —</span></span><span class="line"><span><em>компания табамыз</em></span></span></h1>
+      <div class="hero-row">
+        <p class="lead">Пәтеріңіз, бюджетіңіз және мерзіміңіз туралы айтыңыз. Біз өтінімді осындай нысандарды алатын компанияға жібереміз. Сіз компаниямен кездесіп, сметаны көресіз де, өзіңіз шешесіз.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#zayavka">6 сұраққа жауап беру</a>
-          <a class="btn btn-wa" data-wa="Сәлеметсіз бе! Алматыда пәтер жөндегім келеді, компания табуға көмектесіңізші." data-place="hero">
+          <a class="btn btn-primary magnetic" href="#zayavka">Компания іріктеу <span class="arrow">→</span></a>
+          <a class="btn btn-wa magnetic" data-wa="Сәлеметсіз бе! Алматыда пәтер жөндегім келеді, компания табуға көмектесіңізші." data-place="hero">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
-            WhatsApp-қа жазу
+            WhatsApp
           </a>
         </div>
-        <ul class="trust">
-          <li>Сіз үшін тегін</li>
-          <li>Байланыс деректері тек сіздің келісіміңізбен</li>
-          <li>Шешімді өзіңіз қабылдайсыз</li>
-        </ul>
       </div>
-      <aside class="hero-card" aria-label="Өтінім үлгісі">
-        <span class="badge">Өтінім үлгісі</span>
-        <h2>Компания бізден не алады</h2>
-        <dl class="lead-preview">
-          <div><dt>Аудан</dt><dd>Бостандық ауданы</dd></div>
-          <div><dt>Пәтер</dt><dd>Жаңа үй, қара әрлеу</dd></div>
-          <div><dt>Аудан көлемі</dt><dd>65 м²</dd></div>
-          <div><dt>Жөндеу</dt><dd>Толық, кілт тапсыруға дейін</dd></div>
-          <div><dt>Бюджет</dt><dd>Келісіледі</dd></div>
-          <div><dt>Қашан бастау</dt><dd>Бір ай ішінде</dd></div>
-        </dl>
-        <p class="note">Компания сізбен хабарласып, өлшеуге келеді және смета есептейді. Сіз салыстырып, өзіңіз шешесіз.</p>
-      </aside>
+      <ul class="hero-meta">
+        <li>Сіз үшін тегін</li>
+        <li>Байланыс деректері тек сіздің келісіміңізбен</li>
+        <li>Шешімді өзіңіз қабылдайсыз</li>
+      </ul>
     </div>
+    <span class="photo-note">Фото мысал ретінде берілген</span>
   </section>
 
-  <!-- HOW -->
-  <section id="kak" class="alt">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Бұл қалай жұмыс істейді</span>
-        <h2>«Жөндеу керек» дегеннен компаниямен кездесуге дейін үш қадам</h2>
-        <p>Біз жөндеуді өзіміз жасамаймыз. Біз іздеуге және алғашқы қоңырауларға кететін уақытыңызды үнемдейміз.</p>
-      </div>
-      <ol class="steps">
-        <li><h3>Сіз 6 сұраққа жауап бересіз</h3><p>Аудан, аудан көлемі, пәтер түрі, бюджет, мерзім және телефон. Бұл шамамен бір минут алады.</p></li>
-        <li><h3>Біз нақтылап, өтінімді жібереміз</h3><p>Бірдеңе жетіспесе, WhatsApp-та қайта сұраймыз. Содан кейін өтінімді осындай нысандарды алатын компанияға жібереміз.</p></li>
-        <li><h3>Сіз кездесіп, таңдайсыз</h3><p>Компания өлшеуге келіп, смета есептейді. Сәйкес келсе — шарт жасасасыз. Сәйкес келмесе — ештеңе қарыз емессіз.</p></li>
-      </ol>
+  <!-- 2. Жүгіртпе жол -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Жаңа үйлер</span><span class="o">Қайталама нарық</span><span>Кілт тапсыруға дейін</span><span class="o">Санторап</span><span>Ас үй</span><span class="o">Бостандық</span><span>Медеу</span><span class="o">Алмалы</span><span>Әуезов</span><span class="o">Наурызбай</span>
+      <span>Жаңа үйлер</span><span class="o">Қайталама нарық</span><span>Кілт тапсыруға дейін</span><span class="o">Санторап</span><span>Ас үй</span><span class="o">Бостандық</span><span>Медеу</span><span class="o">Алмалы</span><span>Әуезов</span><span class="o">Наурызбай</span>
     </div>
+  </div>
+
+  <!-- 3. Өтінім жолы (көлденең, бекітіледі) -->
+  <section id="kak" class="path">
+    <div class="wrap head-split">
+      <div>
+        <div class="kicker"><b>01</b> Бұл қалай жұмыс істейді</div>
+        <h2 class="rv">«Жөндеу керек» дегеннен компаниямен кездесуге дейін</h2>
+      </div>
+      <p class="rv">Біз жөндеуді өзіміз жасамаймыз. Біз іздеуге және алғашқы қоңырауларға кететін уақытыңызды үнемдейміз, ал таңдау сізде қалады.</p>
+    </div>
+    <div class="path-viewport">
+      <div class="path-track">
+        <article class="path-card"><span class="tag">≈ 1 минут</span><div class="num">01</div><h3>Сіз 6 сұраққа жауап бересіз</h3><p>Аудан, аудан көлемі, пәтер түрі, бюджет, мерзім және телефон. Тіркелусіз.</p></article>
+        <article class="path-card"><span class="tag">WhatsApp</span><div class="num">02</div><h3>Біз мәліметтерді нақтылаймыз</h3><p>Бірдеңе жетіспесе, қайта сұраймыз. Артық қоңыраусыз және ештеңені таңбаймыз.</p></article>
+        <article class="path-card"><span class="tag">сіздің келісіміңізбен</span><div class="num">03</div><h3>Өтінімді компанияға жібереміз</h3><p>Сіздің пәтеріңіздің түрі, аудан көлемі мен ауданы бойынша нысандарды алатын компанияға.</p></article>
+        <article class="path-card"><span class="tag">өлшеу</span><div class="num">04</div><h3>Компания смета есептейді</h3><p>Сізбен хабарласып, өлшеуге келеді және баға мен мерзімді айтады.</p></article>
+        <article class="path-card final"><div class="num">05</div><h3>Өзіңіз шешесіз</h3><p>Сәйкес келсе — компаниямен шартты тікелей жасасасыз. Сәйкес келмесе — ештеңе қарыз емессіз.</p><a class="btn" href="#zayavka">Бастау <span class="arrow">→</span></a></article>
+      </div>
+    </div>
+    <div class="path-bar" aria-hidden="true"><span></span></div>
   </section>
 
-  <!-- WHAT -->
+  <!-- 4. Қандай жөндеу -->
   <section id="chto">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Немен көмектесеміз</span>
-        <h2>Қандай жөндеуге компания іздейміз</h2>
-        <p>Қазір тек Алматыдағы пәтерлермен жұмыс істейміз.</p>
+      <div class="head-split">
+        <div>
+          <div class="kicker"><b>02</b> Немен көмектесеміз</div>
+          <h2 class="rv">Қандай жөндеуге компания іздейміз</h2>
+        </div>
+        <p class="rv">Қазір тек Алматыдағы және қала маңындағы пәтерлермен жұмыс істейміз.</p>
       </div>
-      <div class="cards c3">
-        <article class="card">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
+      <div class="types">
+        <a class="type rv" href="/remont-v-novostrojke/" hreflang="ru">
+          <img src="/assets/img/novostroyka.webp" alt="Жаңа үйдегі бос пәтер" loading="lazy" width="1100" height="825">
+          <span class="idx">01</span>
           <h3>Жаңа үйдегі пәтер</h3>
           <p>Тұрғын үй кешені пайдалануға берілгеннен кейінгі қара немесе таза алдындағы әрлеу. Кілт тапсыруға дейінгі толық жөндеу: еден құюдан және электр сымдарынан бастап соңғы әрлеуге дейін.</p>
-          <a class="card-link" href="/remont-v-novostrojke/" hreflang="ru">Жаңа үйдегі жөндеу →</a>
-        </article>
-        <article class="card">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10l8-6 8 6v10H4Z"/><path d="M10 20v-5h4v5"/><path d="M15 4l2 0 0 3"/></svg></div>
-          <h3>Қайталама нарықтағы пәтер</h3>
+          <span class="go"><i>↗</i> Жаңа үйдегі жөндеу</span>
+        </a>
+        <a class="type rv" href="#zayavka">
+          <img src="/assets/img/vtorichka.webp" alt="Ескі әрлеуді бөлшектеу кезіндегі пәтер" loading="lazy" width="1100" height="733">
+          <span class="idx">02</span>
+          <h3>Қайталама нарық</h3>
           <p>Ескі әрлеуді бөлшектеу, электр сымдары мен құбырларды ауыстыру, жаңа әрлеу. Күрделі немесе косметикалық жөндеу.</p>
-          <a class="card-link" href="#zayavka">Компаниямен бірге есептеу →</a>
-        </article>
-        <article class="card">
-          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-3Z"/><path d="M6 12V5a2 2 0 0 1 4 0"/></svg></div>
-          <h3>Санторап, ас үй, жекелеген жұмыстар</h3>
-          <p>Жуынатын бөлме мен санторапты, ас үйді, бір бөлмені жөндеу. Сәйкес компания іздеуіміз үшін мұны өтінімде көрсетіңіз.</p>
-          <a class="card-link" href="#zayavka">Өтінім қалдыру →</a>
-        </article>
+          <span class="go"><i>↗</i> Өтінім қалдыру</span>
+        </a>
+        <a class="type rv" href="#zayavka">
+          <img src="/assets/img/sanuzel.webp" alt="Жөндеуден кейінгі санторап" loading="lazy" width="1100" height="733">
+          <span class="idx">03</span>
+          <h3>Санторап, ас үй, бөлме</h3>
+          <p>Жекелеген бөлмелер. Мұны өтінімде көрсетіңіз — сәйкес компания іздейміз.</p>
+          <span class="go"><i>↗</i> Өтінім қалдыру</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- CHECKLIST -->
-  <section class="dark">
-    <div class="wrap two-col">
-      <div>
-        <span class="eyebrow">Шарт жасаспас бұрын</span>
-        <h2>Кез келген компанияға қоюға тұрарлық 7 сұрақ</h2>
-        <p class="muted">Компанияны бізсіз тапсаңыз да. Сұрақтардың бір бөлігіне жалтарып жауап берсе, бұл сақ болуға себеп.</p>
-        <a class="btn btn-primary" href="/kak-vybrat-podryadchika/" hreflang="ru">Компанияны қалай таңдау керек</a>
-      </div>
-      <ol class="checklist">
-        <li>Бағаға нақты не кіреді, ал не бөлек төленеді?</li>
-        <li>Әр кезеңнің мерзімі қандай?</li>
-        <li>Жұмысқа қандай кепілдік беріледі және ол қалай ресімделеді?</li>
-        <li>Материалдарды кім сатып алады және оларды қалай келіседі?</li>
-        <li>Төлем қалай жүреді: кезең-кезеңмен бе, әлде алдын ала ма?</li>
-        <li>Көлемдері мен бағалары көрсетілген толық смета бола ма?</li>
-        <li>Дайын нысандарды көруге бола ма?</li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- COST -->
-  <section id="stoimost">
+  <!-- 5. Жөндеу кезеңдері (sticky) -->
+  <section id="etapy" style="padding-top:0">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Құны</span>
-        <h2>Жөндеу бағасы неге байланысты</h2>
-        <p>Ұқсас екі пәтердің бағасы бірнеше есе өзгеше болуы мүмкін. Нақты соманы компания өлшеу жүргізіп, смета жасағаннан кейін айтады. Біз алдын ала «1 м² бағасын» уәде етпейміз.</p>
+      <div class="head-split">
+        <div>
+          <div class="kicker"><b>03</b> Жөндеуге не кіреді</div>
+          <h2 class="rv">Шарт жасаспас бұрын түсінген жөн бес кезең</h2>
+        </div>
+        <p class="rv">Кезеңдерді білсеңіз, сметаларды салыстыру және компанияға дұрыс сұрақ қою оңайырақ.</p>
       </div>
-      <div class="cards c3">
-        <div class="card"><h3>Аудан көлемі мен жоспарлау</h3><p>Бөлме мен санторап көп болса, аудан көлемі бірдей болса да, жұмыс көбейеді.</p></div>
-        <div class="card"><h3>Пәтердің жағдайы</h3><p>Қара әрлеу, таза алдындағы әрлеу немесе бөлшектелетін ескі жөндеу.</p></div>
-        <div class="card"><h3>Жұмыс көлемі</h3><p>Косметикалық, күрделі жөндеу немесе электр мен сантехникасымен бірге кілт тапсыруға дейінгі жөндеу.</p></div>
-        <div class="card"><h3>Материалдар</h3><p>Плитканың, еден жабынының, сантехника мен есіктердің класы қорытынды соманы айтарлықтай өзгертеді.</p></div>
-        <div class="card"><h3>Дизайн-жоба</h3><p>Жоба болса, сметаны сызбалар бойынша есептейді, жоба болмаса — өлшеу мен тілектеріңіз бойынша.</p></div>
-        <div class="card"><h3>Мерзім</h3><p>Шұғыл жөндеуге бір мезгілде көбірек шебер қажет.</p></div>
+      <div class="scope">
+        <div class="scope-media" aria-hidden="true">
+          <img class="on" src="/assets/img/vtorichka.webp" alt="" loading="lazy">
+          <img src="/assets/img/hero-before.webp" alt="" loading="lazy">
+          <img src="/assets/img/novostroyka.webp" alt="" loading="lazy">
+          <img src="/assets/img/bath-2.webp" alt="" loading="lazy">
+          <img src="/assets/img/living-1.webp" alt="" loading="lazy">
+          <div class="scope-counter"><b>01</b><span>Дайындық және бөлшектеу</span></div>
+        </div>
+        <ol class="scope-list">
+          <li class="scope-item on"><span class="n">01-КЕЗЕҢ</span><h3>Дайындық және бөлшектеу</h3><p>Өлшеу, дизайн-жоба немесе тілектер тізімі, смета. Қайталама нарықта — ескі әрлеуді бөлшектеу. Жаңа үйде — қабылдау актісіне қол қоймас бұрын пәтерді тексеру.</p><div class="chips"><span class="chip">Өлшеу</span><span class="chip">Смета</span><span class="chip">Бөлшектеу</span></div><img class="mob-img" src="/assets/img/vtorichka.webp" alt="" loading="lazy"></li>
+          <li class="scope-item"><span class="n">02-КЕЗЕҢ</span><h3>Электр және сантехника</h3><p>Кабельдер, розетка қораптары, электр қалқаны, сумен жабдықтау және кәріз құбырлары. Жасырын жұмыстарды жабылмай тұрып суретке түсіріп алған жөн.</p><div class="chips"><span class="chip">Электр сымдары</span><span class="chip">Құбырлар</span><span class="chip">Жасырын жұмыстардың суреті</span></div><img class="mob-img" src="/assets/img/hero-before.webp" alt="" loading="lazy"></li>
+          <li class="scope-item"><span class="n">03-КЕЗЕҢ</span><h3>Қара жұмыстар</h3><p>Қалқалар, қабырғаларды сылау, еден құю, геометрияны тексеру. Қалғанының бәрі тегіс орнайтыны осы кезеңге байланысты.</p><div class="chips"><span class="chip">Еден құю</span><span class="chip">Сылақ</span><span class="chip">Қалқалар</span></div><img class="mob-img" src="/assets/img/novostroyka.webp" alt="" loading="lazy"></li>
+          <li class="scope-item"><span class="n">04-КЕЗЕҢ</span><h3>Таза алдындағы және таза әрлеу</h3><p>Гипсокартон, шпаклевка, плитка, еден жабындары, бояу, есіктер, сантехника және электр фурнитурасы.</p><div class="chips"><span class="chip">Плитка</span><span class="chip">Бояу</span><span class="chip">Есіктер</span></div><img class="mob-img" src="/assets/img/bath-2.webp" alt="" loading="lazy"></li>
+          <li class="scope-item"><span class="n">05-КЕЗЕҢ</span><h3>Қабылдау және кілт</h3><p>Жарықты, суды және жылытуды тексеру, акт бойынша соңғы қабылдау. Кепілдік пен оның мерзімі компаниямен жасалған шартта көрсетіледі.</p><div class="chips"><span class="chip">Акт</span><span class="chip">Кепілдік</span><span class="chip">Кілт</span></div><img class="mob-img" src="/assets/img/living-1.webp" alt="" loading="lazy"></li>
+        </ol>
       </div>
-      <p style="margin-top:24px"><a class="card-link" href="/stoimost-remonta/" hreflang="ru" style="color:var(--accent);font-weight:700">Жөндеу құны туралы толығырақ →</a></p>
     </div>
   </section>
 
-  <!-- QUIZ -->
-  <section id="zayavka" class="alt">
-    <div class="wrap quiz-wrap">
-      <div>
-        <span class="eyebrow">Өтінім</span>
-        <h2>Пәтеріңізге сай компания табамыз</h2>
-        <p class="muted">Алты қысқа сұрақ. Соңында дайын өтініммен WhatsApp ашылады: мәтінді тексеріп, өзіңіз жібересіз. Өзіңіз келісім бермейінше, бейтаныс нөмірлерден қоңырау болмайды.</p>
-        <ul class="checklist">
-          <li>Сіз үшін тегін</li>
-          <li>Байланыс деректерін тек өтінім жіберілетін компанияға береміз</li>
-          <li>Кез келген кезеңде бас тартуға болады</li>
+  <!-- 6. Шарт алдында (ашық блок, қойындылар) -->
+  <section class="light">
+    <div class="wrap">
+      <div class="head-split">
+        <div>
+          <div class="kicker"><b>04</b> Шарт жасаспас бұрын</div>
+          <h2 class="rv">Кез келген компаниядан не сұрау керек</h2>
+        </div>
+        <p class="rv">Компанияны бізсіз тапсаңыз да. Жалтарып жауап берсе, бұл сақ болуға себеп.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Тексеру тізімдері">
+        <button class="tab" role="tab" id="t-q" aria-selected="true" aria-controls="p-q">7 сұрақ</button>
+        <button class="tab" role="tab" id="t-f" aria-selected="false" aria-controls="p-f">6 қауіп белгісі</button>
+      </div>
+      <div class="panel" id="p-q" role="tabpanel" aria-labelledby="t-q">
+        <ol class="qgrid">
+          <li><span>Бағаға не кіреді?<small>Ал не бөлек төленеді</small></span></li>
+          <li><span>Әр кезеңнің мерзімі қандай?<small>Жалпы мерзім ғана емес</small></span></li>
+          <li><span>Қандай кепілдік беріледі?<small>Және ол қалай ресімделеді</small></span></li>
+          <li><span>Материалдарды кім сатып алады?<small>Және оларды қалай келіседі</small></span></li>
+          <li><span>Төлем қалай жүреді?<small>Кезең-кезеңмен бе, әлде алдын ала ма</small></span></li>
+          <li><span>Толық смета бола ма?<small>Көлемдері мен бағалары көрсетілген</small></span></li>
+          <li><span>Нысандарды көруге бола ма?<small>Дайын немесе жұмыс үстіндегі</small></span></li>
+        </ol>
+      </div>
+      <div class="panel" id="p-f" role="tabpanel" aria-labelledby="t-f" hidden>
+        <ul class="qgrid flags">
+          <li>Жазбаша шарт жоқ</li>
+          <li>100% алдын ала төлем сұрайды</li>
+          <li>Баға нарықтан әлдеқайда төмен, бірақ ешкім себебін түсіндірмейді</li>
+          <li>Толық смета жоқ</li>
+          <li>Нысандарын көрсетпейді</li>
+          <li>Мерзімдер тек ауызша айтылады</li>
         </ul>
       </div>
+      <p style="margin-top:32px"><a class="btn btn-dark" href="/kak-vybrat-podryadchika/" hreflang="ru">Толығырақ: компанияны қалай таңдау керек <span class="arrow">→</span></a></p>
+    </div>
+  </section>
 
-      <form id="quiz" class="quiz" novalidate
+  <!-- 7. Құны -->
+  <section id="stoimost">
+    <div class="wrap">
+      <div class="head-split">
+        <div>
+          <div class="kicker"><b>05</b> Құны</div>
+          <h2 class="rv">Жөндеу бағасы неге байланысты</h2>
+        </div>
+        <p class="rv">Нақты соманы компания өлшеу жүргізіп, смета жасағаннан кейін айтады. Біз алдын ала «1 м² бағасын» уәде етпейміз. <a href="/stoimost-remonta/" hreflang="ru" style="color:var(--accent)">Толығырақ →</a></p>
+      </div>
+      <div class="cost-grid rv">
+        <div class="cost"><span class="n">01</span><h3>Аудан көлемі мен жоспарлау</h3><p>Бөлме мен санторап көп болса, аудан көлемі бірдей болса да, жұмыс көбейеді.</p></div>
+        <div class="cost"><span class="n">02</span><h3>Пәтердің жағдайы</h3><p>Қара әрлеу, таза алдындағы әрлеу немесе бөлшектелетін ескі жөндеу.</p></div>
+        <div class="cost"><span class="n">03</span><h3>Жұмыс көлемі</h3><p>Косметикалық, күрделі жөндеу немесе электр мен сантехникасымен бірге кілт тапсыруға дейінгі жөндеу.</p></div>
+        <div class="cost"><span class="n">04</span><h3>Материалдар</h3><p>Плитканың, еден жабынының, сантехника мен есіктердің класы қорытынды соманы айтарлықтай өзгертеді.</p></div>
+        <div class="cost"><span class="n">05</span><h3>Дизайн-жоба</h3><p>Жоба болса, сметаны сызбалар бойынша есептейді, жоба болмаса — өлшеу мен тілектеріңіз бойынша.</p></div>
+        <div class="cost"><span class="n">06</span><h3>Мерзім</h3><p>Шұғыл жөндеуге бір мезгілде көбірек шебер қажет.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Идеялар галереясы -->
+  <section class="gallery" aria-label="Интерьер идеялары">
+    <div class="gallery-track">
+      <figure><img src="/assets/img/living-2.webp" alt="Жарық қонақ бөлме" loading="lazy"></figure>
+      <figure><img src="/assets/img/kitchen-1.webp" alt="Ас үй мен қонақ бөлме" loading="lazy"></figure>
+      <figure><img src="/assets/img/bath-2.webp" alt="Жуынатын бөлме" loading="lazy"></figure>
+      <figure><img src="/assets/img/living-3.webp" alt="Ақ жиһазы бар қонақ бөлме" loading="lazy"></figure>
+      <figure><img src="/assets/img/living-1.webp" alt="Жылы түстегі қонақ бөлме" loading="lazy"></figure>
+      <figure><img src="/assets/img/living-4.webp" alt="Панорамалық терезелері бар қонақ бөлме" loading="lazy"></figure>
+      <figure aria-hidden="true"><img src="/assets/img/living-2.webp" alt="" loading="lazy"></figure>
+      <figure aria-hidden="true"><img src="/assets/img/kitchen-1.webp" alt="" loading="lazy"></figure>
+      <figure aria-hidden="true"><img src="/assets/img/bath-2.webp" alt="" loading="lazy"></figure>
+      <figure aria-hidden="true"><img src="/assets/img/living-3.webp" alt="" loading="lazy"></figure>
+      <figure aria-hidden="true"><img src="/assets/img/living-1.webp" alt="" loading="lazy"></figure>
+      <figure aria-hidden="true"><img src="/assets/img/living-4.webp" alt="" loading="lazy"></figure>
+    </div>
+    <p class="gallery-note">Шабыт үшін идеялар. Фото мысал ретінде берілген (Unsplash), бұл біздің серіктестеріміздің нысандары емес.</p>
+  </section>
+
+  <!-- 9. Өтінім -->
+  <section id="zayavka">
+    <div class="wrap quiz-wrap">
+      <div>
+        <div class="kicker"><b>06</b> Өтінім</div>
+        <h2 class="rv">Пәтеріңізге сай компания табамыз</h2>
+        <p class="muted rv">Алты қысқа сұрақ. Соңында дайын өтініммен WhatsApp ашылады: мәтінді тексеріп, өзіңіз жібересіз.</p>
+        <div class="contact-cards rv">
+          <a class="contact-card" data-wa="Сәлеметсіз бе! Пәтер жөндеуді талқылағым келеді." data-place="contact-card"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg></i><span><small>WhatsApp</small><b>+7 747 202 39 69</b></span></a>
+          <a class="contact-card" href="tel:+77472023969"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></i><span><small>Қоңырау шалу</small><b>8 747 202 39 69</b></span></a>
+          <a class="contact-card" href="mailto:stroyling12@gmail.com"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></i><span><small>Пошта</small><b>stroyling12@gmail.com</b></span></a>
+        </div>
+      </div>
+
+      <form id="quiz" class="quiz rv" novalidate
             data-counter-text="{n}-қадам / {total}"
             data-send-text="WhatsApp-қа жіберу"
             data-wa-intro="Сәлеметсіз бе! StroyLink сайтынан жөндеуге компания іріктеу өтінімі:"
@@ -233,10 +323,10 @@
             data-msg-fill="Өрісті толтырыңыз"
             data-msg-phone="Телефон нөмірін тексеріңіз"
             data-msg-consent="Келісіміңізсіз өтінімді компанияға жібере алмаймыз">
+        <div class="ticket"><b>Іріктеуге өтінім</b><span>Тегін</span></div>
         <div class="quiz-body">
           <div class="quiz-top"><span data-counter>1-қадам / 6</span><span>≈ 1 минут</span></div>
           <div class="progress" aria-hidden="true"><span></span></div>
-
           <div class="step">
             <fieldset data-label="Пәтер">
               <legend>Пәтеріңіз қандай?</legend>
@@ -339,32 +429,33 @@
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq">
+  <!-- 10. FAQ -->
+  <section id="faq" style="padding-top:0">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Сұрақтар</span>
-        <h2>Жиі қойылатын сұрақтар</h2>
+      <div class="head-split">
+        <div>
+          <div class="kicker"><b>07</b> Сұрақтар</div>
+          <h2 class="rv">Жиі қойылатын сұрақтар</h2>
+        </div>
       </div>
       <div class="faq">
-        <details><summary>Неге бұл мен үшін тегін?</summary><p>Бізге компания төлейді, және тек сіз онымен шарт жасасуды өзіңіз шешкен жағдайда ғана. Сіз бізге ештеңе төлемейсіз: не бұрын, не кейін.</p></details>
-        <details><summary>Жөндеуді өздеріңіз жасайсыздар ма?</summary><p>Жоқ. Біз жөндеу бригадасы емеспіз. Біз тапсырмаңызды нақтылап, оны осындай нысандарды алатын компанияға жібереміз. Шартты, сметаны, мерзімді және кепілдікті компаниямен тікелей келісесіз.</p></details>
-        <details><summary>Нөмірімді кімге бересіздер?</summary><p>Тек өтініміңізді жіберетін компанияға және тек сіздің келісіміңізбен. Біз байланыс деректерін жарияламаймыз және сатпаймыз. Толығырақ — <a href="/privacy/" hreflang="ru">құпиялылық саясатында</a>.</p></details>
-        <details><summary>Алматыда пәтер жөндеу қанша тұрады?</summary><p>Баға аудан көлеміне, пәтердің жағдайына, жұмыс көлеміне, материалдарға, дизайн-жобаға және мерзімге байланысты. Нақты соманы компания өлшеу жүргізіп, смета жасағаннан кейін айтады. <a href="/stoimost-remonta/" hreflang="ru">Құн неден құралады</a>.</p></details>
-        <details><summary>Шарт жасасуға міндеттімін бе?</summary><p>Жоқ. Компаниямен кездесіп, сметаны көресіз де, өзіңіз шешесіз. Сәйкес келмесе, ештеңе жоғалтпайсыз.</p></details>
-        <details><summary>Құрылыс салушыдан әлі кілт алған жоқпын. Жазуға ерте ме?</summary><p>Жоқ, бұл жақсы уақыт. Кілт қолға тигенше компаниялар мен сметаларды асықпай салыстыруға болады. Өтінімде «кілт күтемін» деп белгілеңіз.</p></details>
+        <details><summary>Неге бұл мен үшін тегін?</summary><div class="faq-body"><p>Бізге компания төлейді, және тек сіз онымен шарт жасасуды өзіңіз шешкен жағдайда ғана. Сіз бізге ештеңе төлемейсіз: не бұрын, не кейін.</p></div></details>
+        <details><summary>Жөндеуді өздеріңіз жасайсыздар ма?</summary><div class="faq-body"><p>Жоқ. Біз жөндеу бригадасы емеспіз. Біз тапсырмаңызды нақтылап, оны осындай нысандарды алатын компанияға жібереміз. Шартты, сметаны, мерзімді және кепілдікті компаниямен тікелей келісесіз.</p></div></details>
+        <details><summary>Нөмірімді кімге бересіздер?</summary><div class="faq-body"><p>Тек өтініміңізді жіберетін компанияға және тек сіздің келісіміңізбен. Біз байланыс деректерін жарияламаймыз және сатпаймыз. Толығырақ — <a href="/privacy/" hreflang="ru">құпиялылық саясатында</a>.</p></div></details>
+        <details><summary>Алматыда пәтер жөндеу қанша тұрады?</summary><div class="faq-body"><p>Баға аудан көлеміне, пәтердің жағдайына, жұмыс көлеміне, материалдарға, дизайн-жобаға және мерзімге байланысты. Нақты соманы компания өлшеу жүргізіп, смета жасағаннан кейін айтады. <a href="/stoimost-remonta/" hreflang="ru">Құн неден құралады</a>.</p></div></details>
+        <details><summary>Шарт жасасуға міндеттімін бе?</summary><div class="faq-body"><p>Жоқ. Компаниямен кездесіп, сметаны көресіз де, өзіңіз шешесіз. Сәйкес келмесе, ештеңе жоғалтпайсыз.</p></div></details>
+        <details><summary>Құрылыс салушыдан әлі кілт алған жоқпын. Жазуға ерте ме?</summary><div class="faq-body"><p>Жоқ, бұл жақсы уақыт. Кілт қолға тигенше компаниялар мен сметаларды асықпай салыстыруға болады. Өтінімде «кілт күтемін» деп белгілеңіз.</p></div></details>
       </div>
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <!-- 11. Үлкен CTA -->
+  <section class="big-cta">
     <div class="wrap">
-      <div class="cta-band">
-        <div>
-          <h2>Жөндеу жоспарлап жүрсіз бе?</h2>
-          <p>6 сұраққа жауап беріңіз, қалғанын WhatsApp-та талқылаймыз.</p>
-        </div>
-        <a class="btn" href="#zayavka">Өтінім қалдыру</a>
+      <h2><span class="w" style="display:inline-block">Жөндеу</span> <span class="w" style="display:inline-block"><em>жоспарлап жүрсіз бе?</em></span></h2>
+      <div class="hero-cta">
+        <a class="btn btn-primary magnetic" href="#zayavka">Өтінім қалдыру <span class="arrow">→</span></a>
+        <a class="btn btn-ghost magnetic" data-wa="Сәлеметсіз бе! Алматыда пәтер жөндегім келеді." data-place="big-cta">WhatsApp-қа жазу</a>
       </div>
     </div>
   </section>
@@ -390,13 +481,16 @@
       <div>
         <h3>Байланыс</h3>
         <ul>
-          <li><a data-wa="Сәлеметсіз бе! Жөндеу бойынша сұрағым бар." data-place="footer">WhatsApp</a></li>
+          <li><a data-wa="Сәлеметсіз бе! Жөндеу бойынша сұрағым бар." data-place="footer">WhatsApp +7 747 202 39 69</a></li>
+          <li><a href="tel:+77472023969">8 747 202 39 69</a></li>
+          <li><a href="mailto:stroyling12@gmail.com">stroyling12@gmail.com</a></li>
           <li><a href="https://www.instagram.com/stroy.ling/" target="_blank" rel="noopener">Instagram @stroy.ling</a></li>
           <li><a href="/privacy/" hreflang="ru">Құпиялылық саясаты</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">© <span id="y">2026</span> StroyLink · Алматы</div>
+    <div class="wordmark" aria-hidden="true">StroyLink</div>
+    <div class="footer-bottom">© 2026 StroyLink · Алматы · Интерьер фотолары: Unsplash</div>
   </div>
 </footer>
 
@@ -405,6 +499,9 @@
   <a class="btn btn-wa" data-wa="Сәлеметсіз бе! Алматыда пәтер жөндегім келеді." data-place="mobile-bar">WhatsApp</a>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="/assets/main.js" defer></script>
+<script src="/assets/home.js" defer></script>
 </body>
 </html>
