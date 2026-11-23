@@ -57,7 +57,7 @@
           {"@type": "Question", "name": "Кому вы передадите мой номер?", "acceptedAnswer": {"@type": "Answer", "text": "Только компании, которой мы передаём вашу заявку, и только с вашего согласия. Мы не публикуем и не продаём контакты."}},
           {"@type": "Question", "name": "Сколько стоит ремонт квартиры в Алматы?", "acceptedAnswer": {"@type": "Answer", "text": "Цена зависит от площади, состояния квартиры, объёма работ, материалов, дизайн-проекта и сроков. Точную сумму называет компания после замера."}},
           {"@type": "Question", "name": "Я обязан подписывать договор?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Вы встречаетесь с компанией, смотрите смету и решаете сами. Если не подошло, вы ничего не теряете."}},
-          {"@type": "Question", "name": "Что, если компания мне не подойдёт?", "acceptedAnswer": {"@type": "Answer", "text": "Просто откажитесь. Вы ничего не должны ни нам, ни компании. Напишите нам — попробуем подобрать другой вариант."}},
+          {"@type": "Question", "name": "Что, если компания мне не подойдёт?", "acceptedAnswer": {"@type": "Answer", "text": "Просто откажитесь. Вы ничего не должны ни нам, ни компании. Напишите нам, что не подошло: подскажем, что делать дальше."}},
           {"@type": "Question", "name": "У меня ещё нет ключей от застройщика. Писать рано?", "acceptedAnswer": {"@type": "Answer", "text": "Нет, это хорошее время. Пока ключей нет, можно спокойно сравнить компании и сметы. Отметьте в заявке «жду ключи»."}}
         ]
       }
@@ -140,7 +140,7 @@
       <div class="vs-head">
         <div class="kicker"><b>01</b> Два пути</div>
         <h2 class="rv">Тот же ремонт. Совсем другой поиск.</h2>
-        <p class="rv">Переключите и сравните, сколько сил уходит, пока вы найдёте компанию.</p>
+        <p class="rv">Сравните два пути: сколько сил уходит, пока вы найдёте компанию.</p>
       </div>
 
       <div class="vs-ctrl">
@@ -155,17 +155,6 @@
             Через StroyLink
           </button>
         </div>
-
-        <div class="vs-meter">
-          <div class="vs-meter-top"><span>Сколько сил уйдёт на поиск</span><b><span class="s-self">Много</span><span class="s-link">Минимум</span></b></div>
-          <div class="vs-meter-bar" aria-hidden="true"><i></i></div>
-        </div>
-
-        <dl class="vs-stats">
-          <div><dt>Кто звонит</dt><dd><span class="s-self">Вы — всем подряд</span><span class="s-link">Компания — вам</span></dd></div>
-          <div><dt>Объяснять задачу</dt><dd><span class="s-self">Каждому заново</span><span class="s-link">Один раз</span></dd></div>
-          <div><dt>Цена для вас</dt><dd><span class="s-self">Время и нервы</span><span class="s-link">0 ₸</span></dd></div>
-        </dl>
       </div>
 
       <div class="vs-stage">
@@ -196,7 +185,21 @@
             <li class="vs-item"><span class="vs-ico" aria-hidden="true"></span><div><b>У вас есть список вопросов к смете и договору</b><small>понятно, что проверить до подписи</small></div></li>
             <li class="vs-item last"><span class="vs-ico" aria-hidden="true"></span><div><b>Решаете вы. Для вас — бесплатно</b><small>не подошло — просто отказываетесь</small></div></li>
           </ol>
+          <p class="vs-stamp"><b>0 ₸</b> для вас <span aria-hidden="true">·</span> без обязательств</p>
         </div>
+      </div>
+
+      <div class="vs-sum">
+        <div class="vs-meter">
+          <div class="vs-meter-top"><span>Сколько сил уйдёт на поиск</span><b><span class="s-self">Много</span><span class="s-link">Минимум</span></b></div>
+          <div class="vs-meter-bar" aria-hidden="true"><i></i></div>
+        </div>
+
+        <dl class="vs-stats">
+          <div><dt>Кто звонит</dt><dd><span class="s-self">Вы — всем подряд</span><span class="s-link">Компания — вам</span></dd></div>
+          <div><dt>Объяснять задачу</dt><dd><span class="s-self">Каждому заново</span><span class="s-link">Один раз</span></dd></div>
+          <div><dt>Цена для вас</dt><dd><span class="s-self">Время и нервы</span><span class="s-link">0 ₸</span></dd></div>
+        </dl>
       </div>
 
       <div class="vs-foot">
@@ -265,7 +268,7 @@
       <div class="norisk rv">
         <i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></i>
         <p><b>Без риска.</b> Вы не платите нам ни тенге. Отказаться можно на любом шаге — даже после встречи с компанией.</p>
-        <a class="btn btn-primary" href="#zayavka">Подобрать компанию — бесплатно <span class="arrow">→</span></a>
+        <a class="btn btn-primary" href="#zayavka">Попробовать бесплатно <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
@@ -319,10 +322,10 @@
     </div>
     <div class="path-viewport">
       <div class="path-track">
-        <article class="path-card you"><span class="tag">Вы · ≈ 1 минута</span><div class="num">01</div><h3>Отвечаете на 6 вопросов</h3><p>Район, площадь, бюджет, сроки. Без регистрации.</p></article>
-        <article class="path-card we"><span class="tag">Мы · WhatsApp</span><div class="num">02</div><h3>Уточняем детали</h3><p>Пара вопросов в чате. Без навязчивых звонков.</p></article>
-        <article class="path-card we"><span class="tag">Мы · с вашего согласия</span><div class="num">03</div><h3>Передаём заявку</h3><p>Компании, которая берёт как раз такие квартиры.</p></article>
-        <article class="path-card co"><span class="tag">Компания · замер</span><div class="num">04</div><h3>Компания звонит сама</h3><p>Приезжает на замер и считает смету. Пересказывать ничего не нужно.</p></article>
+        <article class="path-card you"><span class="tag">Вы · ≈ 1 минута</span><div class="num">01</div><div class="pc-demo pc-chips" aria-hidden="true"><span>Вторичка</span><span>45–70 м²</span><span>Медеуский</span><span>Через месяц</span><span class="go">Отправить ✓</span></div><h3>Отвечаете на 6 вопросов</h3><p>Район, площадь, бюджет, сроки. Без регистрации.</p></article>
+        <article class="path-card we"><span class="tag">Мы · WhatsApp</span><div class="num">02</div><div class="pc-demo pc-chat" aria-hidden="true"><p class="in">Здравствуйте! Уточним: санузел совмещённый?</p><p class="out">Да, совмещённый</p></div><h3>Уточняем детали</h3><p>Пара вопросов в чате. Без навязчивых звонков.</p></article>
+        <article class="path-card we"><span class="tag">Мы · с вашего согласия</span><div class="num">03</div><div class="pc-demo pc-pass" aria-hidden="true"><span>Ваша заявка</span><i></i><span>Компания</span></div><h3>Передаём заявку</h3><p>Компании, которая берёт как раз такие квартиры.</p></article>
+        <article class="path-card co"><span class="tag">Компания · замер</span><div class="num">04</div><div class="pc-demo pc-est" aria-hidden="true"><span>Смета</span><ul><li>Демонтаж</li><li>Электрика</li><li>Стяжка и стены</li><li>Отделка</li></ul></div><h3>Компания звонит сама</h3><p>Приезжает на замер и считает смету. Пересказывать ничего не нужно.</p></article>
         <article class="path-card final"><div class="num">05</div><h3>Решаете вы</h3><p>Подошло — подписываете договор с компанией напрямую. Нет — вы ничего не должны.</p><a class="btn" href="#zayavka">Начать — это бесплатно <span class="arrow">→</span></a></article>
       </div>
     </div>
@@ -370,7 +373,7 @@
           <div class="kicker"><b>06</b> Перед договором</div>
           <h2 class="rv">Эти вопросы защищают ваши деньги</h2>
         </div>
-        <p class="rv">Задайте их любой компании, даже если нашли её без нас. Нормальная компания ответит спокойно и запишет это в договор. Если начинают увиливать — насторожитесь.</p>
+        <p class="rv">Задайте их любой компании, даже если нашли её без нас. Нормальная компания ответит спокойно. Если увиливает — насторожитесь.</p>
       </div>
       <div class="tabs" role="tablist" aria-label="Что проверить перед договором">
         <button class="tab" role="tab" id="t-q" aria-selected="true" aria-controls="p-q">7 вопросов компании</button>
@@ -594,7 +597,7 @@
         <details><summary>Кому вы передадите мой номер?</summary><div class="faq-body"><p>Только компании, которой мы передаём вашу заявку, и только с вашего согласия. Мы не публикуем и не продаём контакты. Подробнее — в <a href="/privacy/">политике конфиденциальности</a>.</p></div></details>
         <details><summary>Сколько стоит ремонт квартиры в Алматы?</summary><div class="faq-body"><p>Цена зависит от площади, состояния квартиры, объёма работ, материалов, дизайн-проекта и сроков. Точную сумму называет компания после замера. <a href="/stoimost-remonta/">Из чего складывается стоимость</a>.</p></div></details>
         <details><summary>Я обязан подписывать договор?</summary><div class="faq-body"><p>Нет. Вы встречаетесь с компанией, смотрите смету и решаете сами. Если не подошло, вы ничего не теряете.</p></div></details>
-        <details><summary>Что, если компания мне не подойдёт?</summary><div class="faq-body"><p>Просто откажитесь. Вы ничего не должны ни нам, ни компании. Напишите нам — попробуем подобрать другой вариант.</p></div></details>
+        <details><summary>Что, если компания мне не подойдёт?</summary><div class="faq-body"><p>Просто откажитесь. Вы ничего не должны ни нам, ни компании. Напишите нам, что не подошло: подскажем, что делать дальше.</p></div></details>
         <details><summary>У меня ещё нет ключей от застройщика. Писать рано?</summary><div class="faq-body"><p>Нет, это хорошее время. Пока ключей нет, можно спокойно сравнить компании и сметы. Отметьте в заявке «жду ключи».</p></div></details>
       </div>
     </div>
