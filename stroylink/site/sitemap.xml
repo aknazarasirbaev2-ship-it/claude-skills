@@ -2,18 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://SITE-DOMAIN.kz/</loc>
-    <xhtml:link rel="alternate" hreflang="ru-KZ" href="https://SITE-DOMAIN.kz/"/>
-    <xhtml:link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/kz/"/>
-    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/"/>
+    <xhtml:link rel="alternate" hreflang="ru-KZ" href="https://SITE-DOMAIN.kz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://SITE-DOMAIN.kz/"/>
+    <lastmod>2026-11-23</lastmod>
   </url>
   <url>
-    <loc>https://SITE-DOMAIN.kz/kz/</loc>
-    <xhtml:link rel="alternate" hreflang="ru-KZ" href="https://SITE-DOMAIN.kz/"/>
-    <xhtml:link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/kz/"/>
-    <lastmod>2026-11-22</lastmod>
+    <loc>https://SITE-DOMAIN.kz/ru/</loc>
+    <xhtml:link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/"/>
+    <xhtml:link rel="alternate" hreflang="ru-KZ" href="https://SITE-DOMAIN.kz/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://SITE-DOMAIN.kz/"/>
+    <lastmod>2026-11-23</lastmod>
   </url>
-  <url><loc>https://SITE-DOMAIN.kz/remont-v-novostrojke/</loc><lastmod>2026-11-22</lastmod></url>
-  <url><loc>https://SITE-DOMAIN.kz/stoimost-remonta/</loc><lastmod>2026-11-22</lastmod></url>
-  <url><loc>https://SITE-DOMAIN.kz/kak-vybrat-podryadchika/</loc><lastmod>2026-11-22</lastmod></url>
-  <url><loc>https://SITE-DOMAIN.kz/privacy/</loc><lastmod>2026-11-22</lastmod></url>
+  <url>
+    <loc>https://SITE-DOMAIN.kz/remont-v-novostrojke/</loc>
+    <xhtml:link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/remont-v-novostrojke/"/>
+    <xhtml:link rel="alternate" hreflang="ru-KZ" href="https://SITE-DOMAIN.kz/ru/remont-v-novostrojke/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://SITE-DOMAIN.kz/remont-v-novostrojke/"/>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+  <url>
+    <loc>https://SITE-DOMAIN.kz/ru/remont-v-novostrojke/</loc>
+    <xhtml:link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/remont-v-novostrojke/"/>
+    <xhtml:link rel="alternate" hreflang="ru-KZ" href="https://SITE-DOMAIN.kz/ru/remont-v-novostrojke/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://SITE-DOMAIN.kz/remont-v-novostrojke/"/>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+  <url>
+    <loc>https://SITE-DOMAIN.kz/stoimost-remonta/</loc>
+    <xhtml:link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/stoimost-remonta/"/>
+    <xhtml:link rel="alternate" hreflang="ru-KZ" href="https://SITE-DOMAIN.kz/ru/stoimost-remonta/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://SITE-DOMAIN.kz/stoimost-remonta/"/>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+  <url>
+    <loc>https://SITE-DOMAIN.kz/ru/stoimost-remonta/</loc>
+    <xhtml:link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/stoimost-remonta/"/>
+    <xhtml:link rel="alternate" hreflang="ru-KZ" href="https://SITE-DOMAIN.kz/ru/stoimost-remonta/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://SITE-DOMAIN.kz/stoimost-remonta/"/>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+  <url>
+    <loc>https://SITE-DOMAIN.kz/kak-vybrat-podryadchika/</loc>
+    <xhtml:link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/kak-vybrat-podryadchika/"/>
+    <xhtml:link rel="alternate" hreflang="ru-KZ" href="https://SITE-DOMAIN.kz/ru/kak-vybrat-podryadchika/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://SITE-DOMAIN.kz/kak-vybrat-podryadchika/"/>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+  <url>
+    <loc>https://SITE-DOMAIN.kz/ru/kak-vybrat-podryadchika/</loc>
+    <xhtml:link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/kak-vybrat-podryadchika/"/>
+    <xhtml:link rel="alternate" hreflang="ru-KZ" href="https://SITE-DOMAIN.kz/ru/kak-vybrat-podryadchika/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://SITE-DOMAIN.kz/kak-vybrat-podryadchika/"/>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+  <url>
+    <loc>https://SITE-DOMAIN.kz/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ru-KZ" href="https://SITE-DOMAIN.kz/ru/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://SITE-DOMAIN.kz/privacy/"/>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+  <url>
+    <loc>https://SITE-DOMAIN.kz/ru/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ru-KZ" href="https://SITE-DOMAIN.kz/ru/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://SITE-DOMAIN.kz/privacy/"/>
+    <lastmod>2026-11-23</lastmod>
+  </url>
 </urlset>
