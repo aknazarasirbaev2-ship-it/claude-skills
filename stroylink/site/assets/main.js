@@ -65,10 +65,13 @@ const CONFIG = {
   let started = false;
 
   function show(i) {
+    // направление шага для анимации: «Назад» приходит слева, «Далее» — справа (см. motion.css)
+    form.classList.toggle("is-back", i < current);
     steps.forEach(function (s, k) { s.classList.toggle("active", k === i); });
     current = i;
     const total = steps.length;
-    bar.style.width = ((i + 1) / total * 100) + "%";
+    // полоска прогресса: transform вместо width — без пересчёта раскладки
+    bar.style.transform = "scaleX(" + ((i + 1) / total) + ")";
     counter.textContent = tpl(counterText, i + 1, total);
     btnBack.disabled = i === 0;
     btnNext.textContent = i === total - 1 ? sendText : nextText;

@@ -17,10 +17,13 @@
   --shadow: 0 1px 2px rgba(20, 30, 28, .06), 0 8px 24px rgba(20, 30, 28, .06);
   --max: 1160px;
   --font: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  /* motion tokens: сильный ease-out для входов/ответов, ease-in-out для движения по экрану */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
 body {
   margin: 0;
   background: var(--bg);
@@ -38,8 +41,8 @@ h2 { font-size: clamp(1.6rem, 3.6vw, 2.5rem); font-weight: 800; }
 h3 { font-size: 1.2rem; font-weight: 700; }
 p { margin: 0 0 1em; }
 .muted { color: var(--ink-2); }
-.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 16px; }
-@media (min-width: 720px) { .wrap { padding: 0 28px; } }
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 16px; padding: 0 max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px)); }
+@media (min-width: 720px) { .wrap { padding: 0 28px; padding: 0 max(28px, env(safe-area-inset-right, 0px)) 0 max(28px, env(safe-area-inset-left, 0px)); } }
 
 .skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: #fff; padding: 8px 12px; z-index: 100; }
 .skip:focus { left: 8px; top: 8px; }
@@ -51,16 +54,15 @@ p { margin: 0 0 1em; }
   background: rgba(245, 238, 232, .92);
   backdrop-filter: saturate(1.4) blur(10px);
   border-bottom: 1px solid var(--line);
+  padding-top: env(safe-area-inset-top, 0px); /* под «чёлкой» в полноэкранном режиме */
 }
 .site-header .wrap { display: flex; align-items: center; gap: 16px; height: 64px; }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 1.15rem; letter-spacing: -.02em; }
 .logo-mark { width: 32px; height: 32px; }
 .nav { display: none; gap: 22px; margin-left: auto; }
 .nav a { text-decoration: none; color: var(--ink-2); font-weight: 600; font-size: .95rem; }
-.nav a:hover { color: var(--ink); }
 .header-actions { margin-left: auto; display: flex; gap: 8px; align-items: center; }
 .lang { text-decoration: none; font-weight: 700; font-size: .85rem; border: 1px solid var(--line); border-radius: 999px; padding: 6px 11px; color: var(--ink-2); }
-.lang:hover { border-color: var(--ink-2); color: var(--ink); }
 @media (min-width: 960px) {
   .nav { display: flex; }
   .header-actions { margin-left: 22px; }
@@ -71,16 +73,32 @@ p { margin: 0 0 1em; }
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   font: inherit; font-weight: 700; font-size: 1rem;
   padding: 14px 22px; border-radius: 12px; border: 2px solid transparent;
-  text-decoration: none; cursor: pointer; transition: transform .12s ease, background .15s ease, border-color .15s ease;
+  text-decoration: none; cursor: pointer;
+  /* нажатие — через свойство scale: оно не конфликтует с transform (магнитные кнопки двигает GSAP) */
+  transition: scale .16s var(--ease-out), background-color .15s ease, border-color .15s ease, color .15s ease;
   min-height: 48px;
+  -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
 }
-.btn:active { transform: translateY(1px); }
+.btn:active { scale: .97; }
+.btn[disabled]:active { scale: none; }
 .btn-primary { background: var(--accent); color: var(--accent-ink); }
-.btn-primary:hover { background: #2b3e4f; }
 .btn-ghost { background: transparent; border-color: var(--ink); color: var(--ink); }
-.btn-ghost:hover { background: var(--ink); color: #fff; }
 .btn-wa { background: var(--green); color: #fff; }
-.btn-wa:hover { background: #131d24; }
+/* hover — только там, где он есть (мышь); на телефоне он «залипает» после тапа */
+@media (hover: hover) and (pointer: fine) {
+  .nav a:hover { color: var(--ink); }
+  .lang:hover { border-color: var(--ink-2); color: var(--ink); }
+  .btn-primary:hover { background: #2b3e4f; }
+  .btn-ghost:hover { background: var(--ink); color: #fff; }
+  .btn-wa:hover { background: #131d24; }
+  .card .card-link:hover { text-decoration: underline; }
+  .option input:hover + span { border-color: var(--ink-2); }
+  .cta-band .btn:hover { background: var(--dark); color: #fff; }
+  .site-footer a:hover { text-decoration: underline; }
+}
+/* быстрый отклик на тап (без ожидания двойного тапа) и без выделения текста у элементов управления */
+a, button, summary, label, select, [role="button"], [role="tab"] { touch-action: manipulation; }
+button, summary, [role="tab"], .option span, .lang { -webkit-user-select: none; user-select: none; }
 .btn-sm { padding: 8px 14px; min-height: 40px; font-size: .9rem; border-radius: 10px; }
 .btn svg { width: 20px; height: 20px; flex: none; }
 .btn[disabled] { opacity: .45; cursor: not-allowed; }
@@ -130,7 +148,6 @@ section { padding: 64px 0; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; }
 .card p { color: var(--ink-2); }
 .card .card-link { margin-top: auto; font-weight: 700; color: var(--accent); text-decoration: none; }
-.card .card-link:hover { text-decoration: underline; }
 .card-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--accent-soft); display: grid; place-items: center; margin-bottom: 16px; }
 .card-icon svg { width: 24px; height: 24px; stroke: var(--accent); }
 .dark .card { background: #1b2a35; border-color: #2b3e4f; }
@@ -152,7 +169,7 @@ section { padding: 64px 0; }
 @media (min-width: 720px) { .quiz { padding: 32px; } }
 .quiz-top { display: flex; justify-content: space-between; align-items: center; font-size: .85rem; font-weight: 700; color: var(--ink-2); margin-bottom: 10px; }
 .progress { height: 6px; background: var(--surface-2); border-radius: 99px; overflow: hidden; margin-bottom: 24px; }
-.progress span { display: block; height: 100%; width: 0; background: var(--accent); transition: width .25s ease; }
+.progress span { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); transition: transform .3s var(--ease-out); }
 .quiz fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
 .quiz legend { font-size: 1.3rem; font-weight: 800; margin-bottom: 16px; padding: 0; }
 .quiz .step { display: none; }
@@ -163,7 +180,6 @@ section { padding: 64px 0; }
 .option input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
 .option span { display: block; border: 2px solid var(--line); border-radius: 12px; padding: 14px 16px; font-weight: 600; cursor: pointer; transition: border-color .12s, background .12s; height: 100%; }
 .option span small { display: block; font-weight: 500; color: var(--ink-2); font-size: .85rem; }
-.option input:hover + span { border-color: var(--ink-2); }
 .option input:checked + span { border-color: var(--accent); background: var(--accent-soft); }
 .option input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
 .field { display: grid; gap: 6px; margin-bottom: 14px; }
@@ -184,7 +200,7 @@ section { padding: 64px 0; }
 .faq details { border-bottom: 1px solid var(--line); padding: 4px 0; }
 .faq summary { list-style: none; cursor: pointer; font-weight: 700; font-size: 1.1rem; padding: 18px 40px 18px 0; position: relative; }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 1.6rem; font-weight: 500; color: var(--accent); transition: transform .2s; }
+.faq summary::after { content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 1.6rem; font-weight: 500; color: var(--accent); transition: transform .2s var(--ease-out); }
 .faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
 .faq details p { color: var(--ink-2); padding-right: 24px; }
 
@@ -194,7 +210,6 @@ section { padding: 64px 0; }
 .cta-band h2 { margin: 0 0 6px; }
 .cta-band p { margin: 0; opacity: .92; }
 .cta-band .btn { background: #fff; color: var(--ink); }
-.cta-band .btn:hover { background: var(--dark); color: #fff; }
 
 /* ---------- Article pages ---------- */
 .breadcrumbs { font-size: .9rem; color: var(--ink-2); padding: 20px 0 0; }
@@ -212,28 +227,35 @@ th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--li
 th { background: var(--surface-2); font-weight: 800; }
 
 /* ---------- Footer ---------- */
-.site-footer { background: var(--dark); color: #a7b9d5; padding: 48px 0 100px; font-size: .95rem; }
+.site-footer { background: var(--dark); color: #a7b9d5; padding: 48px 0 calc(100px + env(safe-area-inset-bottom, 0px)); font-size: .95rem; }
 @media (min-width: 720px) { .site-footer { padding-bottom: 48px; } }
 .footer-grid { display: grid; gap: 28px; }
 @media (min-width: 820px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; } }
 .site-footer h3 { color: #fff; font-size: 1rem; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
 .site-footer a { color: #dfe6e3; text-decoration: none; }
-.site-footer a:hover { text-decoration: underline; }
 .site-footer .logo { color: #fff; margin-bottom: 12px; }
 .footer-bottom { border-top: 1px solid #2b3e4f; margin-top: 32px; padding-top: 20px; font-size: .85rem; }
 
 /* ---------- Mobile sticky CTA ---------- */
-.mobile-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: flex; gap: 8px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(245, 238, 232, .96); border-top: 1px solid var(--line); backdrop-filter: blur(8px); }
+.mobile-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: flex; gap: 8px; padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); background: rgba(245, 238, 232, .96); border-top: 1px solid var(--line); backdrop-filter: blur(8px); transition: transform .25s var(--ease-out); }
 .mobile-cta .btn { flex: 1; padding: 12px; }
+/* пока человек печатает в форме, нижняя панель уходит вниз и не закрывает поле над клавиатурой */
+body:has(input[type="text"]:focus, input[type="tel"]:focus, textarea:focus) .mobile-cta { transform: translateY(110%); }
 @media (min-width: 720px) { .mobile-cta { display: none; } }
+/* поля формы не меньше 16px — иначе iOS увеличивает страницу при фокусе */
+input, select, textarea { font-size: max(16px, 1em); }
 
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+/* «Уменьшить движение»: убираем перемещения, плавную смену цвета/прозрачности оставляем */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-property: opacity, color, background-color, border-color, visibility !important; }
+}
 
 /* fixes after article pages */
 .article .checklist { padding-left: 0; }
 .cta-band .btn.btn-wa { background: var(--green); color: #fff; }
-.cta-band .btn.btn-wa:hover { background: #131d24; }
+@media (hover: hover) and (pointer: fine) { .cta-band .btn.btn-wa:hover { background: #131d24; } }
 .cta-band .btns { display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* ---------- "Почему через StroyLink" block on subpages ---------- */

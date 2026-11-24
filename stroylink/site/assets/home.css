@@ -132,7 +132,7 @@
 .type { position: relative; border-radius: 26px; overflow: hidden; min-height: 460px; display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; text-decoration: none; color: #fff; isolation: isolate; }
 .type img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 1.1s cubic-bezier(.2,.7,.2,1); }
 .type::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.82) 100%); }
-.type:hover img { transform: scale(1.07); }
+@media (hover: hover) and (pointer: fine) { .type:hover img { transform: scale(1.03); } }
 .type .idx { position: absolute; top: 24px; left: 28px; font-weight: 800; font-size: .85rem; letter-spacing: .1em; opacity: .85; }
 .type h3 { font-size: 1.7rem; margin-bottom: 8px; }
 .type p { margin: 0 0 18px; color: rgba(255,255,255,.82); max-width: 30em; }
@@ -175,7 +175,7 @@
 @media (min-width: 720px) { .qgrid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1100px) { .qgrid { grid-template-columns: repeat(3, 1fr); } }
 .qgrid li { counter-increment: q; background: #fff; border-radius: 20px; padding: 24px 24px 24px 76px; position: relative; font-weight: 700; font-size: 1.08rem; line-height: 1.4; min-height: 96px; display: flex; align-items: center; transition: transform .3s ease, box-shadow .3s ease; }
-.qgrid li:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(23,27,25,.12); }
+
 .qgrid li::before { content: counter(q, decimal-leading-zero); position: absolute; left: 22px; top: 50%; transform: translateY(-50%); font-size: 1.5rem; font-weight: 800; color: #577290; letter-spacing: -.04em; }
 .qgrid.flags li::before { content: "✕"; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-size: 1rem; background: #dfe6f0; color: #2b3e4f; }
 .qgrid li small { display: block; font-weight: 500; color: #5f5951; font-size: .92rem; margin-top: 4px; }
@@ -189,7 +189,7 @@
 .gallery:hover .gallery-track { animation-play-state: paused; }
 .gallery figure { margin: 0; width: clamp(240px, 30vw, 420px); aspect-ratio: 4 / 3; border-radius: 22px; overflow: hidden; flex: none; position: relative; }
 .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
-.gallery figure:hover img { transform: scale(1.06); }
+@media (hover: hover) and (pointer: fine) { .gallery figure:hover img { transform: scale(1.03); } }
 .gallery-note { text-align: center; color: var(--ink-2); font-size: .85rem; margin-top: 18px; }
 
 /* ---------- Cost ---------- */
@@ -387,12 +387,6 @@
 .self .vs-item small { color: #c9a291; }
 .self .vs-ico { background: rgba(201,162,145,.16); }
 .self .vs-ico::before { content: "!"; color: #c9a291; font-weight: 800; font-size: .95rem; }
-.self .vs-item:nth-child(1) { rotate: -1.3deg; translate: 4px 0; }
-.self .vs-item:nth-child(2) { rotate: 1deg; translate: -5px 0; }
-.self .vs-item:nth-child(3) { rotate: -.6deg; translate: 8px 0; }
-.self .vs-item:nth-child(4) { rotate: 1.4deg; translate: -2px 0; }
-.self .vs-item:nth-child(5) { rotate: -1deg; translate: 5px 0; }
-.self .vs-item:nth-child(6) { rotate: .6deg; }
 .self .vs-item.last { background: rgba(201,162,145,.12); border-style: solid; border-color: rgba(201,162,145,.45); }
 .link .vs-item { background: rgba(43,62,79,.45); border: 1px solid rgba(87,114,144,.45); }
 .link .vs-item small { color: var(--sky); }
@@ -424,7 +418,7 @@
 @media (min-width: 1000px) { .ben-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; } }
 .ben { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; padding: 26px; transition: translate .35s ease, border-color .35s ease; }
 @media (min-width: 900px) { .ben { padding: 30px; } }
-.ben:hover { translate: 0 -4px; border-color: var(--steel); }
+@media (hover: hover) and (pointer: fine) { .ben:hover { border-color: var(--steel); } }
 .ben i { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: rgba(167,185,213,.12); color: var(--sky); margin-bottom: 22px; font-style: normal; }
 .ben i svg { width: 26px; height: 26px; }
 .ben h3 { font-size: 1.3rem; margin: 0 0 8px; }
@@ -533,3 +527,118 @@
   .tabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; border-radius: 20px; }
   .tab { border-radius: 15px; padding: 10px 12px; font-size: .95rem; line-height: 1.25; }
 }
+
+/* =====================================================================
+   v4 (taste-skill pass): один вид кнопок, одна шкала заголовков,
+   ровные края, тихие hover-реакции, без мигающих и наклонённых элементов.
+   ===================================================================== */
+/* шапка всегда на месте: в ней главная кнопка; якоря и фокус не прячутся под ней */
+html:has(body.home) { scroll-padding-top: 88px; }
+.home .site-header.hide { transform: none; }
+@media (max-width: 719px) { .home .header-actions .btn { display: none; } }
+
+/* заголовки: h1 > h2 > h3, по одному размеру на уровень */
+.home h2, .home .path h2 { font-size: clamp(2rem, 4.2vw, 3.1rem); line-height: 1.04; }
+.home .type h3, .home .path-card h3, .home .scope-item h3, .home .ben h3, .home .cost h3, .home .vs-panel-head h3 { font-size: 1.4rem; line-height: 1.2; }
+.big-cta h2 { font-size: clamp(2.4rem, 6vw, 5.2rem); max-width: 14ch; margin-bottom: 20px; }
+.home .path-card .num { font-size: 3rem; -webkit-text-stroke-width: 1.5px; }
+@media (max-width: 899px) { .home .path-card .num { font-size: 2.4rem; } }
+.scope-counter b { font-size: 3rem; }
+.home .head-split { margin-bottom: 48px; }
+.home .head-split h2 { margin-bottom: 0; }
+
+/* hero: буквы h1 не срезаются маской строки */
+.hero-x .line { padding-top: .12em; margin-top: -.12em; }
+
+/* одна вторичная кнопка: контурная (WhatsApp и «Назад») */
+.home .btn-wa, .home .btn-ghost { background: transparent; border-color: rgba(239,230,221,.4); color: #fff; }
+.home .btn-wa svg { width: 20px; height: 20px; }
+@media (hover: hover) and (pointer: fine) {
+  .home .btn-wa:hover, .home .btn-ghost:hover { background: #fff; border-color: #fff; color: var(--sand-ink); }
+  .home .btn-primary:hover { background: #ffdcb4; }
+}
+.home .hero-x .btn-wa { background: rgba(13,19,23,.35); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.home .quiz .btn-wa, .home .quiz .btn-ghost { border-color: var(--sand-ink); color: var(--sand-ink); background: transparent; }
+@media (hover: hover) and (pointer: fine) { .home .quiz .btn-wa:hover, .home .quiz .btn-ghost:hover { background: var(--sand-ink); color: #fff; } }
+.home .mobile-cta .btn-wa { background: transparent; color: #fff; }
+.home .mobile-cta .btn-primary { flex: 1.35; }
+
+/* hover: карточка-ссылка приподнимается на 2px, фото — 1.03 внутри рамки */
+.type { transition: translate .25s cubic-bezier(.23,1,.32,1); }
+@media (hover: hover) and (pointer: fine) {
+  .type:hover { translate: 0 -2px; }
+  .contact-card:hover { transform: translateY(-2px); }
+  .light .qgrid li:hover { background: #fff; }
+  .text-link:hover { text-decoration-thickness: 2px; }
+}
+.light .qgrid li { transition: background-color .2s ease; }
+.contact-card { transition: border-color .2s ease, transform .2s cubic-bezier(.23,1,.32,1); }
+.text-link { color: var(--accent); text-underline-offset: 3px; white-space: nowrap; }
+
+/* карточки типов: текст читается на фото, без номеров */
+.home .type::before { background: linear-gradient(180deg, rgba(13,19,23,.1) 0%, rgba(13,19,23,.55) 34%, rgba(13,19,23,.95) 64%, rgba(13,19,23,.97) 100%); }
+
+/* «Два пути»: список «сам» на одной линии; тексты читаемы */
+.home .path-card.final p { color: var(--accent-ink); }
+.ticket span { color: #2b3e4f; }
+
+/* выгоды: 4 карточки — 2×2 на планшете, в ряд на большом экране */
+@media (min-width: 1100px) { .ben-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.ben { display: flex; flex-direction: column; }
+
+/* этапы: все тексты читаемы всегда; активный этап выделен цветом, а не появлением */
+.scope-item, .scope-item.on { opacity: 1; transition: none; }
+.scope-item h3 { color: var(--ink-2); transition: color .3s ease; }
+.scope-item.on h3 { color: var(--ink); }
+.scope-item .n { color: var(--ink-2); }
+.home .scope-item.on .n { color: var(--accent); }
+@media (min-width: 900px) {
+  .scope-item { padding: 9vh 0 5vh; min-height: 34vh; }
+  .scope-item:first-child { padding-top: 2vh; }
+}
+
+/* «Перед договором»: 6 + 6 карточек ровными рядами */
+.light-more { margin: 32px 0 0; }
+
+/* стоимость и галерея */
+.home #stoimost { padding-bottom: 96px; }
+.home .gallery { padding: 24px 0 20px !important; }
+.gallery figure { background: var(--panel); }
+.home .gallery + section { padding-top: 120px; }
+
+/* FAQ: заголовок и вопрос в WhatsApp слева, ответы справа — без пустой половины экрана */
+.faq-grid { display: grid; gap: 28px; }
+.faq-head p { color: var(--ink-2); font-size: 1.12rem; margin: 14px 0 24px; max-width: 26em; }
+.home .faq { max-width: none; }
+@media (min-width: 960px) {
+  .faq-grid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 72px; align-items: start; }
+}
+.home #faq { padding-top: 40px; }
+@media (min-width: 900px) { .home #faq { padding-top: 64px; } }
+
+/* закрывающий блок */
+.big-cta .big-cta-note { margin: 0 auto 28px; max-width: 34em; }
+
+/* телефон: первый экран показывает фото, заголовок и главную кнопку */
+@media (max-width: 719px) {
+  .ba { height: 44svh; min-height: 280px; }
+  .drag-hint { top: calc(44svh - 110px); }
+  .hero-x .lead { font-size: 1rem; }
+  .hero-row { gap: 18px; }
+  .hero-x .hero-cta .btn { flex: 1 1 100%; }
+  .hero-meta { margin-top: 18px; }
+}
+
+/* ручка слайдера «до/после» выше заголовка, чтобы не закрывать h1 */
+@media (min-width: 720px) { .ba-knob { top: 30%; } }
+.hero-x h1 { max-width: 17ch; }
+@media (max-width: 719px) {
+  .ba-knob { top: 55%; }
+  .drag-hint { top: calc(44svh - 84px); }
+  .photo-note { top: 108px; }
+  html[lang="kk"] .hero-x h1 { font-size: clamp(1.9rem, 8.6vw, 2.6rem); }
+}
+/* шапка на 720–1199px: меню не помещается в одну строку, ссылки остаются в подвале */
+.home .header-actions .btn { white-space: nowrap; }
+@media (max-width: 1199px) { .home .nav { display: none; } .home .header-actions { margin-left: auto; } }
+@media (min-width: 1200px) and (max-width: 1365px) { .home .nav { gap: 16px; } .home .nav a { font-size: .88rem; white-space: nowrap; } }
