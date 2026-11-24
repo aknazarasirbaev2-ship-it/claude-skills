@@ -179,7 +179,9 @@
       vsState = side;
       vs.setAttribute("data-state", side);
       vsSync();
-      if (vsLive) vsLive.textContent = side === "link" ? "Показан путь через StroyLink" : "Показан путь, если искать самому";
+      if (vsLive) vsLive.textContent = side === "link"
+        ? (vsLive.getAttribute("data-live-link") || "Показан путь через StroyLink")
+        : (vsLive.getAttribute("data-live-self") || "Показан путь, если искать самому");
       vsPlay(side);
     };
     vsOpts.forEach(function (b) {
@@ -192,6 +194,13 @@
         vs.querySelector('.vs-opt[data-side="' + next + '"]').focus();
       });
     });
+    // подпись-подсказка «Нажмите» задана в CSS; на других языках берём текст из data-nudge-text
+    var vsNudgeText = vs.getAttribute("data-nudge-text");
+    if (vsNudgeText) {
+      var vsNudgeCss = document.createElement("style");
+      vsNudgeCss.textContent = ".vs-opt.nudge::before{content:" + JSON.stringify(vsNudgeText) + "}";
+      document.head.appendChild(vsNudgeCss);
+    }
     vs.classList.add("is-ready");
     vsSync();
     if ("IntersectionObserver" in window) {

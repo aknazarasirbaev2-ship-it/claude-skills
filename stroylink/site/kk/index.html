@@ -16,7 +16,7 @@
   <meta property="og:locale:alternate" content="ru_KZ">
   <meta property="og:site_name" content="StroyLink">
   <meta property="og:title" content="Алматыда пәтер жөндеу: компанияны тегін табамыз | StroyLink">
-  <meta property="og:description" content="6 сұраққа жауап беріңіз: аудан, аудан көлемі, бюджет, мерзім. Өтінімді осындай нысандарды алатын компанияға жібереміз. Сіз үшін тегін.">
+  <meta property="og:description" content="6 сұраққа жауап беріңіз: аудан, пәтер көлемі, бюджет, мерзім. Өтінімді осындай жөндеуді алатын компанияға жібереміз. Сіз үшін тегін.">
   <meta property="og:url" content="https://SITE-DOMAIN.kz/kk/">
   <meta property="og:image" content="https://SITE-DOMAIN.kz/assets/og.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -33,9 +33,9 @@
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://SITE-DOMAIN.kz/kk/#org",
+        "@id": "https://SITE-DOMAIN.kz/#org",
         "name": "StroyLink",
-        "url": "https://SITE-DOMAIN.kz/kk/",
+        "url": "https://SITE-DOMAIN.kz/",
         "logo": "https://SITE-DOMAIN.kz/favicon.svg",
         "sameAs": ["https://www.instagram.com/stroy.ling/"],
         "email": "stroyling12@gmail.com",
@@ -43,24 +43,25 @@
       },
       {
         "@type": "Service",
-        "name": "Алматыда пәтер жөндеуге компания іріктеу",
-        "serviceType": "Пәтер жөндеуге мердігер іріктеу",
+        "name": "Алматыда пәтер жөндеуге компания табу",
+        "serviceType": "Пәтер жөндеуге мердігер табу",
         "inLanguage": "kk",
         "url": "https://SITE-DOMAIN.kz/kk/",
-        "provider": { "@id": "https://SITE-DOMAIN.kz/kk/#org" },
+        "provider": { "@id": "https://SITE-DOMAIN.kz/#org" },
         "areaServed": { "@type": "City", "name": "Алматы" },
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KZT", "description": "Жөндеу тапсырыс берушісі үшін тегін" }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KZT", "description": "Жөндеуге тапсырыс берушіге тегін" }
       },
       {
         "@type": "FAQPage",
         "inLanguage": "kk",
         "mainEntity": [
-          { "@type": "Question", "name": "Неге бұл мен үшін тегін?", "acceptedAnswer": { "@type": "Answer", "text": "Бізге компания төлейді, және тек сіз онымен шарт жасасуды өзіңіз шешкен жағдайда ғана. Сіз бізге ештеңе төлемейсіз: не бұрын, не кейін." } },
-          { "@type": "Question", "name": "Жөндеуді өздеріңіз жасайсыздар ма?", "acceptedAnswer": { "@type": "Answer", "text": "Жоқ. Біз жөндеу бригадасы емеспіз. Біз тапсырмаңызды нақтылап, оны осындай нысандарды алатын компанияға жібереміз. Шартты, сметаны, мерзімді және кепілдікті компаниямен тікелей келісесіз." } },
-          { "@type": "Question", "name": "Нөмірімді кімге бересіздер?", "acceptedAnswer": { "@type": "Answer", "text": "Тек өтініміңізді жіберетін компанияға және тек сіздің келісіміңізбен. Біз байланыс деректерін жарияламаймыз және сатпаймыз." } },
-          { "@type": "Question", "name": "Алматыда пәтер жөндеу қанша тұрады?", "acceptedAnswer": { "@type": "Answer", "text": "Баға аудан көлеміне, пәтердің жағдайына, жұмыс көлеміне, материалдарға, дизайн-жобаға және мерзімге байланысты. Нақты соманы компания өлшеу жүргізіп, смета жасағаннан кейін айтады." } },
-          { "@type": "Question", "name": "Шарт жасасуға міндеттімін бе?", "acceptedAnswer": { "@type": "Answer", "text": "Жоқ. Компаниямен кездесіп, сметаны көресіз де, өзіңіз шешесіз. Сәйкес келмесе, ештеңе жоғалтпайсыз." } },
-          { "@type": "Question", "name": "Құрылыс салушыдан әлі кілт алған жоқпын. Жазуға ерте ме?", "acceptedAnswer": { "@type": "Answer", "text": "Жоқ, бұл жақсы уақыт. Кілт қолға тигенше компаниялар мен сметаларды асықпай салыстыруға болады. Өтінімде «кілт күтемін» деп белгілеңіз." } }
+          {"@type": "Question", "name": "Неге бұл мен үшін тегін?", "acceptedAnswer": {"@type": "Answer", "text": "Бізге компания төлейді, онда да тек сіз онымен шарт жасасуды өзіңіз шешсеңіз ғана. Сіз бізге ештеңе төлемейсіз — не бұрын, не кейін."}},
+          {"@type": "Question", "name": "Жөндеуді өздеріңіз жасайсыздар ма?", "acceptedAnswer": {"@type": "Answer", "text": "Жоқ, біз жөндеу бригадасы емеспіз. Тапсырмаңызды нақтылап, оны осындай пәтерлерді алатын компанияға жібереміз. Шартты, сметаны, мерзімді және кепілдікті компаниямен тікелей келісесіз."}},
+          {"@type": "Question", "name": "Нөмірімді кімге бересіздер?", "acceptedAnswer": {"@type": "Answer", "text": "Тек өтініміңізді жіберетін компанияға және тек сіздің келісіміңізбен. Біз байланыс деректерін жарияламаймыз және сатпаймыз."}},
+          {"@type": "Question", "name": "Алматыда пәтер жөндеу қанша тұрады?", "acceptedAnswer": {"@type": "Answer", "text": "Баға пәтер көлеміне, пәтердің жағдайына, жұмыс көлеміне, материалдарға, дизайн-жобаға және мерзімге байланысты. Нақты соманы компания өлшегеннен кейін айтады."}},
+          {"@type": "Question", "name": "Шарт жасасуға міндеттімін бе?", "acceptedAnswer": {"@type": "Answer", "text": "Жоқ. Компаниямен кездесіп, сметаны көресіз де, өзіңіз шешесіз. Ұнамаса, ештеңе жоғалтпайсыз."}},
+          {"@type": "Question", "name": "Компания маған ұнамаса ше?", "acceptedAnswer": {"@type": "Answer", "text": "Жай ғана бас тартыңыз. Сіз бізге де, компанияға да ештеңе қарыз емессіз. Не ұнамағанын бізге жазыңыз: ары қарай не істеу керегін айтамыз."}},
+          {"@type": "Question", "name": "Құрылыс салушыдан әлі кілт алған жоқпын. Жазуға ерте ме?", "acceptedAnswer": {"@type": "Answer", "text": "Жоқ, бұл жақсы уақыт. Кілт қолға тигенше компаниялар мен сметаларды асықпай салыстыруға болады. Өтінімде «кілт күтемін» деп белгілеңіз."}}
         ]
       }
     ]
@@ -109,9 +110,9 @@
     <div class="wrap hero-inner">
       <h1><span class="line"><span>Алматыда пәтер</span></span><span class="line"><span>жөндеу —</span></span><span class="line"><span><em>компания табамыз</em></span></span></h1>
       <div class="hero-row">
-        <p class="lead">Пәтеріңіз, бюджетіңіз және мерзіміңіз туралы айтыңыз. Біз өтінімді осындай нысандарды алатын компанияға жібереміз. Сіз компаниямен кездесіп, сметаны көресіз де, өзіңіз шешесіз.</p>
+        <p class="lead">Пәтеріңіз туралы 6 сұраққа жауап беріңіз. Өтініміңізді дәл осындай жөндеуді алатын компанияға жібереміз. Сметаны көріп, өзіңіз шешесіз.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary magnetic" href="#zayavka">Компания іріктеу <span class="arrow">→</span></a>
+          <a class="btn btn-primary magnetic" href="#zayavka">Компания табу — тегін <span class="arrow">→</span></a>
           <a class="btn btn-wa magnetic" data-wa="Сәлеметсіз бе! Алматыда пәтер жөндегім келеді, компания табуға көмектесіңізші." data-place="hero">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
             WhatsApp
@@ -120,7 +121,7 @@
       </div>
       <ul class="hero-meta">
         <li>Сіз үшін тегін</li>
-        <li>Байланыс деректері тек сіздің келісіміңізбен</li>
+        <li>Нөміріңіз — тек келісіміңізбен</li>
         <li>Шешімді өзіңіз қабылдайсыз</li>
       </ul>
     </div>
@@ -130,39 +131,158 @@
   <!-- 2. Жүгіртпе жол -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Жаңа үйлер</span><span class="o">Қайталама нарық</span><span>Кілт тапсыруға дейін</span><span class="o">Санторап</span><span>Ас үй</span><span class="o">Бостандық</span><span>Медеу</span><span class="o">Алмалы</span><span>Әуезов</span><span class="o">Наурызбай</span>
-      <span>Жаңа үйлер</span><span class="o">Қайталама нарық</span><span>Кілт тапсыруға дейін</span><span class="o">Санторап</span><span>Ас үй</span><span class="o">Бостандық</span><span>Медеу</span><span class="o">Алмалы</span><span>Әуезов</span><span class="o">Наурызбай</span>
+      <span>Жаңа үйлер</span><span class="o">Қайталама нарық</span><span>Толық жөндеу</span><span class="o">Санторап</span><span>Ас үй</span><span class="o">Бостандық</span><span>Медеу</span><span class="o">Алмалы</span><span>Әуезов</span><span class="o">Наурызбай</span>
+      <span>Жаңа үйлер</span><span class="o">Қайталама нарық</span><span>Толық жөндеу</span><span class="o">Санторап</span><span>Ас үй</span><span class="o">Бостандық</span><span>Медеу</span><span class="o">Алмалы</span><span>Әуезов</span><span class="o">Наурызбай</span>
     </div>
   </div>
 
-  <!-- 3. Өтінім жолы (көлденең, бекітіледі) -->
-  <section id="kak" class="path">
-    <div class="wrap head-split">
-      <div>
-        <div class="kicker"><b>01</b> Бұл қалай жұмыс істейді</div>
-        <h2 class="rv">«Жөндеу керек» дегеннен компаниямен кездесуге дейін</h2>
+  <!-- 3. Екі жол: интерактивті салыстыру «Өз бетімше / StroyLink-пен» -->
+  <section id="sravnenie" class="vs" data-state="self" data-nudge-text="Басыңыз">
+    <div class="vs-glow" aria-hidden="true"></div>
+    <div class="wrap vs-grid">
+      <div class="vs-head">
+        <div class="kicker"><b>01</b> Екі жол</div>
+        <h2 class="rv">Жөндеу бірдей. Іздеу — мүлде басқа.</h2>
+        <p class="rv">Екі жолды салыстырыңыз: компания тапқанша қанша күш кетеді.</p>
       </div>
-      <p class="rv">Біз жөндеуді өзіміз жасамаймыз. Біз іздеуге және алғашқы қоңырауларға кететін уақытыңызды үнемдейміз, ал таңдау сізде қалады.</p>
-    </div>
-    <div class="path-viewport">
-      <div class="path-track">
-        <article class="path-card"><span class="tag">≈ 1 минут</span><div class="num">01</div><h3>Сіз 6 сұраққа жауап бересіз</h3><p>Аудан, аудан көлемі, пәтер түрі, бюджет, мерзім және телефон. Тіркелусіз.</p></article>
-        <article class="path-card"><span class="tag">WhatsApp</span><div class="num">02</div><h3>Біз мәліметтерді нақтылаймыз</h3><p>Бірдеңе жетіспесе, қайта сұраймыз. Артық қоңыраусыз және ештеңені таңбаймыз.</p></article>
-        <article class="path-card"><span class="tag">сіздің келісіміңізбен</span><div class="num">03</div><h3>Өтінімді компанияға жібереміз</h3><p>Сіздің пәтеріңіздің түрі, аудан көлемі мен ауданы бойынша нысандарды алатын компанияға.</p></article>
-        <article class="path-card"><span class="tag">өлшеу</span><div class="num">04</div><h3>Компания смета есептейді</h3><p>Сізбен хабарласып, өлшеуге келеді және баға мен мерзімді айтады.</p></article>
-        <article class="path-card final"><div class="num">05</div><h3>Өзіңіз шешесіз</h3><p>Сәйкес келсе — компаниямен шартты тікелей жасасасыз. Сәйкес келмесе — ештеңе қарыз емессіз.</p><a class="btn" href="#zayavka">Бастау <span class="arrow">→</span></a></article>
+
+      <div class="vs-ctrl">
+        <div class="vs-switch" role="group" aria-label="Компанияны қалай іздейсіз">
+          <span class="vs-thumb" aria-hidden="true"></span>
+          <button type="button" class="vs-opt" data-side="self" aria-pressed="true" aria-controls="vs-self">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 12c2.5-6 4.5 6 7 0s4.5 6 7 0 3 3 4 1"/></svg>
+            Өз бетімше
+          </button>
+          <button type="button" class="vs-opt" data-side="link" aria-pressed="false" aria-controls="vs-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+            StroyLink-пен
+          </button>
+        </div>
       </div>
+
+      <div class="vs-stage">
+        <div class="vs-panel self" id="vs-self" data-side="self">
+          <div class="vs-panel-head">
+            <h3>Өзіңіз іздесеңіз</h3>
+            <svg class="vs-route" viewBox="0 0 300 40" fill="none" aria-hidden="true"><path pathLength="1" d="M4 22c18-26 30 26 50 4s22-22 38 0 26 18 34-6-18-14-8 8 30 22 50-2 22-22 40 0 30 18 52-6 24-4 34 6"/></svg>
+          </div>
+          <ol class="vs-list">
+            <li class="vs-item"><span class="vs-ico" aria-hidden="true"></span><div><b>Хабарландырулар мен Instagram-ды ақтарасыз</b><small>кеш сайын</small></div></li>
+            <li class="vs-item"><span class="vs-ico" aria-hidden="true"></span><div><b>Компанияларға бірінен соң біріне қоңырау шаласыз</b><small>қоңырау өте көп</small></div></li>
+            <li class="vs-item"><span class="vs-ico" aria-hidden="true"></span><div><b>Әрқайсысына бәрін басынан айтып бересіз</b><small>аудан, пәтер көлемі, бюджет — қайта-қайта</small></div></li>
+            <li class="vs-item"><span class="vs-ico" aria-hidden="true"></span><div><b>Кімге сенуге болатынын білмейсіз</b><small>алдын ала ақшаны алып, жоғалып кетпей ме?</small></div></li>
+            <li class="vs-item"><span class="vs-ico" aria-hidden="true"></span><div><b>Сметаларды жалғыз салыстырасыз</b><small>оларда нені тексеру керегін білмейсіз</small></div></li>
+            <li class="vs-item last"><span class="vs-ico" aria-hidden="true"></span><div><b>Жөндеу әлі басталмай жатып шаршайсыз</b><small>нәтижесі: уақыт пен жүйке кетеді</small></div></li>
+          </ol>
+        </div>
+
+        <div class="vs-panel link" id="vs-link" data-side="link">
+          <div class="vs-panel-head">
+            <h3>StroyLink арқылы</h3>
+            <svg class="vs-route" viewBox="0 0 300 40" fill="none" aria-hidden="true"><path pathLength="1" d="M4 20H292M278 8l14 12-14 12"/></svg>
+          </div>
+          <ol class="vs-list">
+            <li class="vs-item"><span class="vs-ico" aria-hidden="true"></span><div><b>6 сұраққа жауап бересіз</b><small>≈ 1 минут, тіркелусіз</small></div></li>
+            <li class="vs-item"><span class="vs-ico" aria-hidden="true"></span><div><b>Біз WhatsApp-та мәліметтерді нақтылаймыз</b><small>бірер хабарлама, артық қоңыраусыз</small></div></li>
+            <li class="vs-item"><span class="vs-ico" aria-hidden="true"></span><div><b>Сізге ауданыңызды, пәтер көлемін және бюджетіңізді біліп отырған компания хабарласады</b><small>ештеңені қайта айтудың қажеті жоқ</small></div></li>
+            <li class="vs-item"><span class="vs-ico" aria-hidden="true"></span><div><b>Смета мен шартқа қатысты сұрақтар тізімі қолыңызда болады</b><small>қол қоймас бұрын нені тексеру керегі түсінікті</small></div></li>
+            <li class="vs-item last"><span class="vs-ico" aria-hidden="true"></span><div><b>Шешім сізде. Сіз үшін — тегін</b><small>ұнамаса — жай ғана бас тартасыз</small></div></li>
+          </ol>
+          <p class="vs-stamp"><b>0 ₸</b> сіз үшін <span aria-hidden="true">·</span> ешқандай міндеттемесіз</p>
+        </div>
+      </div>
+
+      <div class="vs-sum">
+        <div class="vs-meter">
+          <div class="vs-meter-top"><span>Іздеуге қанша күш кетеді</span><b><span class="s-self">Көп</span><span class="s-link">Ең аз</span></b></div>
+          <div class="vs-meter-bar" aria-hidden="true"><i></i></div>
+        </div>
+
+        <dl class="vs-stats">
+          <div><dt>Кім қоңырау шалады</dt><dd><span class="s-self">Сіз — бәріне</span><span class="s-link">Компания — сізге</span></dd></div>
+          <div><dt>Қанша рет айтасыз</dt><dd><span class="s-self">Әркімге қайта</span><span class="s-link">Бір-ақ рет</span></dd></div>
+          <div><dt>Сізге құны</dt><dd><span class="s-self">Уақыт пен жүйке</span><span class="s-link">0 ₸</span></dd></div>
+        </dl>
+      </div>
+
+      <div class="vs-foot">
+        <p class="vs-verdict"><span class="s-self">Бұлай да болады. Бірақ іздеу апталарға созылуы мүмкін.</span><span class="s-link">Сізден — өтінім мен шешім ғана. Қалғанын өзімізге аламыз.</span></p>
+        <a class="btn btn-primary magnetic" href="#zayavka">Компания табу — тегін <span class="arrow">→</span></a>
+      </div>
+      <p class="sr-only" aria-live="polite" data-vs-live data-live-self="Өзіңіз іздеген кездегі жол көрсетілді" data-live-link="StroyLink арқылы жол көрсетілді"></p>
     </div>
-    <div class="path-bar" aria-hidden="true"><span></span></div>
   </section>
 
-  <!-- 4. Қандай жөндеу -->
+  <p class="hook rv">Тым оңай сияқты ма? <em>Міне, сіз не аласыз.</em></p>
+
+  <!-- 4. Біз арқылы неге тиімді -->
+  <section id="vygoda" class="benefits">
+    <div class="wrap">
+      <div class="head-split">
+        <div>
+          <div class="kicker"><b>02</b> Неге біз арқылы</div>
+          <h2 class="rv">Біз арқылы іздеудің пайдасы</h2>
+        </div>
+        <p class="rv">Жөндеуді компания жасайды. Біз іздеу мен алғашқы сөйлесуді өзімізге аламыз.</p>
+      </div>
+      <div class="ben-grid">
+        <article class="ben rv">
+          <i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i>
+          <h3>Уақыт үнемдейсіз</h3>
+          <p>Ондаған компанияға қоңырау шалып, әрқайсысына бір нәрсені қайта-қайта айтудың қажеті жоқ.</p>
+        </article>
+        <article class="ben ben-hot rv">
+          <i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 14.5h2"/></svg></i>
+          <h3>Сіз үшін тегін</h3>
+          <p>Бізге компания төлейді — онда да тек сіз онымен шартқа өзіңіз қол қойсаңыз ғана.</p>
+        </article>
+        <article class="ben rv">
+          <i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9zM9 11h6M9 15h4"/></svg></i>
+          <h3>Компания бәрін біледі</h3>
+          <p>Ауданды, пәтер көлемін, бюджет пен мерзімді алдын ала біледі. Әңгіме бірден нақты іс туралы болады.</p>
+        </article>
+        <article class="ben rv">
+          <i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l2 2 3-3M4 13l2 2 3-3M12 7h8M12 14h8M4 20h16"/></svg></i>
+          <h3>Нені тексеру керегін айтамыз</h3>
+          <p>Қарапайым тізім береміз: сметаға қатысты не сұрау керек және шартта не жазылуы керек.</p>
+        </article>
+        <article class="ben rv">
+          <i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></i>
+          <h3>Спамсыз</h3>
+          <p>Нөміріңізді тек өтінім жіберілетін компания алады, онда да тек сіздің келісіміңізбен.</p>
+        </article>
+        <article class="ben rv">
+          <i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M16 11l2 2 4-4"/></svg></i>
+          <h3>Шешім сізде</h3>
+          <p>Сметаны көрдіңіз, ұнамады — бас тартасыз. Ешқандай түсіндірусіз.</p>
+        </article>
+        <!--
+          СКИДКА — пока НЕ показывать.
+          Если владелец письменно договорится с компаниями-партнёрами о скидке для клиентов StroyLink,
+          здесь можно добавить ещё одну карточку (и такую же на русской странице), например:
+          <article class="ben ben-hot rv">
+            <i aria-hidden="true">…иконка…</i>
+            <h3>StroyLink клиенттеріне жеңілдік</h3>
+            <p>[Жеңілдіктің нақты шарттары — компаниямен келісілгендей.]</p>
+          </article>
+          Не публиковать без подтверждённых условий: обещание скидки должно быть правдой.
+        -->
+      </div>
+      <div class="norisk rv">
+        <i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></i>
+        <p><b>Тәуекелсіз.</b> Бізге бір теңге де төлемейсіз. Кез келген қадамда бас тартуға болады — тіпті компаниямен кездескеннен кейін де.</p>
+        <a class="btn btn-primary" href="#zayavka">Тегін байқап көру <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Қандай жөндеу -->
   <section id="chto">
     <div class="wrap">
       <div class="head-split">
         <div>
-          <div class="kicker"><b>02</b> Немен көмектесеміз</div>
-          <h2 class="rv">Қандай жөндеуге компания іздейміз</h2>
+          <div class="kicker"><b>03</b> Немен көмектесеміз</div>
+          <h2 class="rv">Сізге қандай жөндеу керек?</h2>
         </div>
         <p class="rv">Қазір тек Алматыдағы және қала маңындағы пәтерлермен жұмыс істейміз.</p>
       </div>
@@ -171,36 +291,60 @@
           <img src="/assets/img/novostroyka.webp" alt="Жаңа үйдегі бос пәтер" loading="lazy" width="1100" height="825">
           <span class="idx">01</span>
           <h3>Жаңа үйдегі пәтер</h3>
-          <p>Тұрғын үй кешені пайдалануға берілгеннен кейінгі қара немесе таза алдындағы әрлеу. Кілт тапсыруға дейінгі толық жөндеу: еден құюдан және электр сымдарынан бастап соңғы әрлеуге дейін.</p>
+          <p>Үй тапсырылғаннан кейінгі жалаңаш қабырғалар немесе таза әрлеу алдындағы күй. Толық жөндеу («под ключ»): еден құю мен электр сымдарынан бастап тұсқағаз бен плиткаға дейін.</p>
           <span class="go"><i>↗</i> Жаңа үйдегі жөндеу</span>
         </a>
         <a class="type rv" href="#zayavka">
-          <img src="/assets/img/vtorichka.webp" alt="Ескі әрлеуді бөлшектеу кезіндегі пәтер" loading="lazy" width="1100" height="733">
+          <img src="/assets/img/vtorichka.webp" alt="Ескі әрлеуді алып тастау кезіндегі пәтер" loading="lazy" width="1100" height="733">
           <span class="idx">02</span>
           <h3>Қайталама нарық</h3>
-          <p>Ескі әрлеуді бөлшектеу, электр сымдары мен құбырларды ауыстыру, жаңа әрлеу. Күрделі немесе косметикалық жөндеу.</p>
+          <p>Ескі әрлеуді алып тастау, электр сымдары мен құбырларды ауыстыру, бәрін жаңадан жасау. Толықтай немесе тек жаңарту.</p>
           <span class="go"><i>↗</i> Өтінім қалдыру</span>
         </a>
         <a class="type rv" href="#zayavka">
           <img src="/assets/img/sanuzel.webp" alt="Жөндеуден кейінгі санторап" loading="lazy" width="1100" height="733">
           <span class="idx">03</span>
           <h3>Санторап, ас үй, бөлме</h3>
-          <p>Жекелеген бөлмелер. Мұны өтінімде көрсетіңіз — сәйкес компания іздейміз.</p>
+          <p>Тек бір бөлмені жөндеу. Мұны өтінімде белгілеңіз — сәйкес компания табамыз.</p>
           <span class="go"><i>↗</i> Өтінім қалдыру</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- 5. Жөндеу кезеңдері (sticky) -->
-  <section id="etapy" style="padding-top:0">
+  <p class="hook rv">Өтінім қалдырдыңыз — <em>ары қарай не болады?</em></p>
+
+  <!-- 6. Өтінім жолы (көлденең, десктопта бекітіледі) -->
+  <section id="kak" class="path">
+    <div class="wrap head-split">
+      <div>
+        <div class="kicker"><b>04</b> Бұл қалай жұмыс істейді</div>
+        <h2 class="rv">Компаниямен кездесуге дейін бес қадам</h2>
+      </div>
+      <p class="rv">Сізге — бірінші және соңғы қадам. Ортасындағының бәрін біз бен компания атқарады.</p>
+    </div>
+    <div class="path-viewport">
+      <div class="path-track">
+        <article class="path-card you"><span class="tag">Сіз · ≈ 1 минут</span><div class="num">01</div><div class="pc-demo pc-chips" aria-hidden="true"><span>Қайталама нарық</span><span>45–70 м²</span><span>Медеу</span><span>Бір айдан кейін</span><span class="go">Жіберу ✓</span></div><h3>6 сұраққа жауап бересіз</h3><p>Аудан, пәтер көлемі, бюджет, мерзім. Тіркелусіз.</p></article>
+        <article class="path-card we"><span class="tag">Біз · WhatsApp</span><div class="num">02</div><div class="pc-demo pc-chat" aria-hidden="true"><p class="in">Сәлеметсіз бе! Нақтылап алайық: санторап біріккен бе?</p><p class="out">Иә, біріккен</p></div><h3>Мәліметтерді нақтылаймыз</h3><p>Чатта бірер сұрақ. Артық қоңыраусыз.</p></article>
+        <article class="path-card we"><span class="tag">Біз · сіздің келісіміңізбен</span><div class="num">03</div><div class="pc-demo pc-pass" aria-hidden="true"><span>Өтініміңіз</span><i></i><span>Компания</span></div><h3>Өтінімді жібереміз</h3><p>Дәл осындай пәтерлерді алатын компанияға.</p></article>
+        <article class="path-card co"><span class="tag">Компания · өлшеу</span><div class="num">04</div><div class="pc-demo pc-est" aria-hidden="true"><span>Смета</span><ul><li>Бөлшектеу</li><li>Электр</li><li>Еден мен қабырға</li><li>Әрлеу</li></ul></div><h3>Компания өзі хабарласады</h3><p>Өлшеуге келіп, смета есептейді. Ештеңені қайта айтудың қажеті жоқ.</p></article>
+        <article class="path-card final"><div class="num">05</div><h3>Өзіңіз шешесіз</h3><p>Ұнаса — компаниямен шартқа тікелей қол қоясыз. Ұнамаса — ешкімге ештеңе қарыз емессіз.</p><a class="btn" href="#zayavka">Бастау — бұл тегін <span class="arrow">→</span></a></article>
+      </div>
+    </div>
+    <div class="path-bar" aria-hidden="true"><span></span></div>
+    <p class="path-hint" aria-hidden="true">Карточкаларды парақтаңыз →</p>
+  </section>
+
+  <!-- 7. Жөндеу кезеңдері (sticky) -->
+  <section id="etapy">
     <div class="wrap">
       <div class="head-split">
         <div>
-          <div class="kicker"><b>03</b> Жөндеуге не кіреді</div>
-          <h2 class="rv">Шарт жасаспас бұрын түсінген жөн бес кезең</h2>
+          <div class="kicker"><b>05</b> Жөндеуге не кіреді</div>
+          <h2 class="rv">Жөндеу неден тұрады: 5 кезең</h2>
         </div>
-        <p class="rv">Кезеңдерді білсеңіз, сметаларды салыстыру және компанияға дұрыс сұрақ қою оңайырақ.</p>
+        <p class="rv">Кезеңдерді білсеңіз, сметаны түсіну де, компанияға дұрыс сұрақ қою да оңай.</p>
       </div>
       <div class="scope">
         <div class="scope-media" aria-hidden="true">
@@ -212,77 +356,82 @@
           <div class="scope-counter"><b>01</b><span>Дайындық және бөлшектеу</span></div>
         </div>
         <ol class="scope-list">
-          <li class="scope-item on"><span class="n">01-КЕЗЕҢ</span><h3>Дайындық және бөлшектеу</h3><p>Өлшеу, дизайн-жоба немесе тілектер тізімі, смета. Қайталама нарықта — ескі әрлеуді бөлшектеу. Жаңа үйде — қабылдау актісіне қол қоймас бұрын пәтерді тексеру.</p><div class="chips"><span class="chip">Өлшеу</span><span class="chip">Смета</span><span class="chip">Бөлшектеу</span></div><img class="mob-img" src="/assets/img/vtorichka.webp" alt="" loading="lazy"></li>
-          <li class="scope-item"><span class="n">02-КЕЗЕҢ</span><h3>Электр және сантехника</h3><p>Кабельдер, розетка қораптары, электр қалқаны, сумен жабдықтау және кәріз құбырлары. Жасырын жұмыстарды жабылмай тұрып суретке түсіріп алған жөн.</p><div class="chips"><span class="chip">Электр сымдары</span><span class="chip">Құбырлар</span><span class="chip">Жасырын жұмыстардың суреті</span></div><img class="mob-img" src="/assets/img/hero-before.webp" alt="" loading="lazy"></li>
-          <li class="scope-item"><span class="n">03-КЕЗЕҢ</span><h3>Қара жұмыстар</h3><p>Қалқалар, қабырғаларды сылау, еден құю, геометрияны тексеру. Қалғанының бәрі тегіс орнайтыны осы кезеңге байланысты.</p><div class="chips"><span class="chip">Еден құю</span><span class="chip">Сылақ</span><span class="chip">Қалқалар</span></div><img class="mob-img" src="/assets/img/novostroyka.webp" alt="" loading="lazy"></li>
-          <li class="scope-item"><span class="n">04-КЕЗЕҢ</span><h3>Таза алдындағы және таза әрлеу</h3><p>Гипсокартон, шпаклевка, плитка, еден жабындары, бояу, есіктер, сантехника және электр фурнитурасы.</p><div class="chips"><span class="chip">Плитка</span><span class="chip">Бояу</span><span class="chip">Есіктер</span></div><img class="mob-img" src="/assets/img/bath-2.webp" alt="" loading="lazy"></li>
-          <li class="scope-item"><span class="n">05-КЕЗЕҢ</span><h3>Қабылдау және кілт</h3><p>Жарықты, суды және жылытуды тексеру, акт бойынша соңғы қабылдау. Кепілдік пен оның мерзімі компаниямен жасалған шартта көрсетіледі.</p><div class="chips"><span class="chip">Акт</span><span class="chip">Кепілдік</span><span class="chip">Кілт</span></div><img class="mob-img" src="/assets/img/living-1.webp" alt="" loading="lazy"></li>
+          <li class="scope-item on"><span class="n">01-КЕЗЕҢ</span><h3>Дайындық және бөлшектеу</h3><p>Өлшеу, сіздің тілектеріңіз немесе дизайн-жоба, смета. Қайталама нарықтағы пәтерде ескі әрлеуді алып тастайды. Жаңа үйде құрылыс салушының актісіне қол қоймас бұрын пәтерді тексереді.</p><div class="chips"><span class="chip">Өлшеу</span><span class="chip">Смета</span><span class="chip">Бөлшектеу</span></div><img class="mob-img" src="/assets/img/vtorichka.webp" alt="" loading="lazy"></li>
+          <li class="scope-item"><span class="n">02-КЕЗЕҢ</span><h3>Электр және құбырлар</h3><p>Жаңа электр сымдары, розеткалар, электр қалқаны, су мен кәріз құбырлары. Кеңес: қабырға жабылмай тұрып, бәрін суретке түсіріп алыңыз.</p><div class="chips"><span class="chip">Электр сымдары</span><span class="chip">Құбырлар</span><span class="chip">Қабырға жабылғанша фото</span></div><img class="mob-img" src="/assets/img/hero-before.webp" alt="" loading="lazy"></li>
+          <li class="scope-item"><span class="n">03-КЕЗЕҢ</span><h3>Қара жұмыстар</h3><p>Қалқаларды тұрғызады, қабырғаларды сылақпен, еденді құйып тегістейді. Мұнда қисық болса, қалғаны да қисық болады.</p><div class="chips"><span class="chip">Еден құю</span><span class="chip">Сылақ</span><span class="chip">Қалқалар</span></div><img class="mob-img" src="/assets/img/novostroyka.webp" alt="" loading="lazy"></li>
+          <li class="scope-item"><span class="n">04-КЕЗЕҢ</span><h3>Таза әрлеу</h3><p>Шпаклевка, плитка, еден, бояу, есіктер. Соңында сантехника, розеткалар мен ажыратқыштарды орнатады.</p><div class="chips"><span class="chip">Плитка</span><span class="chip">Бояу</span><span class="chip">Есіктер</span></div><img class="mob-img" src="/assets/img/bath-2.webp" alt="" loading="lazy"></li>
+          <li class="scope-item"><span class="n">05-КЕЗЕҢ</span><h3>Қабылдау және кілт</h3><p>Жарықты, суды және жылуды тексеріп, қабылдау актісіне қол қоясыз. Кепілдік мерзімі шартта жазылуы керек.</p><div class="chips"><span class="chip">Акт</span><span class="chip">Кепілдік</span><span class="chip">Кілт</span></div><img class="mob-img" src="/assets/img/living-1.webp" alt="" loading="lazy"></li>
         </ol>
       </div>
     </div>
   </section>
 
-  <!-- 6. Шарт алдында (ашық блок, қойындылар) -->
-  <section class="light">
+  <p class="hook rv">Смета қолыңызда ма? <em>Қол қоюға асықпаңыз.</em></p>
+
+  <!-- 8. Шарт алдында (ашық блок, қойындылар) -->
+  <section class="light" id="pered-dogovorom">
     <div class="wrap">
       <div class="head-split">
         <div>
-          <div class="kicker"><b>04</b> Шарт жасаспас бұрын</div>
-          <h2 class="rv">Кез келген компаниядан не сұрау керек</h2>
+          <div class="kicker"><b>06</b> Шарт алдында</div>
+          <h2 class="rv">Бұл сұрақтар ақшаңызды қорғайды</h2>
         </div>
-        <p class="rv">Компанияны бізсіз тапсаңыз да. Жалтарып жауап берсе, бұл сақ болуға себеп.</p>
+        <p class="rv">Оларды кез келген компанияға қойыңыз, тіпті оны бізсіз тапсаңыз да. Дұрыс компания сабырмен жауап береді. Жалтарса — сақ болыңыз.</p>
       </div>
-      <div class="tabs" role="tablist" aria-label="Тексеру тізімдері">
-        <button class="tab" role="tab" id="t-q" aria-selected="true" aria-controls="p-q">7 сұрақ</button>
-        <button class="tab" role="tab" id="t-f" aria-selected="false" aria-controls="p-f">6 қауіп белгісі</button>
+      <div class="tabs" role="tablist" aria-label="Шарт алдында нені тексеру керек">
+        <button class="tab" role="tab" id="t-q" aria-selected="true" aria-controls="p-q">Компанияға 7 сұрақ</button>
+        <button class="tab" role="tab" id="t-f" aria-selected="false" aria-controls="p-f">6 қауіпті белгі</button>
       </div>
       <div class="panel" id="p-q" role="tabpanel" aria-labelledby="t-q">
+        <p class="panel-lead">Қол қоймас бұрын сұраңыз. Әр сұрақтың астында — ол не үшін керек.</p>
         <ol class="qgrid">
-          <li><span>Бағаға не кіреді?<small>Ал не бөлек төленеді</small></span></li>
-          <li><span>Әр кезеңнің мерзімі қандай?<small>Жалпы мерзім ғана емес</small></span></li>
-          <li><span>Қандай кепілдік беріледі?<small>Және ол қалай ресімделеді</small></span></li>
-          <li><span>Материалдарды кім сатып алады?<small>Және оларды қалай келіседі</small></span></li>
-          <li><span>Төлем қалай жүреді?<small>Кезең-кезеңмен бе, әлде алдын ала ма</small></span></li>
-          <li><span>Толық смета бола ма?<small>Көлемдері мен бағалары көрсетілген</small></span></li>
-          <li><span>Нысандарды көруге бола ма?<small>Дайын немесе жұмыс үстіндегі</small></span></li>
+          <li><span>Бұл бағаға не кіреді?<small>Кейін «бұл бөлек» деген қосымша төлемдер шықпауы үшін.</small></span></li>
+          <li><span>Әр кезең қанша уақыт алады?<small>Сонда жөндеу созыла бастаса, бірден байқайсыз.</small></span></li>
+          <li><span>Кепілдік қандай және ол қайда жазылған?<small>Бірдеңе бұзылса, ауызша уәде көмектеспейді.</small></span></li>
+          <li><span>Материалдарды кім сатып алады?<small>Оларды кім таңдайтынын және кім төлейтінін алдын ала білу үшін.</small></span></li>
+          <li><span>Бірден төлеу керек пе, әлде кезең-кезеңімен бе?<small>Кезең-кезеңімен төлеу қауіпсіз: жасалып қойған жұмыс үшін төлейсіз.</small></span></li>
+          <li><span>Толық смета бере аласыз ба?<small>Онда әр жұмыс пен оның бағасы көрінеді. Салыстыру оңай.</small></span></li>
+          <li><span>Жасаған пәтерлеріңізді көруге бола ма?<small>Дайын немесе қазір жұмыс үстіндегі. Сапасы сонда көрінеді.</small></span></li>
         </ol>
       </div>
       <div class="panel" id="p-f" role="tabpanel" aria-labelledby="t-f" hidden>
+        <p class="panel-lead">Мұны көрсеңіз — қол қоймағаныңыз жөн.</p>
         <ul class="qgrid flags">
-          <li>Жазбаша шарт жоқ</li>
-          <li>100% алдын ала төлем сұрайды</li>
-          <li>Баға нарықтан әлдеқайда төмен, бірақ ешкім себебін түсіндірмейді</li>
-          <li>Толық смета жоқ</li>
-          <li>Нысандарын көрсетпейді</li>
-          <li>Мерзімдер тек ауызша айтылады</li>
+          <li><span>Қағаз жүзінде шарт жоқ<small>Бірдеңе дұрыс болмаса, ештеңе дәлелдей алмайсыз.</small></span></li>
+          <li><span>Бүкіл соманы алдын ала сұрайды<small>Компания жоғалып кетсе, ақшаны қайтару қиын болады.</small></span></li>
+          <li><span>Баға басқалардан әлдеқайда төмен<small>Ал себебін ешкім түсіндірмейді. Айырмасы көбіне кейін қосымша төлем болып шығады.</small></span></li>
+          <li><span>Бір жолдық смета<small>«Толық жөндеу („под ключ“) — пәлен теңге». Неге төлеп жатқаныңыз түсініксіз.</small></span></li>
+          <li><span>Бірде-бір пәтерін көрсетпейді<small>Олардың мұны істей алатынын дәлелдейтін ештеңе жоқ.</small></span></li>
+          <li><span>Мерзім тек ауызша айтылады<small>Шартта мерзім жазылмаса, жөндеу ұзаққа созылуы мүмкін.</small></span></li>
         </ul>
       </div>
-      <p style="margin-top:32px"><a class="btn btn-dark" href="/kk/kak-vybrat-podryadchika/">Толығырақ: компанияны қалай таңдау керек <span class="arrow">→</span></a></p>
+      <p class="light-note">Дұрыс компания бұл сұрақтарға ренжімейді.</p>
+      <p style="margin-top:20px"><a class="btn btn-dark" href="/kk/kak-vybrat-podryadchika/">Толығырақ: компанияны қалай таңдау керек <span class="arrow">→</span></a></p>
     </div>
   </section>
 
-  <!-- 7. Құны -->
+  <!-- 9. Құны -->
   <section id="stoimost">
     <div class="wrap">
       <div class="head-split">
         <div>
-          <div class="kicker"><b>05</b> Құны</div>
+          <div class="kicker"><b>07</b> Құны</div>
           <h2 class="rv">Жөндеу бағасы неге байланысты</h2>
         </div>
-        <p class="rv">Нақты соманы компания өлшеу жүргізіп, смета жасағаннан кейін айтады. Біз алдын ала «1 м² бағасын» уәде етпейміз. <a href="/kk/stoimost-remonta/" style="color:var(--accent)">Толығырақ →</a></p>
+        <p class="rv">Нақты соманы компания өлшегеннен кейін айтады. «Шаршы метрі қанша» деген бағаны алдын ала уәде етпейміз. <a href="/kk/stoimost-remonta/" style="color:var(--accent)">Толығырақ →</a></p>
       </div>
       <div class="cost-grid rv">
-        <div class="cost"><span class="n">01</span><h3>Аудан көлемі мен жоспарлау</h3><p>Бөлме мен санторап көп болса, аудан көлемі бірдей болса да, жұмыс көбейеді.</p></div>
-        <div class="cost"><span class="n">02</span><h3>Пәтердің жағдайы</h3><p>Қара әрлеу, таза алдындағы әрлеу немесе бөлшектелетін ескі жөндеу.</p></div>
-        <div class="cost"><span class="n">03</span><h3>Жұмыс көлемі</h3><p>Косметикалық, күрделі жөндеу немесе электр мен сантехникасымен бірге кілт тапсыруға дейінгі жөндеу.</p></div>
-        <div class="cost"><span class="n">04</span><h3>Материалдар</h3><p>Плитканың, еден жабынының, сантехника мен есіктердің класы қорытынды соманы айтарлықтай өзгертеді.</p></div>
-        <div class="cost"><span class="n">05</span><h3>Дизайн-жоба</h3><p>Жоба болса, сметаны сызбалар бойынша есептейді, жоба болмаса — өлшеу мен тілектеріңіз бойынша.</p></div>
-        <div class="cost"><span class="n">06</span><h3>Мерзім</h3><p>Шұғыл жөндеуге бір мезгілде көбірек шебер қажет.</p></div>
+        <div class="cost"><span class="n">01</span><h3>Пәтер көлемі мен жоспары</h3><p>Бөлме мен санторап көп болса, жұмыс та көп — көлемі бірдей болса да.</p></div>
+        <div class="cost"><span class="n">02</span><h3>Пәтердің жағдайы</h3><p>Жалаңаш қабырғалар ма, еден құйылып, қабырға сыланып қойған ба, әлде алып тастайтын ескі жөндеу бар ма.</p></div>
+        <div class="cost"><span class="n">03</span><h3>Жұмыс көлемі</h3><p>Жай жаңарту, күрделі жөндеу немесе толық жөндеу («под ключ»).</p></div>
+        <div class="cost"><span class="n">04</span><h3>Материалдар</h3><p>Плитка, еден, сантехника мен есіктердің класы қорытынды соманы қатты өзгертеді.</p></div>
+        <div class="cost"><span class="n">05</span><h3>Дизайн-жоба</h3><p>Жоба болса, сметаны сызбалар бойынша есептейді. Жоба болмаса — өлшеу мен тілектеріңіз бойынша.</p></div>
+        <div class="cost"><span class="n">06</span><h3>Мерзім</h3><p>Тезірек керек болса, бір мезгілде көбірек шебер қажет. Бұл қымбатырақ.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- 8. Идеялар галереясы -->
+  <!-- 10. Идеялар галереясы -->
   <section class="gallery" aria-label="Интерьер идеялары">
     <div class="gallery-track">
       <figure><img src="/assets/img/living-2.webp" alt="Жарық қонақ бөлме" loading="lazy"></figure>
@@ -301,13 +450,20 @@
     <p class="gallery-note">Шабыт үшін идеялар. Фото мысал ретінде берілген (Unsplash), бұл біздің серіктестеріміздің нысандары емес.</p>
   </section>
 
-  <!-- 9. Өтінім -->
+  <p class="hook rv">Дайынсыз ба? <em>Бар-жоғы бір минуттай уақыт алады.</em></p>
+
+  <!-- 11. Өтінім -->
   <section id="zayavka">
     <div class="wrap quiz-wrap">
       <div>
-        <div class="kicker"><b>06</b> Өтінім</div>
+        <div class="kicker"><b>08</b> Өтінім</div>
         <h2 class="rv">Пәтеріңізге сай компания табамыз</h2>
-        <p class="muted rv">Алты қысқа сұрақ. Соңында дайын өтініммен WhatsApp ашылады: мәтінді тексеріп, өзіңіз жібересіз.</p>
+        <p class="muted rv">6 қысқа сұрақ. Соңында дайын өтініммен WhatsApp ашылады: мәтінді тексеріп, «Жіберу» батырмасын басыңыз.</p>
+        <ul class="quiz-promise rv">
+          <li>Сіз үшін тегін</li>
+          <li>Тіркелусіз</li>
+          <li>Қалаған кезде бас тарта аласыз</li>
+        </ul>
         <div class="contact-cards rv">
           <a class="contact-card" data-wa="Сәлеметсіз бе! Пәтер жөндеуді талқылағым келеді." data-place="contact-card"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg></i><span><small>WhatsApp</small><b>+7 747 202 39 69</b></span></a>
           <a class="contact-card" href="tel:+77472023969"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></i><span><small>Қоңырау шалу</small><b>8 747 202 39 69</b></span></a>
@@ -318,12 +474,12 @@
       <form id="quiz" class="quiz rv" novalidate
             data-counter-text="{n}-қадам / {total}"
             data-send-text="WhatsApp-қа жіберу"
-            data-wa-intro="Сәлеметсіз бе! StroyLink сайтынан жөндеуге компания іріктеу өтінімі:"
+            data-wa-intro="Сәлеметсіз бе! StroyLink сайтынан жөндеуге компания табу өтінімі:"
             data-msg-choose="Бір нұсқаны таңдаңыз"
             data-msg-fill="Өрісті толтырыңыз"
             data-msg-phone="Телефон нөмірін тексеріңіз"
             data-msg-consent="Келісіміңізсіз өтінімді компанияға жібере алмаймыз">
-        <div class="ticket"><b>Іріктеуге өтінім</b><span>Тегін</span></div>
+        <div class="ticket"><b>Компания табуға өтінім</b><span>Тегін</span></div>
         <div class="quiz-body">
           <div class="quiz-top"><span data-counter>1-қадам / 6</span><span>≈ 1 минут</span></div>
           <div class="progress" aria-hidden="true"><span></span></div>
@@ -340,8 +496,8 @@
           </div>
 
           <div class="step">
-            <fieldset data-label="Аудан көлемі">
-              <legend>Пәтердің аудан көлемі қанша?</legend>
+            <fieldset data-label="Пәтер көлемі">
+              <legend>Пәтердің көлемі қанша?</legend>
               <div class="options">
                 <label class="option"><input type="radio" name="area" value="do-45" data-text="45 м²-ге дейін"><span>45 м²-ге дейін</span></label>
                 <label class="option"><input type="radio" name="area" value="45-70" data-text="45–70 м²"><span>45–70 м²</span></label>
@@ -368,8 +524,8 @@
               </select>
             </div>
             <div class="field">
-              <label for="q-complex">ТК атауы немесе көше <span class="muted">(міндетті емес)</span></label>
-              <input id="q-complex" type="text" name="complex" data-label="ТК / көше" autocomplete="off" placeholder="Мысалы, ... ТК">
+              <label for="q-complex">Тұрғын үй кешені (ЖК) немесе көше <span class="muted">(міндетті емес)</span></label>
+              <input id="q-complex" type="text" name="complex" data-label="ЖК / көше" autocomplete="off" placeholder="Мысалы, ... ЖК">
             </div>
           </div>
 
@@ -429,38 +585,42 @@
     </div>
   </section>
 
-  <!-- 10. FAQ -->
+  <!-- 12. FAQ -->
   <section id="faq" style="padding-top:0">
     <div class="wrap">
       <div class="head-split">
         <div>
-          <div class="kicker"><b>07</b> Сұрақтар</div>
+          <div class="kicker"><b>09</b> Сұрақтар</div>
           <h2 class="rv">Жиі қойылатын сұрақтар</h2>
         </div>
       </div>
       <div class="faq">
-        <details><summary>Неге бұл мен үшін тегін?</summary><div class="faq-body"><p>Бізге компания төлейді, және тек сіз онымен шарт жасасуды өзіңіз шешкен жағдайда ғана. Сіз бізге ештеңе төлемейсіз: не бұрын, не кейін.</p></div></details>
-        <details><summary>Жөндеуді өздеріңіз жасайсыздар ма?</summary><div class="faq-body"><p>Жоқ. Біз жөндеу бригадасы емеспіз. Біз тапсырмаңызды нақтылап, оны осындай нысандарды алатын компанияға жібереміз. Шартты, сметаны, мерзімді және кепілдікті компаниямен тікелей келісесіз.</p></div></details>
+        <details><summary>Неге бұл мен үшін тегін?</summary><div class="faq-body"><p>Бізге компания төлейді, онда да тек сіз онымен шарт жасасуды өзіңіз шешсеңіз ғана. Сіз бізге ештеңе төлемейсіз — не бұрын, не кейін.</p></div></details>
+        <details><summary>Жөндеуді өздеріңіз жасайсыздар ма?</summary><div class="faq-body"><p>Жоқ, біз жөндеу бригадасы емеспіз. Тапсырмаңызды нақтылап, оны осындай пәтерлерді алатын компанияға жібереміз. Шартты, сметаны, мерзімді және кепілдікті компаниямен тікелей келісесіз.</p></div></details>
         <details><summary>Нөмірімді кімге бересіздер?</summary><div class="faq-body"><p>Тек өтініміңізді жіберетін компанияға және тек сіздің келісіміңізбен. Біз байланыс деректерін жарияламаймыз және сатпаймыз. Толығырақ — <a href="/kk/privacy/">құпиялылық саясатында</a>.</p></div></details>
-        <details><summary>Алматыда пәтер жөндеу қанша тұрады?</summary><div class="faq-body"><p>Баға аудан көлеміне, пәтердің жағдайына, жұмыс көлеміне, материалдарға, дизайн-жобаға және мерзімге байланысты. Нақты соманы компания өлшеу жүргізіп, смета жасағаннан кейін айтады. <a href="/kk/stoimost-remonta/">Құн неден құралады</a>.</p></div></details>
-        <details><summary>Шарт жасасуға міндеттімін бе?</summary><div class="faq-body"><p>Жоқ. Компаниямен кездесіп, сметаны көресіз де, өзіңіз шешесіз. Сәйкес келмесе, ештеңе жоғалтпайсыз.</p></div></details>
+        <details><summary>Алматыда пәтер жөндеу қанша тұрады?</summary><div class="faq-body"><p>Баға пәтер көлеміне, пәтердің жағдайына, жұмыс көлеміне, материалдарға, дизайн-жобаға және мерзімге байланысты. Нақты соманы компания өлшегеннен кейін айтады. <a href="/kk/stoimost-remonta/">Құн неден құралады</a>.</p></div></details>
+        <details><summary>Шарт жасасуға міндеттімін бе?</summary><div class="faq-body"><p>Жоқ. Компаниямен кездесіп, сметаны көресіз де, өзіңіз шешесіз. Ұнамаса, ештеңе жоғалтпайсыз.</p></div></details>
+        <details><summary>Компания маған ұнамаса ше?</summary><div class="faq-body"><p>Жай ғана бас тартыңыз. Сіз бізге де, компанияға да ештеңе қарыз емессіз. Не ұнамағанын бізге жазыңыз: ары қарай не істеу керегін айтамыз.</p></div></details>
         <details><summary>Құрылыс салушыдан әлі кілт алған жоқпын. Жазуға ерте ме?</summary><div class="faq-body"><p>Жоқ, бұл жақсы уақыт. Кілт қолға тигенше компаниялар мен сметаларды асықпай салыстыруға болады. Өтінімде «кілт күтемін» деп белгілеңіз.</p></div></details>
       </div>
     </div>
   </section>
 
-  <!-- 11. Үлкен CTA -->
+  <!-- 13. Үлкен CTA -->
   <section class="big-cta">
     <div class="wrap">
       <h2><span class="w" style="display:inline-block">Жөндеу</span> <span class="w" style="display:inline-block"><em>жоспарлап жүрсіз бе?</em></span></h2>
       <div class="hero-cta">
-        <a class="btn btn-primary magnetic" href="#zayavka">Өтінім қалдыру <span class="arrow">→</span></a>
+        <a class="btn btn-primary magnetic" href="#zayavka">Компания табу — тегін <span class="arrow">→</span></a>
         <a class="btn btn-ghost magnetic" data-wa="Сәлеметсіз бе! Алматыда пәтер жөндегім келеді." data-place="big-cta">WhatsApp-қа жазу</a>
       </div>
+      <p class="big-cta-note">Бізге ештеңе төлемейсіз. Кез келген қадамда бас тартуға болады.</p>
     </div>
   </section>
 
 </main>
+
+<a class="mini-cta" href="#zayavka">Компания табу — тегін <span class="arrow" aria-hidden="true">→</span></a>
 
 <footer class="site-footer">
   <div class="wrap">
@@ -495,7 +655,7 @@
 </footer>
 
 <div class="mobile-cta">
-  <a class="btn btn-primary" href="/kk/#zayavka">Өтінім</a>
+  <a class="btn btn-primary" href="/kk/#zayavka">Өтінім — тегін</a>
   <a class="btn btn-wa" data-wa="Сәлеметсіз бе! Алматыда пәтер жөндегім келеді." data-place="mobile-bar">WhatsApp</a>
 </div>
 
