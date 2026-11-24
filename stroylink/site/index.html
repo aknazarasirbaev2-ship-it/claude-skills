@@ -10,7 +10,7 @@
   <link rel="alternate" hreflang="kk-KZ" href="https://SITE-DOMAIN.kz/kk/">
   <link rel="alternate" hreflang="x-default" href="https://SITE-DOMAIN.kz/">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#101312">
+  <meta name="theme-color" content="#0d1317">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_KZ">
   <meta property="og:locale:alternate" content="kk_KZ">
@@ -482,7 +482,7 @@
             </div>
             <div class="field">
               <label for="q-complex">Название ЖК или улица <span class="muted">(необязательно)</span></label>
-              <input id="q-complex" type="text" name="complex" data-label="ЖК / улица" autocomplete="off" placeholder="Например, ЖК ...">
+              <input id="q-complex" type="text" name="complex" enterkeyhint="next" data-label="ЖК / улица" autocomplete="off" placeholder="Например, ЖК ...">
             </div>
           </div>
 
@@ -514,11 +514,11 @@
           <div class="step">
             <div class="field">
               <label for="q-name">Как к вам обращаться?</label>
-              <input id="q-name" type="text" name="name" data-label="Имя" autocomplete="given-name" required>
+              <input id="q-name" type="text" name="name" enterkeyhint="next" autocapitalize="words" data-label="Имя" autocomplete="given-name" required>
             </div>
             <div class="field">
               <label for="q-phone">Телефон / WhatsApp</label>
-              <input id="q-phone" type="tel" name="phone" data-label="Телефон" autocomplete="tel" inputmode="tel" placeholder="+7 7__ ___ __ __" required>
+              <input id="q-phone" type="tel" name="phone" enterkeyhint="send" data-label="Телефон" autocomplete="tel" inputmode="tel" placeholder="+7 7__ ___ __ __" required>
             </div>
             <label class="consent">
               <input type="checkbox" name="consent" data-label="Согласие" data-text="согласен(на) на передачу контактов компании, которой передаётся заявка" required>
@@ -617,9 +617,9 @@
   <a class="btn btn-wa" data-wa="Здравствуйте! Хочу сделать ремонт квартиры в Алматы." data-place="mobile-bar">WhatsApp</a>
 </div>
 
+<script src="/assets/main.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="/assets/main.js" defer></script>
 <script src="/assets/home.js" defer></script>
 </body>
 </html>
