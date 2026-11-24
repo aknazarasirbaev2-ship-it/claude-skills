@@ -635,3 +635,12 @@ html:has(body.home) { scroll-padding-top: 88px; }
 .home .header-actions .btn { white-space: nowrap; }
 @media (max-width: 1199px) { .home .nav { display: none; } .home .header-actions { margin-left: auto; } }
 @media (min-width: 1200px) and (max-width: 1365px) { .home .nav { gap: 16px; } .home .nav a { font-size: .88rem; white-space: nowrap; } }
+/* цифры шагов не крупнее заголовков раздела; подпись «Фото для примера» внутри первого экрана */
+@media (max-width: 899px) { .home .path-card .num { font-size: 2rem; } }
+@media (min-width: 720px) { .photo-note { bottom: 28px; } }
+/* телефон: ссылки подвала и переключатель языка — цели 44px */
+@media (max-width: 719px) {
+  .home .site-footer li a { display: inline-flex; align-items: center; min-height: 44px; }
+  .home .site-footer ul { gap: 0; }
+  .home .lang { min-height: 44px; display: inline-flex; align-items: center; }
+}
