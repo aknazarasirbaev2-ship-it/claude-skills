@@ -1,0 +1,10 @@
+{
+  "overlays": [
+    {"start": 0.2, "end": 2.4, "text": "КЛЮЧИ ПОЛУЧИЛИ? ВОТ ПОРЯДОК РЕМОНТА", "position": "center", "style": "hook"},
+    {"start": 2.6, "end": 4.3, "text": "ПОЛ", "position": "bottom", "style": "step"},
+    {"start": 4.4, "end": 6.1, "text": "СТЕНЫ И ПОТОЛОК", "position": "bottom", "style": "step"},
+    {"start": 6.2, "end": 7.2, "text": "СВЕТ", "position": "bottom", "style": "step"},
+    {"start": 7.3, "end": 7.9, "text": "МЕБЕЛЬ", "position": "bottom", "style": "step"}
+  ],
+  "end_card": {"text": "НАПИШИТЕ «РЕМОНТ» В DIRECT", "seconds": 2.0}
+}
