@@ -153,6 +153,15 @@ def load_spec(path):
     for p in images:
         if not os.path.isfile(p):
             die("Image not found: %s" % p)
+        try:
+            with Image.open(p) as im:
+                iw, ih = im.size
+        except OSError as e:
+            die("Cannot open image %s: %s" % (p, e))
+        if min(iw, ih) < 720:
+            warn("%s is only %dx%d - it will look soft at 1080x1920." % (os.path.basename(p), iw, ih))
+        if iw > ih:
+            warn("%s is horizontal (%dx%d) - most of it will be cropped away." % (os.path.basename(p), iw, ih))
     audio = resolve(spec.get("audio"))
     if not audio or not os.path.isfile(audio):
         die("Audio (voiceover) not found: %s" % audio)
@@ -335,8 +344,6 @@ def prepare_base(path):
     else:
         cw, ch = sw, sw / target
     box = ((sw - cw) / 2, (sh - ch) / 2, (sw + cw) / 2, (sh + ch) / 2)
-    if sw < W or sh < H:
-        warn("%s is only %dx%d - it will be upscaled (may look soft)." % (os.path.basename(path), sw, sh))
     return im.resize((bw, bh), Image.LANCZOS, box=box)
 
 
@@ -350,17 +357,19 @@ def render_view(img_i, cam):
 
 
 def wipe_mask(kind, p):
-    """L mask: 255 where the NEW image shows. Soft 10 px edge."""
-    feather = 10
-    m = Image.new("L", (W, H), 0)
-    d = ImageDraw.Draw(m)
-    if kind == "wipe_left":     # divider travels right -> left, new image on its right
-        x = (1 - p) * (W + 2 * feather) - feather
-        d.rectangle((x, 0, W, H), fill=255)
-    else:                       # wipe_up: divider travels bottom -> top, new image below
-        y = (1 - p) * (H + 2 * feather) - feather
-        d.rectangle((0, y, W, H), fill=255)
-    return m.filter(ImageFilter.GaussianBlur(feather / 2)), (x if kind == "wipe_left" else y)
+    """L mask: 255 where the NEW image shows; sub-pixel soft edge (12 px)."""
+    feather = 12.0
+    n = W if kind == "wipe_left" else H
+    # wipe_left: divider travels right -> left, new image on its right
+    # wipe_up:   divider travels bottom -> top, new image below it
+    pos = (1 - p) * (n + 2 * feather) - feather
+    vals = bytes(int(min(1.0, max(0.0, (i + 0.5 - pos) / feather + 0.5)) * 255 + 0.5)
+                 for i in range(n))
+    if kind == "wipe_left":
+        m = Image.frombytes("L", (n, 1), vals).resize((W, H), Image.NEAREST)
+    else:
+        m = Image.frombytes("L", (1, n), vals).resize((W, H), Image.NEAREST)
+    return m, pos
 
 
 def draw_divider(img, kind, pos, alpha):
@@ -486,7 +495,7 @@ def build_audio(sp, segs, duration, tmp):
         fade_st = max(0.0, duration - 1.5)
         chains.append("[%d:a]aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo,"
                       "atrim=0:%.4f,asetpts=PTS-STARTPTS,volume=%.2fdB,"
-                      "afade=t=in:d=0.6,afade=t=out:st=%.3f:d=1.5[mus]" % (duration, gain_db, fade_st))
+                      "afade=t=in:d=0.6,afade=t=out:st=%.3f:d=1.5[mus]" % (n_in, duration, gain_db, fade_st))
         # duck music under the voice
         chains[0] = chains[0].replace("[voice]", "[voice0]")
         chains.append("[voice0]asplit=2[voice][vside]")
