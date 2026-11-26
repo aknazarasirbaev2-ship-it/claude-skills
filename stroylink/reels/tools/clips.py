@@ -90,12 +90,12 @@ def add(buf, sig, at):
 
 def make_beat(total_beats, bpm, drop_beat, path):
     spb = 60.0 / bpm
-    dur = total_beats * spb + 0.6
+    dur = math.ceil(total_beats) * spb + 0.6
     buf = np.zeros(int(dur * SR))
     # A minor-ish progression for the 808 (one chord per 4 beats)
     roots = [55.0, 43.65, 49.0, 41.2]  # A1, F1, G1, E1
     chords = [[220, 261.6, 329.6], [174.6, 220, 261.6], [196, 246.9, 293.7], [164.8, 207.7, 246.9]]
-    for b in range(total_beats):
+    for b in range(int(math.ceil(total_beats))):
         t = b * spb
         bar_pos = b % 4
         pre = b < drop_beat
