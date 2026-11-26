@@ -132,7 +132,7 @@ def make_beat(total_beats, bpm, drop_beat, path):
 
 
 # ---------------- video ----------------
-def render_clip(c, dur, out, tmp):
+def render_clip(c, dur, out, tmp, nframes=None):
     w, h = probe(c["file"])
     speed = float(c.get("speed", 1.0))
     src_len = dur * speed
@@ -144,8 +144,8 @@ def render_clip(c, dur, out, tmp):
           f"eq=contrast={c.get('contrast', 1.05)}:saturation={c.get('saturation', 1.08)},format=yuv420p")
     if c.get("flash_in"):
         vf += ",fade=t=in:st=0:d=0.25:color=white"
-    run(["ffmpeg", "-v", "error", "-y", "-ss", str(c.get("start", 0)), "-t", f"{src_len:.3f}", "-i", c["file"],
-         "-vf", vf, "-t", f"{dur:.4f}", "-an", "-c:v", "libx264", "-crf", "14", "-preset", "fast", out])
+    run(["ffmpeg", "-v", "error", "-y", "-ss", str(c.get("start", 0)), "-t", f"{src_len + 0.6:.3f}", "-i", c["file"],
+         "-vf", vf] + (["-frames:v", str(nframes)] if nframes else ["-t", f"{dur:.4f}"]) + ["-an", "-c:v", "libx264", "-crf", "14", "-preset", "fast", out])
 
 
 def main():
@@ -156,23 +156,33 @@ def main():
     tmp = tempfile.mkdtemp(prefix="clips_")
     parts = []
     total_beats = 0
+    t_acc = 0.0
     for i, c in enumerate(spec["clips"]):
         c = dict(c); c["file"] = os.path.join(base, c["file"])
-        dur = c["beats"] * spb
+        dur = c["dur"] if "dur" in c else c["beats"] * spb
         p = os.path.join(tmp, f"p{i:02d}.mp4")
-        render_clip(c, dur, p, tmp)
-        parts.append(p); total_beats += c["beats"]
+        # frame-exact cuts: round the cumulative cut time, not each clip, so error never accumulates
+        nframes = round((t_acc + dur) * 30) - round(t_acc * 30)
+        t_acc += dur
+        render_clip(c, nframes / 30.0 * float(c.get("speed", 1.0)) and dur, p, tmp, nframes)
+        parts.append(p); total_beats += dur / spb
         print(f"clip {i}: {os.path.basename(c['file'])} {dur:.2f}s")
     lst = os.path.join(tmp, "list.txt")
     open(lst, "w").write("".join(f"file '{p}'\n" for p in parts))
     video = os.path.join(tmp, "video.mp4")
     run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", video])
     beat = os.path.join(tmp, "beat.wav")
-    make_beat(total_beats, bpm, spec.get("drop_beat", 8), beat)
+    if spec.get("audio_file"):  # sync preview against an external track (not for publishing if it is someone else's music)
+        run(["ffmpeg", "-v", "error", "-y", "-ss", str(spec.get("audio_offset", 0)), "-i", os.path.join(base, spec["audio_file"]),
+             "-ac", "2", "-ar", str(SR), beat])
+    elif spec.get("silent"):  # silent track: add the music inside Instagram
+        run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", f"anullsrc=r={SR}:cl=stereo", "-t", f"{total_beats * spb + 1:.3f}", beat])
+    else:
+        make_beat(total_beats, bpm, spec.get("drop_beat", 8), beat)
     mixed = os.path.join(tmp, "mixed.mkv")
     vlen = total_beats * spb
     run(["ffmpeg", "-v", "error", "-y", "-i", video, "-i", beat, "-map", "0:v", "-map", "1:a",
-         "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-t", f"{vlen:.3f}", "-c:v", "copy", "-c:a", "pcm_s16le", mixed])
+         "-af", "anull" if spec.get("silent") else "loudnorm=I=-14:TP=-1.5:LRA=11", "-t", f"{vlen:.3f}", "-c:v", "copy", "-c:a", "pcm_s16le", mixed])
     if spec.get("plan") or spec.get("end_card"):
         cmd = [sys.executable, os.path.join(HERE, "overlay.py"), mixed,
                os.path.join(base, spec["plan"]) if spec.get("plan") else os.path.join(tmp, "empty.json"), out]
