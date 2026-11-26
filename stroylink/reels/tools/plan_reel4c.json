@@ -1,0 +1,46 @@
+{
+ "overlays": [
+  {
+   "start": 0.05,
+   "end": 1.35,
+   "text": "ГОСТИНАЯ: ОТ ДЕМОНТАЖА ДО КЛЮЧЕЙ",
+   "position": "center",
+   "style": "hook"
+  },
+  {
+   "start": 1.5,
+   "end": 2.75,
+   "text": "ДЕМОНТАЖ",
+   "position": "bottom",
+   "style": "step"
+  },
+  {
+   "start": 2.906,
+   "end": 4.156,
+   "text": "ШТУКАТУРКА",
+   "position": "bottom",
+   "style": "step"
+  },
+  {
+   "start": 4.306,
+   "end": 5.106,
+   "text": "ВЫРАВНИВАНИЕ",
+   "position": "bottom",
+   "style": "step"
+  },
+  {
+   "start": 5.256,
+   "end": 6.506,
+   "text": "ПОТОЛОК",
+   "position": "bottom",
+   "style": "step"
+  },
+  {
+   "start": 6.656,
+   "end": 7.406,
+   "text": "ШЛИФОВКА",
+   "position": "bottom",
+   "style": "step"
+  }
+ ]
+}
