@@ -1,0 +1,19 @@
+{
+  "bpm": 128,
+  "drop_beat": 13,
+  "clips": [
+    {"file": "855672.mp4",   "start": 18.0, "beats": 3, "speed": 1.6},
+    {"file": "6474186.mp4",  "start": 3.0,  "beats": 3, "speed": 1.5},
+    {"file": "6474181.mp4",  "start": 2.0,  "beats": 2, "speed": 1.6},
+    {"file": "6473925.mp4",  "start": 4.0,  "beats": 3, "speed": 1.6},
+    {"file": "6474085.mp4",  "start": 5.0,  "beats": 2, "speed": 1.6, "x": 0.6},
+    {"file": "36030666.mp4", "start": 0.3,  "beats": 4, "flash_in": true},
+    {"file": "37522009.mp4", "start": 0.5,  "beats": 4},
+    {"file": "37522011.mp4", "start": 0.3,  "beats": 4},
+    {"file": "37522012.mp4", "start": 0.8,  "beats": 4},
+    {"file": "36030664.mp4", "start": 0.5,  "beats": 4},
+    {"file": "37522014.mp4", "start": 0.4,  "beats": 8}
+  ],
+  "plan": "plan_reel4.json",
+  "end_card": {"text": "НАПИШИТЕ «РЕМОНТ» В DIRECT", "seconds": 1.9}
+}

@@ -1,0 +1,178 @@
+/* Motion & mobile polish layer (owned by the motion agent).
+   Подключается ПОСЛЕ home.css и только на главных (RU/KK). Переопределяет тайминги, кривые,
+   hover на сенсорных экранах и «вечные» анимации. Токены --ease-* заданы в styles.css (:root). */
+
+/* =====================================================================
+   1. Первый экран: вход на CSS (идёт с первой отрисовки, на compositor,
+      не ждёт GSAP/JS; если анимации выключены — всё просто видно).
+   ===================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  /* Lead: заголовок выезжает из маски строками — волна с сокращающимися интервалами */
+  .hero-x .line > span { animation: slHeroLine .9s var(--ease-out) backwards; }
+  .hero-x .line:nth-child(1) > span { animation-delay: .1s; }
+  .hero-x .line:nth-child(2) > span { animation-delay: .17s; }
+  .hero-x .line:nth-child(3) > span { animation-delay: .23s; }
+  /* Support: подзаголовок и кнопки догоняют заголовок, пока он ещё едет */
+  .hero-x .lead { animation: slRise16 .7s var(--ease-out) .36s backwards; }
+  .hero-x .hero-cta { animation: slRise12 .7s var(--ease-out) .44s backwards; }
+  /* Decoration: только прозрачность, без движения */
+  .hero-meta { animation: slFade .6s var(--ease-out) .56s backwards; }
+  .ba-tag { animation: slFade .5s var(--ease-out) .6s backwards; }
+  .drag-hint { animation: slFade .5s var(--ease-out) 1.2s backwards; }
+}
+@keyframes slHeroLine { from { transform: translate3d(0, 110%, 0); } }
+@keyframes slRise16 { from { opacity: 0; transform: translate3d(0, 16px, 0); } }
+@keyframes slRise12 { from { opacity: 0; transform: translate3d(0, 12px, 0); } }
+@keyframes slFade { from { opacity: 0; } }
+
+/* =====================================================================
+   2. Появление при прокрутке. Скрыто ТОЛЬКО когда home.js подключил
+      IntersectionObserver (класс .rv-on). Само движение — WAAPI из home.js.
+   ===================================================================== */
+.rv-on .rv:not(.in),
+.rv-on .big-cta h2:not(.in) .w { opacity: 0; }
+@media print { .rv-on .rv, .rv-on .big-cta h2 .w { opacity: 1 !important; } }
+
+/* =====================================================================
+   3. Слайдер «до / после»
+   ===================================================================== */
+.ba { -webkit-user-select: none; -webkit-touch-callout: none; }
+.ba-knob { touch-action: none; }            /* схватил кружок — это всегда перетаскивание */
+.ba-knob:active { cursor: grabbing; }
+/* «пинг» вокруг кружка: импульс и пауза, а не непрерывная пульсация */
+.ba-knob::after { animation: slPing 3.2s var(--ease-out) infinite; }
+@keyframes slPing { 0% { transform: scale(.8); opacity: .9; } 45%, 100% { transform: scale(1.5); opacity: 0; } }
+.drag-hint { transition: opacity .2s var(--ease-out); }
+
+/* =====================================================================
+   4. Шапка, кнопки, нажатия
+   ===================================================================== */
+.home .site-header { transition: background-color .3s ease, border-color .3s ease, transform .3s var(--ease-out); }
+.btn .arrow { transition: transform .2s var(--ease-out); }
+.tab { transition: background-color .2s ease, color .2s ease, scale .16s var(--ease-out); }
+.tab:active { scale: .97; }
+.vs-opt { transition: color .2s ease, scale .16s var(--ease-out); }
+.vs-opt:active { scale: .97; }
+.home .lang:active { scale: .95; }
+.contact-card { transition: border-color .2s ease, transform .25s var(--ease-out), scale .16s var(--ease-out); }
+.contact-card:active { scale: .98; }
+.type { transition: translate .25s var(--ease-out), scale .16s var(--ease-out); }
+.type:active { scale: .985; }               /* большая карточка — нажатие едва заметно */
+.mini-cta:active { scale: .97; }
+
+/* =====================================================================
+   5. «Два пути»
+   ===================================================================== */
+/* бегунок — прямой ответ на нажатие: быстро, без «замаха» назад и без пружины */
+.vs-thumb { transition: transform .26s var(--ease-out), background-color .26s ease; }
+.vs-glow { transition: opacity .6s var(--ease-out), transform .8s var(--ease-out); }
+.vs-meter-bar i { transition: transform .6s var(--ease-out), background .3s ease; }
+/* подсказка «Нажмите»: три импульса и тишина, а не вечное мигание */
+.vs-opt.nudge::after { animation: vsNudge 1.5s var(--ease-out) 3 forwards; }
+.vs-opt.nudge::before { animation: bob 1.6s ease-in-out 3; }
+
+/* =====================================================================
+   6. Этапы ремонта: новое фото проявляется ПОВЕРХ старого, старое уходит,
+      когда новое уже непрозрачно (без провала в тёмный фон посередине)
+   ===================================================================== */
+.scope-media img { transition: opacity 0s linear .6s, transform 0s linear .6s; }
+.scope-media img.on { z-index: 1; transition: opacity .6s var(--ease-out), transform 1.2s var(--ease-out); }
+.scope-counter { z-index: 3; }
+.scope-media::after { z-index: 2; }
+@media (min-width: 900px) { .scope-media { height: calc(100vh - 140px); height: calc(100svh - 140px); } }
+
+/* =====================================================================
+   7. FAQ: значок реагирует сразу при закрытии, а не после анимации высоты
+   ===================================================================== */
+.home .faq summary::after { transition: transform .2s var(--ease-out), scale .14s var(--ease-out), background-color .2s ease, border-color .2s ease, color .2s ease; }
+.home .faq summary:active::after { scale: .9; }
+.home .faq details.is-closing summary::after { transform: translateY(-50%) rotate(0deg); background: transparent; color: var(--accent); border-color: var(--line); }
+
+/* =====================================================================
+   8. Карточки на ховере — короче и с правильной кривой (только мышь)
+   ===================================================================== */
+.type img { transition: transform .7s var(--ease-out); }
+.type .go i { transition: transform .25s var(--ease-out), background-color .25s ease; }
+.qgrid li { transition: transform .25s var(--ease-out), box-shadow .25s ease; }
+.ben { transition: translate .25s var(--ease-out), border-color .25s ease; }
+.gallery img { transition: transform .6s var(--ease-out); }
+
+/* =====================================================================
+   9. Квиз: шаг вперёд приходит справа, шаг назад — слева
+   ===================================================================== */
+.home .quiz .step.active { animation: slStepIn .26s var(--ease-out); }
+.home .quiz.is-back .step.active { animation-name: slStepBack; }
+@keyframes slStepIn { from { opacity: 0; transform: translate3d(12px, 0, 0); } }
+@keyframes slStepBack { from { opacity: 0; transform: translate3d(-12px, 0, 0); } }
+.option span { transition: border-color .12s ease, background-color .12s ease, scale .14s var(--ease-out); }
+.option:active span { scale: .98; }
+
+/* =====================================================================
+   10. Мини-CTA: выезд на ease-out; «пульс» на transform/opacity вместо box-shadow
+       (box-shadow перерисовывался каждый кадр, пока страница скроллится)
+   ===================================================================== */
+.mini-cta { bottom: calc(24px + env(safe-area-inset-bottom, 0px)); right: calc(24px + env(safe-area-inset-right, 0px));
+  transition: opacity .3s var(--ease-out), transform .3s var(--ease-out), visibility 0s linear .3s, background-color .2s ease, scale .16s var(--ease-out); }
+.mini-cta.show { transition: opacity .3s var(--ease-out), transform .3s var(--ease-out), visibility 0s, background-color .2s ease, scale .16s var(--ease-out); }
+.mini-cta::before { animation: none; }
+.mini-cta::after { content: ""; position: absolute; left: 22px; top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: rgba(19, 29, 36, .4); opacity: 0; pointer-events: none; }
+.mini-cta.show::after { animation: slRing 3.6s var(--ease-out) .4s infinite; }
+@keyframes slRing { 0% { transform: scale(1); opacity: .9; } 40%, 100% { transform: scale(2.6); opacity: 0; } }
+
+/* стрелки-«крючки» между блоками качаются три раза, когда блок появился, а не вечно */
+.rv-on .hook::after { animation: none; }
+.rv-on .hook.in::after { animation: bob 1.8s ease-in-out .7s 3; }
+
+/* бегущая пунктирная стрелка (background-position = перерисовка каждый кадр) — только пока карточку видно */
+.pc-io .pc-pass:not(.is-live) i { animation-play-state: paused; }
+
+/* =====================================================================
+   11. Курсор: кружок 64px, уменьшенный transform'ом (а не width/height/margin)
+   ===================================================================== */
+.cursor { width: 64px; height: 64px; margin: -32px 0 0 -32px; transition: none; opacity: 0; }
+.cursor.big { width: 64px; height: 64px; margin: -32px 0 0 -32px; }
+
+/* =====================================================================
+   12. Мобильные: горизонтальная лента, свайп-назад, клавиатура
+   ===================================================================== */
+@media (max-width: 899px) {
+  /* свайп по ленте карточек не должен листать историю браузера назад/вперёд */
+  .path-viewport { overscroll-behavior-x: contain; }
+}
+
+/* =====================================================================
+   13. Сенсорные экраны: hover «залипает» после тапа — отменяем hover-эффекты
+       из home.css (там они без @media (hover: hover)).
+   ===================================================================== */
+@media (hover: none), (pointer: coarse) {
+  .btn:hover .arrow { transform: none; }
+  .type:hover img, .gallery figure:hover img { transform: none; }
+  .home .type:hover .go i { transform: none; background: var(--accent); }
+  .qgrid li:hover { transform: none; box-shadow: none; }
+  .home .cost:hover { background: var(--bg); }
+  .contact-card:hover { transform: none; border-color: var(--line); }
+  .ben:hover { translate: none; border-color: var(--line); }
+  .ben-hot:hover { border-color: var(--accent); }
+  .vs-opt:not([aria-pressed="true"]):hover { color: var(--ink-2); }
+  .home .lang:hover { color: rgba(237, 234, 227, .8); border-color: rgba(255, 255, 255, .22); }
+  .type:hover { translate: none; }
+  .home .btn-primary:hover { background: var(--accent); }
+  .home .btn-wa:hover, .home .btn-ghost:hover { background: transparent; border-color: rgba(239, 230, 221, .4); color: #fff; }
+  .home .hero-x .btn-wa:hover { background: rgba(13, 19, 23, .35); }
+  .home .mobile-cta .btn-wa:hover { background: transparent; color: #fff; }
+  .home .quiz .btn-primary:hover { background: var(--sand-ink); }
+  .home .quiz .btn-wa:hover, .home .quiz .btn-ghost:hover { background: transparent; border-color: var(--sand-ink); color: var(--sand-ink); }
+  .light .btn-dark:hover { background: var(--sand-ink); }
+  .mini-cta:hover { background: var(--accent); }
+  .marquee:hover .marquee-track, .gallery:hover .gallery-track { animation-play-state: running; }
+}
+
+/* =====================================================================
+   14. Уменьшить движение: без перемещений, прозрачность оставляем
+   ===================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .home .quiz .step.active, .home .quiz.is-back .step.active { animation: slFade .2s ease; }
+  .ba-knob::after, .mini-cta::after, .vs-opt.nudge::before, .hook::after { animation: none !important; }
+  .vs-opt.nudge::after { animation: none !important; opacity: .8; }
+  .scope-media img, .scope-media img.on { transform: none; }
+}

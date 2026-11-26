@@ -1,0 +1,65 @@
+{
+ "_notes": "Reel 3: 5 тревожных признаков бригады. Без голоса — трендовую музыку добавить в Instagram. Хук и финал на одной кухне для зацикливания.",
+ "images": [
+  "/tmp/claude-0/-home-user-claude-skills/4414b258-a562-5417-bf9e-643dbb0730aa/scratchpad/reel2/reel2_7.jpg",
+  "/tmp/claude-0/-home-user-claude-skills/4414b258-a562-5417-bf9e-643dbb0730aa/scratchpad/reel2/reel2_1.jpg",
+  "/tmp/claude-0/-home-user-claude-skills/4414b258-a562-5417-bf9e-643dbb0730aa/scratchpad/reel2/reel2_3.jpg",
+  "/tmp/claude-0/-home-user-claude-skills/4414b258-a562-5417-bf9e-643dbb0730aa/scratchpad/reel2/reel2_2.jpg",
+  "/tmp/claude-0/-home-user-claude-skills/4414b258-a562-5417-bf9e-643dbb0730aa/scratchpad/reel2/reel2_4.jpg",
+  "/tmp/claude-0/-home-user-claude-skills/4414b258-a562-5417-bf9e-643dbb0730aa/scratchpad/reel2/reel2_6.jpg"
+ ],
+ "audio": "/tmp/claude-0/-home-user-claude-skills/4414b258-a562-5417-bf9e-643dbb0730aa/scratchpad/reel3/silence.mp3",
+ "segments": [
+  {
+   "image": 0,
+   "start": 0.0,
+   "motion": "zoom_in",
+   "transition_in": "cut"
+  },
+  {
+   "image": 1,
+   "start": 2.6,
+   "motion": "zoom_in",
+   "transition_in": "flash"
+  },
+  {
+   "image": 2,
+   "start": 5.1,
+   "motion": "pan_right",
+   "transition_in": "wipe_left"
+  },
+  {
+   "image": 3,
+   "start": 7.6,
+   "motion": "zoom_out",
+   "transition_in": "wipe_left"
+  },
+  {
+   "image": 4,
+   "start": 10.1,
+   "motion": "pan_left",
+   "transition_in": "wipe_left"
+  },
+  {
+   "image": 5,
+   "start": 12.6,
+   "motion": "zoom_in",
+   "transition_in": "wipe_left"
+  },
+  {
+   "image": 0,
+   "start": 15.2,
+   "motion": "zoom_out",
+   "transition_in": "flash"
+  }
+ ],
+ "music": null,
+ "whoosh": true,
+ "plan": "plan_reel3.json",
+ "label": false,
+ "lang": "ru",
+ "end_card": {
+  "text": "НАПИШИТЕ «РЕМОНТ» В DIRECT",
+  "seconds": 3.6
+ }
+}

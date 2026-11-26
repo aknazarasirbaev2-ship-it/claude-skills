@@ -1,0 +1,22 @@
+{
+  "_notes": "Reel 2: Кухня с нуля. start = секунда, когда диктор начинает фразу (по silencedetect vo.mp3). Без надписи «Визуализация» в кадре — метку ИИ ставить в Instagram при публикации.",
+  "images": ["/tmp/claude-0/-home-user-claude-skills/4414b258-a562-5417-bf9e-643dbb0730aa/scratchpad/reel2/reel2_1.jpg","/tmp/claude-0/-home-user-claude-skills/4414b258-a562-5417-bf9e-643dbb0730aa/scratchpad/reel2/reel2_2.jpg","/tmp/claude-0/-home-user-claude-skills/4414b258-a562-5417-bf9e-643dbb0730aa/scratchpad/reel2/reel2_3.jpg","/tmp/claude-0/-home-user-claude-skills/4414b258-a562-5417-bf9e-643dbb0730aa/scratchpad/reel2/reel2_4.jpg","/tmp/claude-0/-home-user-claude-skills/4414b258-a562-5417-bf9e-643dbb0730aa/scratchpad/reel2/reel2_5.jpg","/tmp/claude-0/-home-user-claude-skills/4414b258-a562-5417-bf9e-643dbb0730aa/scratchpad/reel2/reel2_6.jpg","/tmp/claude-0/-home-user-claude-skills/4414b258-a562-5417-bf9e-643dbb0730aa/scratchpad/reel2/reel2_7.jpg"],
+  "audio": "/tmp/claude-0/-home-user-claude-skills/4414b258-a562-5417-bf9e-643dbb0730aa/scratchpad/reel2/vo.mp3",
+  "segments": [
+    {"image": 6, "start": 0.0,  "motion": "zoom_out",  "transition_in": "cut",       "_line": "Кухня в новостройке (хук: готовый результат)"},
+    {"image": 0, "start": 1.45, "motion": "zoom_in",   "transition_in": "flash",     "_line": "От бетона до готовой"},
+    {"image": 1, "start": 6.0,  "motion": "pan_right", "transition_in": "wipe_left", "_line": "1 проект"},
+    {"image": 2, "start": 13.1, "motion": "zoom_in",   "transition_in": "wipe_left", "_line": "2 электрика и вода"},
+    {"image": 3, "start": 19.0, "motion": "pan_left",  "transition_in": "wipe_left", "_line": "3 ровные стены"},
+    {"image": 4, "start": 23.4, "motion": "zoom_in",   "transition_in": "wipe_left", "_line": "4 пол"},
+    {"image": 4, "start": 29.0, "motion": "zoom_out",  "transition_in": "crossfade", "_line": "5 замер"},
+    {"image": 5, "start": 34.1, "motion": "pan_right", "transition_in": "wipe_left", "_line": "6 сборка"},
+    {"image": 6, "start": 37.2, "motion": "zoom_in",   "transition_in": "flash",     "_line": "сохраните + CTA"}
+  ],
+  "music": null,
+  "whoosh": true,
+  "plan": "plan_reel2.json",
+  "label": false,
+  "lang": "ru",
+  "end_card": {"text": "НАПИШИТЕ «КУХНЯ» В DIRECT", "seconds": 6.0}
+}

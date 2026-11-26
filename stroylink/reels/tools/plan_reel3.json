@@ -1,0 +1,57 @@
+{
+ "overlays": [
+  {
+   "start": 0.1,
+   "end": 2.4,
+   "text": "5 ПРИЗНАКОВ, ЧТО БРИГАДА ПОДВЕДЁТ",
+   "position": "center",
+   "style": "hook"
+  },
+  {
+   "start": 2.85,
+   "end": 4.9,
+   "text": "1. ПРОСЯТ ВСЮ ОПЛАТУ ВПЕРЁД",
+   "position": "center",
+   "style": "step"
+  },
+  {
+   "start": 5.35,
+   "end": 7.4,
+   "text": "2. НЕТ ПОДРОБНОЙ СМЕТЫ",
+   "position": "center",
+   "style": "step"
+  },
+  {
+   "start": 7.85,
+   "end": 9.9,
+   "text": "3. ЦЕНА СИЛЬНО НИЖЕ РЫНКА",
+   "position": "center",
+   "style": "step"
+  },
+  {
+   "start": 10.35,
+   "end": 12.4,
+   "text": "4. НЕ ПОКАЗЫВАЮТ ОБЪЕКТЫ",
+   "position": "center",
+   "style": "step"
+  },
+  {
+   "start": 12.85,
+   "end": 14.95,
+   "text": "5. СРОКИ ТОЛЬКО НА СЛОВАХ",
+   "position": "center",
+   "style": "step"
+  },
+  {
+   "start": 15.4,
+   "end": 17.3,
+   "text": "2 ИЗ 5? ПОДБЕРЁМ ДРУГУЮ БЕСПЛАТНО",
+   "position": "center",
+   "style": "accent"
+  }
+ ],
+ "end_card": {
+  "text": "НАПИШИТЕ «РЕМОНТ» В DIRECT",
+  "seconds": 3.6
+ }
+}

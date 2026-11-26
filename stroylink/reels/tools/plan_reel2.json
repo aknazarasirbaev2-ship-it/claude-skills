@@ -1,0 +1,14 @@
+{
+  "overlays": [
+    {"start": 0.1,  "end": 1.4,  "text": "КУХНЯ В НОВОСТРОЙКЕ", "position": "center", "style": "hook"},
+    {"start": 1.75, "end": 5.7,  "text": "ОТ БЕТОНА ДО ГОТОВОЙ: ПО ПОРЯДКУ", "position": "center", "style": "hook"},
+    {"start": 6.3,  "end": 12.8, "text": "1. ПРОЕКТ", "position": "bottom", "style": "step"},
+    {"start": 13.4, "end": 18.7, "text": "2. ЭЛЕКТРИКА И ВОДА", "position": "bottom", "style": "step"},
+    {"start": 19.3, "end": 23.1, "text": "3. РОВНЫЕ СТЕНЫ", "position": "bottom", "style": "step"},
+    {"start": 23.7, "end": 28.6, "text": "4. ПОЛ ДО КУХНИ, ФАРТУК ПОСЛЕ", "position": "bottom", "style": "step"},
+    {"start": 29.3, "end": 33.8, "text": "5. ЗАМЕР ПОСЛЕ ОТДЕЛКИ", "position": "bottom", "style": "step"},
+    {"start": 34.4, "end": 36.9, "text": "6. СБОРКА И ТЕХНИКА", "position": "bottom", "style": "step"},
+    {"start": 37.5, "end": 39.5, "text": "СОХРАНИТЕ, ЧТОБЫ НЕ ЗАБЫТЬ", "position": "center", "style": "accent"}
+  ],
+  "end_card": {"text": "НАПИШИТЕ «КУХНЯ» В DIRECT", "seconds": 6.0}
+}
